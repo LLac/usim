@@ -1,0 +1,18 @@
+// Microsoft Developer Studio generated Help ID include file.
+// Used by USIM.rc
+//
+#define HIDC_CALIBRATE_MAX              0x808a0411    // IDD_CALSPI [English (U.S.)]
+#define HIDC_CALIBRATE_MIN              0x808a040b    // IDD_CALSPI [English (U.S.)]
+#define HIDC_CALIBRATE_OFFSET           0x808a040c    // IDD_CALSPI [English (U.S.)]
+#define HIDC_ENABLE_DED                 0x87e303f9    // IDD_GLCD [English (U.S.)]
+#define HIDC_ENABLE_RWR                 0x87e103f3    // IDD_RWR [English (U.S.)]
+#define HIDC_GRID                       0x87df03e8    // IDD_7SEG [English (U.S.)]
+#define HIDC_INVERT                     0x87df0419    // IDD_7SEG [English (U.S.)]
+#define HIDC_LAMPTEST                   0x87df0414    // IDD_7SEG [English (U.S.)]
+#define HIDC_LB1_COMBO                  0x884f0415    // IDD_COND_INPUT [English (U.S.)]
+#define HIDC_OP_COMBO                   0x80890422    // IDD_REPLACE [English (U.S.)]
+#define HIDC_POWERFLAG                  0x8850041d    // IDD_OUTPUT_FLAGS [English (U.S.)]
+#define HIDC_P_GRID                     0x884d040f    // IDD_SEND_KEYS [English (U.S.)]
+#define HIDC_R_GRID                     0x884d03e9    // IDD_SEND_KEYS [English (U.S.)]
+#define HIDC_UV_COMBO                   0x884f0407    // IDD_COND_INPUT [English (U.S.)]
+#define HIDC_VAR_COMBO                  0x884f0410    // IDD_COND_INPUT [English (U.S.)]

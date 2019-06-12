@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "USIMx64", "USIMx64\USIMx64.vcxproj", "{830EEEA7-D25A-421A-B041-60E4F5E99ECD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{830EEEA7-D25A-421A-B041-60E4F5E99ECD}.Debug|x64.ActiveCfg = Debug|x64
+		{830EEEA7-D25A-421A-B041-60E4F5E99ECD}.Debug|x64.Build.0 = Debug|x64
+		{830EEEA7-D25A-421A-B041-60E4F5E99ECD}.Release|x64.ActiveCfg = Release|x64
+		{830EEEA7-D25A-421A-B041-60E4F5E99ECD}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F118FE51-201F-4FD7-AA27-BADE81763CEC}
+	EndGlobalSection
+EndGlobal

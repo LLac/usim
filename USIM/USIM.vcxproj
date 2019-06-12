@@ -1,0 +1,909 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7CAD8A98-C6E0-4A7C-8CC5-15F0B74F2664}</ProjectGuid>
+    <RootNamespace>USIM</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <UseOfAtl>false</UseOfAtl>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <UseOfAtl>false</UseOfAtl>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>15.0.27130.2010</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\Debug\</OutDir>
+    <IntDir>.\Debug\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\Release\</OutDir>
+    <IntDir>.\Release\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Debug/USIM.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>ResizableLib;XPPlugin\SDK\CHeaders\XPLM;libtree;hid_dll;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;LIB_IMPORTS;_AFX_ENABLE_INLINES;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\Debug\USIM.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Debug/</AssemblerListingLocation>
+      <ObjectFileName>.\Debug/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug/</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CallingConvention>Cdecl</CallingConvention>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x1009</Culture>
+      <AdditionalIncludeDirectories>COptionTree\CommonRes.rc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>version.lib;wininet.lib;winmm.lib;shlwapi.lib;setupapi.lib;hid.lib;biusbd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.\Debug/USIM.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>hid_dll;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>LIBCMTD.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\Debug/USIM.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <StackReserveSize>0</StackReserveSize>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Debug/USIM.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>X64</TargetEnvironment>
+      <TypeLibraryName>.\Debug/USIM.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>ResizableLib;XPPlugin\SDK\CHeaders\XPLM;libtree;hid_dll;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;LIB_IMPORTS;_AFX_ENABLE_INLINES;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\Debug\USIM.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Debug/</AssemblerListingLocation>
+      <ObjectFileName>.\Debug/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug/</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CallingConvention>Cdecl</CallingConvention>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x1009</Culture>
+      <AdditionalIncludeDirectories>COptionTree\CommonRes.rc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>version.lib;wininet.lib;winmm.lib;shlwapi.lib;setupapi.lib;hid.lib;biusbd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.\Debug/USIM.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>hid_dll;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>LIBCMTD.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\Debug/USIM.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <StackReserveSize>0</StackReserveSize>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Debug/USIM.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Release/USIM.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>ResizableLib;XPPlugin\SDK\CHeaders\XPLM;libtree;hid_dll;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;LIB_IMPORTS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\Release\USIM.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Release/</AssemblerListingLocation>
+      <ObjectFileName>.\Release/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release/</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat />
+      <CallingConvention>Cdecl</CallingConvention>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x1009</Culture>
+      <AdditionalIncludeDirectories>COptionTree\CommonRes.rc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>version.lib;wininet.lib;winmm.lib;shlwapi.lib;setupapi.lib;hid.lib;biusb.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.\Release/USIM.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>hid_dll;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>LIBCMT.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\Release/USIM.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release/USIM.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>X64</TargetEnvironment>
+      <TypeLibraryName>.\Release/USIM.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>ResizableLib;XPPlugin\SDK\CHeaders\XPLM;libtree;hid_dll;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;LIB_IMPORTS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\Release\USIM.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Release/</AssemblerListingLocation>
+      <ObjectFileName>.\Release/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release/</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat />
+      <CallingConvention>Cdecl</CallingConvention>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x1009</Culture>
+      <AdditionalIncludeDirectories>COptionTree\CommonRes.rc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>version.lib;wininet.lib;winmm.lib;shlwapi.lib;setupapi.lib;hid.lib;biusb.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.\Release/USIM.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>hid_dll;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>LIBCMT.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\Release/USIM.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release/USIM.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="amsEdit\amsEdit.cpp" />
+    <ClCompile Include="ButtonSSL\ButtonSSL.cpp" />
+    <ClCompile Include="ButtonSSL\OddButton.cpp" />
+    <ClCompile Include="CalSPI.cpp" />
+    <ClCompile Include="CalSTEP.cpp" />
+    <ClCompile Include="CEAdvButton\CEAdvButton.cpp" />
+    <ClCompile Include="CLCDFlagsTab.cpp" />
+    <ClCompile Include="CLCDLinesTab.cpp" />
+    <ClCompile Include="CLCDLinesTabCtrl.cpp" />
+    <ClCompile Include="CLCDNotesTab.cpp" />
+    <ClCompile Include="CLCDPage.cpp" />
+    <ClCompile Include="CLCDTab.cpp" />
+    <ClCompile Include="CLCDTabCtrl.cpp" />
+    <ClCompile Include="ColorTreeCtrl\TreeCtrlEx.cpp" />
+    <ClCompile Include="DefaultTab.cpp" />
+    <ClCompile Include="DefTabCtrl.cpp" />
+    <ClCompile Include="DispFlagsTab.cpp" />
+    <ClCompile Include="DisplayPage.cpp" />
+    <ClCompile Include="DispNotesTab.cpp" />
+    <ClCompile Include="DispTab.cpp" />
+    <ClCompile Include="DispTabCtrl.cpp" />
+    <ClCompile Include="DotMXFlagsTab.cpp" />
+    <ClCompile Include="DotMXNotesTab.cpp" />
+    <ClCompile Include="DotMXPage.cpp" />
+    <ClCompile Include="DotMXTab.cpp" />
+    <ClCompile Include="DotMXTabCtrl.cpp" />
+    <ClCompile Include="F4DataOut.cpp" />
+    <ClCompile Include="F4SharedMem.cpp" />
+    <ClCompile Include="FileEdit.cpp" />
+    <ClCompile Include="FileOperations\FileOperations.cpp" />
+    <ClCompile Include="FlagsPage.cpp" />
+    <ClCompile Include="FlagsTab.cpp" />
+    <ClCompile Include="GLCDFlagsTab.cpp" />
+    <ClCompile Include="GLCDLinesTab.cpp" />
+    <ClCompile Include="GLCDLinesTabCtrl.cpp" />
+    <ClCompile Include="GLCDNotesTab.cpp" />
+    <ClCompile Include="GLCDTab.cpp" />
+    <ClCompile Include="GLCDTabCtrl.cpp" />
+    <ClCompile Include="GPXSharedMem.cpp" />
+    <ClCompile Include="GridCtrl_src\GridCell.cpp" />
+    <ClCompile Include="GridCtrl_src\GridCellBase.cpp" />
+    <ClCompile Include="GridCtrl_src\GridCtrl.cpp" />
+    <ClCompile Include="GridCtrl_src\GridDropTarget.cpp" />
+    <ClCompile Include="GridCtrl_src\InPlaceEdit.cpp" />
+    <ClCompile Include="GridCtrl_src\TitleTip.cpp" />
+    <ClCompile Include="HexEdit\HexEdit.cpp" />
+    <ClCompile Include="IL2_UDPThread.cpp" />
+    <ClCompile Include="InputFlagTab.cpp" />
+    <ClCompile Include="InputsTabCtrl.cpp" />
+    <ClCompile Include="InputThread.cpp" />
+    <ClCompile Include="KeyboardHook.cpp" />
+    <ClCompile Include="KeyCheckThread.cpp" />
+    <ClCompile Include="LatchedFlagsTab.cpp" />
+    <ClCompile Include="LatchedNotesTab.cpp" />
+    <ClCompile Include="LatchedTab.cpp" />
+    <ClCompile Include="LatchedTabCtrl.cpp" />
+    <ClCompile Include="LFS_UDPThread.cpp" />
+    <ClCompile Include="libtree\editmask.cpp" />
+    <ClCompile Include="libtree\OptionTree.cpp" />
+    <ClCompile Include="libtree\OptionTreeCheckButton.cpp" />
+    <ClCompile Include="libtree\OptionTreeColorPopUp.cpp" />
+    <ClCompile Include="libtree\OptionTreeFileDlg.cpp" />
+    <ClCompile Include="libtree\OptionTreeFontSel.cpp" />
+    <ClCompile Include="libtree\OptionTreeFontSelColorButton.cpp" />
+    <ClCompile Include="libtree\OptionTreeFontSelFontCombo.cpp" />
+    <ClCompile Include="libtree\OptionTreeFontSelGlobals.cpp" />
+    <ClCompile Include="libtree\OptionTreeFontSelSizeCombo.cpp" />
+    <ClCompile Include="libtree\OptionTreeImagePopUp.cpp" />
+    <ClCompile Include="libtree\OptionTreeInfo.cpp" />
+    <ClCompile Include="libtree\OptionTreeIPAddressEdit.cpp" />
+    <ClCompile Include="libtree\OptionTreeItem.cpp" />
+    <ClCompile Include="libtree\OptionTreeItemCheckBox.cpp" />
+    <ClCompile Include="libtree\OptionTreeItemColor.cpp" />
+    <ClCompile Include="libtree\OptionTreeItemComboBox.cpp" />
+    <ClCompile Include="libtree\OptionTreeItemDate.cpp" />
+    <ClCompile Include="libtree\OptionTreeItemFile.cpp" />
+    <ClCompile Include="libtree\OptionTreeItemFont.cpp" />
+    <ClCompile Include="libtree\OptionTreeItemHyperLink.cpp" />
+    <ClCompile Include="libtree\OptionTreeItemImage.cpp" />
+    <ClCompile Include="libtree\OptionTreeItemIPAddress.cpp" />
+    <ClCompile Include="libtree\OptionTreeItemRadio.cpp" />
+    <ClCompile Include="libtree\OptionTreeItemSpinner.cpp" />
+    <ClCompile Include="libtree\OptionTreeItemStatic.cpp" />
+    <ClCompile Include="libtree\OptionTreeList.cpp" />
+    <ClCompile Include="libtree\OptionTreeRadioButton.cpp" />
+    <ClCompile Include="libtree\OptionTreeSpinnerButton.cpp" />
+    <ClCompile Include="libtree\OptionTreeSpinnerEdit.cpp" />
+    <ClCompile Include="libtree\PreciseTimer.cpp" />
+    <ClCompile Include="libtree\regexp.cpp" />
+    <ClCompile Include="MuxFlagsTab.cpp" />
+    <ClCompile Include="MuxNotesTab.cpp" />
+    <ClCompile Include="MuxTab.cpp" />
+    <ClCompile Include="MuxTabCtrl.cpp" />
+    <ClCompile Include="MyStatusBar.cpp" />
+    <ClCompile Include="NewCellTypes\GridCellCheck.cpp" />
+    <ClCompile Include="NewCellTypes\GridCellCombo.cpp" />
+    <ClCompile Include="NewCellTypes\GridCellDateTime.cpp" />
+    <ClCompile Include="NewCellTypes\GridCellNumeric.cpp" />
+    <ClCompile Include="NewCellTypes\GridCellRadio.cpp" />
+    <ClCompile Include="NewCellTypes\GridURLCell.cpp" />
+    <ClCompile Include="NewMenu\NewMenu.cpp" />
+    <ClCompile Include="NotesPage.cpp" />
+    <ClCompile Include="NotesTab.cpp" />
+    <ClCompile Include="NumSpinCtrl\NumSpinCtrl.cpp" />
+    <ClCompile Include="OutputFlagsTab.cpp" />
+    <ClCompile Include="OutputNotesTab.cpp" />
+    <ClCompile Include="OutputPage.cpp" />
+    <ClCompile Include="OutputTab.cpp" />
+    <ClCompile Include="OutputTabCtrl.cpp" />
+    <ClCompile Include="OutputThread.cpp" />
+    <ClCompile Include="PathSplit\CPathSplit.cpp" />
+    <ClCompile Include="ReadOnlyEdit\ReadOnlyEdit.cpp" />
+    <ClCompile Include="ReplaceDevice.cpp" />
+    <ClCompile Include="ResizableLib\ResizableDialog.cpp" />
+    <ClCompile Include="ResizableLib\ResizableGrip.cpp" />
+    <ClCompile Include="ResizableLib\ResizableLayout.cpp" />
+    <ClCompile Include="ResizableLib\ResizableMinMax.cpp" />
+    <ClCompile Include="ResizableLib\ResizableState.cpp" />
+    <ClCompile Include="RFSharedMem.cpp" />
+    <ClCompile Include="RWRFlagsTab.cpp" />
+    <ClCompile Include="RWRNotesTab.cpp" />
+    <ClCompile Include="RwrPage.cpp" />
+    <ClCompile Include="RWRTab.cpp" />
+    <ClCompile Include="RWRTabCtrl.cpp" />
+    <ClCompile Include="SaveDevice.cpp" />
+    <ClCompile Include="SaveUserVars.cpp" />
+    <ClCompile Include="SendKeysPage.cpp" />
+    <ClCompile Include="SendKeysTab.cpp" />
+    <ClCompile Include="SendKeysThread.cpp" />
+    <ClCompile Include="SimBinSharedMem.cpp" />
+    <ClCompile Include="SimConnectThread.cpp" />
+    <ClCompile Include="SimPathTab.cpp" />
+    <ClCompile Include="SimplexParser\FormelParser.cpp" />
+    <ClCompile Include="SimplexParser\PhysConst.cpp" />
+    <ClCompile Include="SmartEdit\Sliders.cpp" />
+    <ClCompile Include="SmartEdit\SmartEdit.cpp" />
+    <ClCompile Include="SPIFlagsTab.cpp" />
+    <ClCompile Include="SPINotesTab.cpp" />
+    <ClCompile Include="SPIPage.cpp" />
+    <ClCompile Include="SPITab.cpp" />
+    <ClCompile Include="SPITabCtrl.cpp" />
+    <ClCompile Include="StdAfx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="STEPFlagsTab.cpp" />
+    <ClCompile Include="STEPNotesTab.cpp" />
+    <ClCompile Include="STEPPage.cpp" />
+    <ClCompile Include="STEPTab.cpp" />
+    <ClCompile Include="STEPTabCtrl.cpp" />
+    <ClCompile Include="ThreadClass\Thread.cpp" />
+    <ClCompile Include="TrayDialog\TrayDialog.cpp" />
+    <ClCompile Include="TreeDevices.cpp" />
+    <ClCompile Include="TreeThread.cpp" />
+    <ClCompile Include="UpdateCheck\UpdateCheck.cpp" />
+    <ClCompile Include="USIM.cpp" />
+    <ClCompile Include="USIMDlg.cpp" />
+    <ClCompile Include="VariablesPage.cpp" />
+    <ClCompile Include="VariablesTab.cpp" />
+    <ClCompile Include="VarListDlg.cpp" />
+    <ClCompile Include="Version\Version.cpp" />
+    <ClCompile Include="w32process\w32process.cpp" />
+    <ClCompile Include="XPSharedMem.cpp" />
+    <ClCompile Include="XTabCtrl\XTabCtrl.cpp" />
+    <ClCompile Include="xySplitterWnd\xySplitterWnd.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AFflightData.h" />
+    <ClInclude Include="amsEdit\amsEdit.h" />
+    <ClInclude Include="BMSflightData.h" />
+    <ClInclude Include="ButtonSSL\ButtonSSL.h" />
+    <ClInclude Include="ButtonSSL\OddButton.h" />
+    <ClInclude Include="CalSPI.h" />
+    <ClInclude Include="CalSTEP.h" />
+    <ClInclude Include="CEAdvButton\CEAdvButton.h" />
+    <ClInclude Include="CLCDFlagsTab.h" />
+    <ClInclude Include="CLCDLinesTab.h" />
+    <ClInclude Include="CLCDLinesTabCtrl.h" />
+    <ClInclude Include="CLCDNotesTab.h" />
+    <ClInclude Include="CLCDPage.h" />
+    <ClInclude Include="CLCDTab.h" />
+    <ClInclude Include="CLCDTabCtrl.h" />
+    <ClInclude Include="ColorTreeCtrl\TreeCtrlEx.h" />
+    <ClInclude Include="COptionTree\CommonRes.h" />
+    <ClInclude Include="DefaultTab.h" />
+    <ClInclude Include="DefTabCtrl.h" />
+    <ClInclude Include="DispFlagsTab.h" />
+    <ClInclude Include="DisplayPage.h" />
+    <ClInclude Include="DispNotesTab.h" />
+    <ClInclude Include="DispTab.h" />
+    <ClInclude Include="DispTabCtrl.h" />
+    <ClInclude Include="DotMXFlagsTab.h" />
+    <ClInclude Include="DotMXNotesTab.h" />
+    <ClInclude Include="DotMXPage.h" />
+    <ClInclude Include="DotMXTab.h" />
+    <ClInclude Include="DotMXTabCtrl.h" />
+    <ClInclude Include="F4DataOut.h" />
+    <ClInclude Include="F4FlightData.h" />
+    <ClInclude Include="F4SharedMem.h" />
+    <ClInclude Include="F4VarList.h" />
+    <ClInclude Include="FileEdit.h" />
+    <ClInclude Include="FileOperations\FileOperations.h" />
+    <ClInclude Include="FlagsPage.h" />
+    <ClInclude Include="FlagsTab.h" />
+    <ClInclude Include="Format.h" />
+    <ClInclude Include="GLCDFlagsTab.h" />
+    <ClInclude Include="GLCDLinesTab.h" />
+    <ClInclude Include="GLCDLinesTabCtrl.h" />
+    <ClInclude Include="GLCDNotesTab.h" />
+    <ClInclude Include="GLCDTab.h" />
+    <ClInclude Include="GLCDTabCtrl.h" />
+    <ClInclude Include="GPXdatarefs.h" />
+    <ClInclude Include="GPXSharedMem.h" />
+    <ClInclude Include="GPXSimData.h" />
+    <ClInclude Include="GridCtrl_src\CellRange.h" />
+    <ClInclude Include="GridCtrl_src\GridCell.h" />
+    <ClInclude Include="GridCtrl_src\GridCellBase.h" />
+    <ClInclude Include="GridCtrl_src\GridCtrl.h" />
+    <ClInclude Include="GridCtrl_src\GridDropTarget.h" />
+    <ClInclude Include="GridCtrl_src\InPlaceEdit.h" />
+    <ClInclude Include="GridCtrl_src\MemDC.h" />
+    <ClInclude Include="GridCtrl_src\TitleTip.h" />
+    <ClInclude Include="HexEdit\HexEdit.h" />
+    <ClInclude Include="hid_dll\BIAPI.H" />
+    <ClInclude Include="hid_dll\bicfg.h" />
+    <CustomBuild Include="hid_dll\biusb.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="hid_dll\biusb_dev.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <ClInclude Include="hid_dll\intel_hex.h" />
+    <ClInclude Include="IL2datarefs.h" />
+    <ClInclude Include="IL2FlightData.h" />
+    <ClInclude Include="IL2_UDPThread.h" />
+    <ClInclude Include="InputFlagTab.h" />
+    <ClInclude Include="InputsTabCtrl.h" />
+    <ClInclude Include="InputThread.h" />
+    <ClInclude Include="KeyboardHook.h" />
+    <ClInclude Include="KeyCheckThread.h" />
+    <ClInclude Include="LatchedFlagsTab.h" />
+    <ClInclude Include="LatchedNotesTab.h" />
+    <ClInclude Include="LatchedTab.h" />
+    <ClInclude Include="LatchedTabCtrl.h" />
+    <ClInclude Include="LFSdatarefs.h" />
+    <ClInclude Include="LFSSimData.h" />
+    <ClInclude Include="LFS_UDPThread.h" />
+    <ClInclude Include="libtree\editmask.h" />
+    <ClInclude Include="libtree\OptionTree.h" />
+    <ClInclude Include="libtree\OptionTreeCheckButton.h" />
+    <ClInclude Include="libtree\OptionTreeColorPopUp.h" />
+    <ClInclude Include="libtree\OptionTreeDef.h" />
+    <ClInclude Include="libtree\OptionTreeFileDlg.h" />
+    <ClInclude Include="libtree\OptionTreeFontSel.h" />
+    <ClInclude Include="libtree\OptionTreeFontSelColorButton.h" />
+    <ClInclude Include="libtree\OptionTreeFontSelFontCombo.h" />
+    <ClInclude Include="libtree\OptionTreeFontSelGlobals.h" />
+    <ClInclude Include="libtree\OptionTreeFontSelSizeCombo.h" />
+    <ClInclude Include="libtree\OptionTreeImagePopUp.h" />
+    <ClInclude Include="libtree\OptionTreeInfo.h" />
+    <ClInclude Include="libtree\OptionTreeIPAddressEdit.h" />
+    <ClInclude Include="libtree\OptionTreeItem.h" />
+    <ClInclude Include="libtree\OptionTreeItemCheckBox.h" />
+    <ClInclude Include="libtree\OptionTreeItemColor.h" />
+    <ClInclude Include="libtree\OptionTreeItemComboBox.h" />
+    <ClInclude Include="libtree\OptionTreeItemDate.h" />
+    <ClInclude Include="libtree\OptionTreeItemFile.h" />
+    <ClInclude Include="libtree\OptionTreeItemFont.h" />
+    <ClInclude Include="libtree\OptionTreeItemHyperLink.h" />
+    <ClInclude Include="libtree\OptionTreeItemImage.h" />
+    <ClInclude Include="libtree\OptionTreeItemIPAddress.h" />
+    <ClInclude Include="libtree\OptionTreeItemRadio.h" />
+    <ClInclude Include="libtree\OptionTreeItemSpinner.h" />
+    <ClInclude Include="libtree\OptionTreeItemStatic.h" />
+    <ClInclude Include="libtree\OptionTreeList.h" />
+    <ClInclude Include="libtree\OptionTreeRadioButton.h" />
+    <ClInclude Include="libtree\OptionTreeSpinnerButton.h" />
+    <ClInclude Include="libtree\OptionTreeSpinnerEdit.h" />
+    <ClInclude Include="libtree\PreciseTimer.h" />
+    <ClInclude Include="libtree\regexp.h" />
+    <ClInclude Include="MuxFlagsTab.h" />
+    <ClInclude Include="MuxNotesTab.h" />
+    <ClInclude Include="MuxTab.h" />
+    <ClInclude Include="MuxTabCtrl.h" />
+    <ClInclude Include="MyStatusBar.h" />
+    <ClInclude Include="NewCellTypes\GridCellCheck.h" />
+    <ClInclude Include="NewCellTypes\GridCellCombo.h" />
+    <ClInclude Include="NewCellTypes\GridCellDateTime.h" />
+    <ClInclude Include="NewCellTypes\GridCellNumeric.h" />
+    <ClInclude Include="NewCellTypes\GridCellRadio.h" />
+    <ClInclude Include="NewCellTypes\GridURLCell.h" />
+    <ClInclude Include="NewMenu\NewMenu.h" />
+    <ClInclude Include="NotesPage.h" />
+    <ClInclude Include="NotesTab.h" />
+    <ClInclude Include="NumSpinCtrl\NumSpinCtrl.h" />
+    <ClInclude Include="OutputFlagsTab.h" />
+    <ClInclude Include="OutputNotesTab.h" />
+    <ClInclude Include="OutputPage.h" />
+    <ClInclude Include="OutputTab.h" />
+    <ClInclude Include="OutputTabCtrl.h" />
+    <ClInclude Include="OutputThread.h" />
+    <ClInclude Include="PathSplit\CPathSplit.h" />
+    <ClInclude Include="ReadOnlyEdit\ReadOnlyEdit.h" />
+    <ClInclude Include="ReplaceDevice.h" />
+    <ClInclude Include="ResizableLib\ResizableDialog.h" />
+    <ClInclude Include="ResizableLib\ResizableGrip.h" />
+    <ClInclude Include="ResizableLib\ResizableLayout.h" />
+    <ClInclude Include="ResizableLib\ResizableMinMax.h" />
+    <ClInclude Include="ResizableLib\ResizableState.h" />
+    <CustomBuild Include="Resource.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Making help include file...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">echo. &gt;"hlp\$(TargetName).hm"
+echo // Commands (ID_* and IDM_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm ID_,HID_,0x10000 IDM_,HIDM_,0x10000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Prompts (IDP_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDP_,HIDP_,0x30000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Resources (IDR_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDR_,HIDR_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Dialogs (IDD_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDD_,HIDD_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Frame Controls (IDW_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDW_,HIDW_,0x50000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">hlp\$(TargetName).hm;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Making help include file...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">echo. &gt;"hlp\$(TargetName).hm"
+echo // Commands (ID_* and IDM_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm ID_,HID_,0x10000 IDM_,HIDM_,0x10000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Prompts (IDP_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDP_,HIDP_,0x30000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Resources (IDR_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDR_,HIDR_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Dialogs (IDD_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDD_,HIDD_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Frame Controls (IDW_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDW_,HIDW_,0x50000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">hlp\$(TargetName).hm;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Making help include file...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">echo. &gt;"hlp\$(TargetName).hm"
+echo // Commands (ID_* and IDM_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm ID_,HID_,0x10000 IDM_,HIDM_,0x10000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Prompts (IDP_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDP_,HIDP_,0x30000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Resources (IDR_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDR_,HIDR_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Dialogs (IDD_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDD_,HIDD_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Frame Controls (IDW_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDW_,HIDW_,0x50000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">hlp\$(TargetName).hm;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Making help include file...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">echo. &gt;"hlp\$(TargetName).hm"
+echo // Commands (ID_* and IDM_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm ID_,HID_,0x10000 IDM_,HIDM_,0x10000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Prompts (IDP_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDP_,HIDP_,0x30000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Resources (IDR_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDR_,HIDR_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Dialogs (IDD_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDD_,HIDD_,0x20000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+echo. &gt;&gt;"hlp\$(TargetName).hm"
+echo // Frame Controls (IDW_*) &gt;&gt;"hlp\$(TargetName).hm"
+makehm IDW_,HIDW_,0x50000 resource.h &gt;&gt;"hlp\$(TargetName).hm"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">hlp\$(TargetName).hm;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="RFdatarefs.h" />
+    <ClInclude Include="RFSharedMem.h" />
+    <ClInclude Include="RFSimData.h" />
+    <ClInclude Include="RWRFlagsTab.h" />
+    <ClInclude Include="RWRNotesTab.h" />
+    <ClInclude Include="RwrPage.h" />
+    <ClInclude Include="RWRTab.h" />
+    <ClInclude Include="RWRTabCtrl.h" />
+    <ClInclude Include="SaveDevice.h" />
+    <ClInclude Include="SaveUserVars.h" />
+    <ClInclude Include="SendKeysPage.h" />
+    <ClInclude Include="SendKeysTab.h" />
+    <ClInclude Include="SendKeysThread.h" />
+    <ClInclude Include="SimBindatarefs.h" />
+    <ClInclude Include="SimBinSharedMem.h" />
+    <ClInclude Include="SimBinSimData.h" />
+    <ClInclude Include="SimConnectThread.h" />
+    <ClInclude Include="SimPathTab.h" />
+    <ClInclude Include="SimplexParser\FormelParser.h" />
+    <ClInclude Include="SimplexParser\PhysConst.h" />
+    <ClInclude Include="SmartEdit\Sliders.h" />
+    <ClInclude Include="SmartEdit\SmartEdit.h" />
+    <ClInclude Include="SPIFlagsTab.h" />
+    <ClInclude Include="SPINotesTab.h" />
+    <ClInclude Include="SPIPage.h" />
+    <ClInclude Include="SPITab.h" />
+    <ClInclude Include="SPITabCtrl.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="STEPFlagsTab.h" />
+    <ClInclude Include="STEPNotesTab.h" />
+    <ClInclude Include="STEPPage.h" />
+    <ClInclude Include="STEPTab.h" />
+    <ClInclude Include="STEPTabCtrl.h" />
+    <ClInclude Include="ThreadClass\Thread.h" />
+    <ClInclude Include="TrayDialog\TrayDialog.h" />
+    <ClInclude Include="TreeDevices.h" />
+    <ClInclude Include="TreeThread.h" />
+    <ClInclude Include="UpdateCheck\UpdateCheck.h" />
+    <ClInclude Include="USIM.h" />
+    <ClInclude Include="USIMDlg.h" />
+    <ClInclude Include="VariablesPage.h" />
+    <ClInclude Include="VariablesTab.h" />
+    <ClInclude Include="VarListDlg.h" />
+    <ClInclude Include="Version\Version.h" />
+    <ClInclude Include="w32process\w32process.h" />
+    <ClInclude Include="XPdatarefs.h" />
+    <ClInclude Include="XPFlightData.h" />
+    <ClInclude Include="XPSharedMem.h" />
+    <ClInclude Include="XTabCtrl\XTabCtrl.h" />
+    <ClInclude Include="xySplitterWnd\xySplitterWnd.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="arrow.cur" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="hlp\AfxDlg.rtf" />
+    <None Include="RES\Splitter.cur" />
+    <None Include="res\USIM.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\beta_logo_310.bmp" />
+    <Image Include="res\bitmap1.bmp" />
+    <Image Include="res\BI_CFG.ico" />
+    <Image Include="res\card.ico" />
+    <Image Include="res\card1.ico" />
+    <Image Include="RES\clcd1.ico" />
+    <Image Include="RES\cond.ico" />
+    <Image Include="RES\cond1.ico" />
+    <Image Include="RES\cond_p1.ico" />
+    <Image Include="res\dac1.ico" />
+    <Image Include="res\dac2.ico" />
+    <Image Include="res\dacs1.ico" />
+    <Image Include="res\dac_dis1.ico" />
+    <Image Include="res\dac_p1.ico" />
+    <Image Include="res\devices1.ico" />
+    <Image Include="res\digital.ico" />
+    <Image Include="res\dis_off.ico" />
+    <Image Include="res\dis_off1.ico" />
+    <Image Include="res\dis_off_p.ico" />
+    <Image Include="res\dis_on.ico" />
+    <Image Include="res\dis_p.ico" />
+    <Image Include="RES\dm.ico" />
+    <Image Include="RES\dmdisp.ico" />
+    <Image Include="RES\dmdisp1.ico" />
+    <Image Include="RES\dmdisp_d.ico" />
+    <Image Include="RES\dmxs_p.ico" />
+    <Image Include="RES\dm_dis.ico" />
+    <Image Include="RES\dm_p.ico" />
+    <Image Include="RES\dm_p1.ico" />
+    <Image Include="res\down.ico" />
+    <Image Include="res\F4-BMS.ico" />
+    <Image Include="res\f4on1.ico" />
+    <Image Include="res\falcon1.ico" />
+    <Image Include="res\favicon.ico" />
+    <Image Include="res\glcd1.ico" />
+    <Image Include="res\glcd1_p.ico" />
+    <Image Include="res\glcd_dis.ico" />
+    <Image Include="res\gr_off.ico" />
+    <Image Include="res\gr_off_p.ico" />
+    <Image Include="res\gr_on.ico" />
+    <Image Include="res\gr_on_p.ico" />
+    <Image Include="res\help.ico" />
+    <Image Include="res\ico00001.ico" />
+    <Image Include="res\ico00002.ico" />
+    <Image Include="res\ico00003.ico" />
+    <Image Include="res\ico00004.ico" />
+    <Image Include="res\ico00005.ico" />
+    <Image Include="res\ico00006.ico" />
+    <Image Include="res\ico00007.ico" />
+    <Image Include="res\ico00008.ico" />
+    <Image Include="res\ico00009.ico" />
+    <Image Include="res\ico00010.ico" />
+    <Image Include="res\ico00011.ico" />
+    <Image Include="res\ico00012.ico" />
+    <Image Include="res\ico00013.ico" />
+    <Image Include="res\ico00014.ico" />
+    <Image Include="res\ico00015.ico" />
+    <Image Include="res\ico00016.ico" />
+    <Image Include="RES\ico00017.ico" />
+    <Image Include="RES\ico00018.ico" />
+    <Image Include="RES\ico00019.ico" />
+    <Image Include="RES\ico00020.ico" />
+    <Image Include="RES\ico00021.ico" />
+    <Image Include="RES\ico00022.ico" />
+    <Image Include="RES\ico00023.ico" />
+    <Image Include="RES\ico00024.ico" />
+    <Image Include="RES\ico00025.ico" />
+    <Image Include="RES\ico00026.ico" />
+    <Image Include="RES\ico00027.ico" />
+    <Image Include="RES\ico00028.ico" />
+    <Image Include="res\icon1.ico" />
+    <Image Include="RES\icon2.ico" />
+    <Image Include="res\input.ico" />
+    <Image Include="res\input1.ico" />
+    <Image Include="res\joystick1.ico" />
+    <Image Include="res\joystick2.ico" />
+    <Image Include="res\jp1.ico" />
+    <Image Include="RES\kbs1.ico" />
+    <Image Include="RES\kbs2.ico" />
+    <Image Include="RES\kbs3.ico" />
+    <Image Include="RES\KEYBRD02.ICO" />
+    <Image Include="RES\KEYBRD03.ICO" />
+    <Image Include="res\keys.ico" />
+    <Image Include="RES\latched.ico" />
+    <Image Include="RES\latched_.ico" />
+    <Image Include="RES\lcd_dis_.ico" />
+    <Image Include="RES\lcd_on.ico" />
+    <Image Include="RES\lcd_on1.ico" />
+    <Image Include="RES\lcd_on_p.ico" />
+    <Image Include="RES\lcd_page.ico" />
+    <Image Include="RES\lo1.ico" />
+    <Image Include="RES\minus1.ico" />
+    <Image Include="res\mux1.ico" />
+    <Image Include="res\mux_dis1.ico" />
+    <Image Include="res\NETHOOD.ICO" />
+    <Image Include="res\non.ico" />
+    <Image Include="RES\notes1.ico" />
+    <Image Include="RES\notes_p1.ico" />
+    <Image Include="res\no_card.ico" />
+    <Image Include="res\off.ico" />
+    <Image Include="RES\off1.ico" />
+    <Image Include="RES\offsets1.ico" />
+    <Image Include="RES\offsets_.ico" />
+    <Image Include="res\on.ico" />
+    <Image Include="res\on_red.ico" />
+    <Image Include="res\output1.ico" />
+    <Image Include="res\Pc3.ico" />
+    <Image Include="res\plcc.ico" />
+    <Image Include="res\plcc1.ico" />
+    <Image Include="res\plcc_dis.ico" />
+    <Image Include="res\plus1.ico" />
+    <Image Include="res\port1.ico" />
+    <Image Include="res\port3.ico" />
+    <Image Include="res\que1.ico" />
+    <Image Include="res\red_off.ico" />
+    <Image Include="res\red_off1.ico" />
+    <Image Include="res\red_on.ico" />
+    <Image Include="res\red_on1.ico" />
+    <Image Include="res\rotary1.ico" />
+    <Image Include="res\rwr1.ico" />
+    <Image Include="res\rwr_dis1.ico" />
+    <Image Include="RES\spi.ico" />
+    <Image Include="RES\spi1.ico" />
+    <Image Include="RES\spim1.ico" />
+    <Image Include="RES\spis_p1.ico" />
+    <Image Include="RES\spi_dis.ico" />
+    <Image Include="RES\spi_dis_.ico" />
+    <Image Include="RES\spi_p.ico" />
+    <Image Include="RES\step.ico" />
+    <Image Include="RES\steps.ico" />
+    <Image Include="RES\steps_di.ico" />
+    <Image Include="RES\step_dis.ico" />
+    <Image Include="RES\step_p.ico" />
+    <Image Include="res\Toolbar.bmp" />
+    <Image Include="res\toolbar1.bmp" />
+    <Image Include="res\update.ico" />
+    <Image Include="res\usb1.ico" />
+    <Image Include="res\Usb2.ico" />
+    <Image Include="res\USIM.ico" />
+    <Image Include="RES\usim_dis.ico" />
+    <Image Include="RES\usim_off.ico" />
+    <Image Include="RES\usim_on2.ico" />
+    <Image Include="RES\vars.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="USIM.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="USIM.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

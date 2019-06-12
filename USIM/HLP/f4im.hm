@@ -1,0 +1,83 @@
+ 
+// Commands (ID_* and IDM_*) 
+HIDM_ABOUTBOX                           0x10010
+HID_COLLAPSE                            0x10066
+HID_REFRESH                             0x10067
+HID_CLEAR                               0x10068
+HID_DISABLE_ITEM                        0x10069
+HID_HIDE_ITEMS                          0x1006A
+HID_SWAP                                0x1006B
+HID_REMOVE                              0x1006C
+HID_SETTINGS                            0x1006D
+HID_NON                                 0x1006E
+HID_INPUTS                              0x1006F
+HID_DEVICE                              0x10070
+HID_VIRTUAL                             0x10071
+HID_EXPAND                              0x10072
+HID_OUTPUTS                             0x10074
+HID_PORT                                0x10075
+HID_ROTARIES                            0x10076
+HID_LCD                                 0x10077
+HID_INPUT                               0x10078
+HID_FILE_LOAD                           0x10079
+HID_OUTPUT                              0x1007A
+HID_ROTARY                              0x1007B
+HID_LOCAL                               0x1007C
+HID_MUX                                 0x1007D
+HID_MULTILEXED                          0x10082
+HID_DEFAULT                             0x10083
+HID_INDICATOR_1                         0x10085
+HID_SEG                                 0x10087
+HID_RWR                                 0x10088
+HID_GLCD                                0x1008B
+HID_NETWORK                             0x1008C
+HID_DAC                                 0x1008E
+HID_HIDE_PORTS                          0x1008F
+HID_HIDE_MODES                          0x10091
+HID_DACS                                0x10092
+HID_CLEAR_ITEM                          0x10093
+HID_INDICATOR_2                         0x10099
+HID_UVARS                               0x100B4
+HID_SPI                                 0x100B6
+HID_LATCHED                             0x100B7
+HID_DMXS                                0x100B9
+HID_SPIS                                0x100BA
+HID_LO                                  0x100BB
+HID_DMX                                 0x100BC
+HID_F4CONNECT                           0x18003
+HID_TRAY_RESTORE                        0x18004
+HID_SHOWDATA                            0x18005
+HID_F4DISCONNECT                        0x18007
+HID_F4AUTOCONNECT                       0x18009
+HID_KBSCONNECT                          0x1800C
+ 
+// Prompts (IDP_*) 
+ 
+// Resources (IDR_*) 
+HIDR_MAINFRAME                          0x20073
+HIDR_MENU1                              0x20095
+HIDR_POPMENU                            0x200A8
+ 
+// Dialogs (IDD_*) 
+HIDD_ABOUTBOX                           0x20064
+HIDD_BIF4_DIALOG                        0x2007F
+HIDD_DATAOUT                            0x20081
+HIDD_CALDAC                             0x2008A
+HIDD_DEFAULT                            0x2009A
+HIDD_REPLACE                            0x207D6
+HIDD_OUTPUTS                            0x207DA
+HIDD_OUTPUT                             0x207DA
+HIDD_MUX                                0x207DC
+HIDD_7SEG                               0x207DF
+HIDD_RWR                                0x207E1
+HIDD_GLCD                               0x207E3
+HIDD_DAC                                0x207E4
+HIDD_DUAL_DAC                           0x207E6
+HIDD_NOTES                              0x2084C
+HIDD_SEND_KEYS                          0x2084D
+HIDD_USERVARS                           0x2084E
+HIDD_INPUT_FLAGS                        0x2084E
+HIDD_COND_INPUT                         0x2084F
+HIDD_OUTPUT_FLAGS                       0x20850
+ 
+// Frame Controls (IDW_*) 

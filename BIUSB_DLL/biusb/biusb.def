@@ -1,0 +1,27 @@
+LIBRARY   "biusb"
+
+EXPORTS
+	DetectDevice
+	ReadInputData
+	ReadInputs
+	ResetRotary
+	ReadRotary
+	ReadData
+	WriteData
+	CloseDevices
+	RetrieveStatus
+	WriteDirectOutput
+	WriteLatchedOutput
+	WriteMuxOutput
+	WriteDisplayOutput
+	WriteCRTRWR
+	ClearLCD
+	WriteLCD
+	CmdLCD
+	WriteGLCD
+	CmdGLCD
+	Write7Segment
+	WriteSPIDAC
+	WriteFUSION
+	WriteDotMatrix
+	WriteStepper

@@ -1,0 +1,1259 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+// Generated Help ID header file
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "resource.hm"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral (Default) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEUD)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_DEFAULT
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\BI_CFG.ico"
+IDI_DIS_OFF_P           ICON                    "res\\dis_off1.ico"
+IDI_USB                 ICON                    "res\\Usb2.ico"
+IDI_RED_ON              ICON                    "res\\red_on.ico"
+IDI_RED_OFF             ICON                    "res\\red_off.ico"
+IDI_QUE_YELLOW          ICON                    "res\\que1.ico"
+IDI_PORT                ICON                    "res\\port3.ico"
+IDI_PC3                 ICON                    "res\\Pc3.ico"
+IDI_OUTPUT              ICON                    "res\\input.ico"
+IDI_NETHOOD             ICON                    "res\\NETHOOD.ICO"
+IDI_NA                  ICON                    "res\\non.ico"
+IDI_KEYS                ICON                    "res\\keys.ico"
+IDI_JOY                 ICON                    "res\\joystick2.ico"
+IDI_INPUT               ICON                    "res\\icon1.ico"
+IDI_GR_ON_P             ICON                    "res\\gr_on_p.ico"
+IDI_GR_ON               ICON                    "res\\gr_on.ico"
+IDI_GR_OFF_P            ICON                    "res\\gr_off_p.ico"
+IDI_GR_OFF              ICON                    "res\\gr_off.ico"
+IDI_GEAR                ICON                    "res\\ico00001.ico"
+IDI_DIS_ON_P            ICON                    "res\\dis_p.ico"
+IDI_DIS_ON              ICON                    "res\\dis_on.ico"
+IDI_DIS_OFF             ICON                    "res\\dis_off.ico"
+IDI_DIG1                ICON                    "res\\digital.ico"
+IDI_CARD3               ICON                    "res\\no_card.ico"
+IDI_CARD2               ICON                    "res\\devices1.ico"
+IDI_CARD                ICON                    "res\\card.ico"
+IDI_AN1                 ICON                    "res\\joystick1.ico"
+IDI_PLCC                ICON                    "res\\plcc.ico"
+IDI_ROTARY              ICON                    "res\\input1.ico"
+IDI_CLCD_DIS            ICON                    "res\\rotary1.ico"
+IDI_MUX                 ICON                    "res\\ico00002.ico"
+IDI_ALPHA               ICON                    "res\\ico00003.ico"
+IDI_PLCC_DIS            ICON                    "res\\plcc_dis.ico"
+IDI_ON                  ICON                    "res\\on.ico"
+IDI_OFF                 ICON                    "res\\off.ico"
+IDI_INPUT_DIS           ICON                    "res\\ico00004.ico"
+IDI_ROTARY_DIS          ICON                    "res\\ico00005.ico"
+IDI_OUTPUT_DIS          ICON                    "res\\output1.ico"
+IDI_UPDATE              ICON                    "res\\update.ico"
+IDI_HELP                ICON                    "res\\help.ico"
+IDI_WEB                 ICON                    "res\\favicon.ico"
+IDI_USB1                ICON                    "res\\usb1.ico"
+IDI_RED_OFF_P           ICON                    "res\\red_off1.ico"
+IDI_RED_ON_P            ICON                    "res\\red_on1.ico"
+IDI_FALCON              ICON                    "res\\F4-BMS.ico"
+IDI_FALCON_ON           ICON                    "res\\falcon1.ico"
+IDI_MUX_DIS             ICON                    "res\\mux1.ico"
+IDI_USIM_OFF            ICON                    "res\\ico00006.ico"
+IDI_USIM_ON             ICON                    "res\\f4on1.ico"
+IDI_USIM_ON1            ICON                    "res\\ico00007.ico"
+IDI_JP                  ICON                    "res\\plcc1.ico"
+IDI_JP_DIS              ICON                    "res\\jp1.ico"
+IDI_ON_RED              ICON                    "res\\on_red.ico"
+IDI_DOWN                ICON                    "res\\down.ico"
+IDI_PLUS                ICON                    "res\\port1.ico"
+IDI_MINUS               ICON                    "res\\plus1.ico"
+IDI_MUX_P               ICON                    "res\\ico00008.ico"
+IDI_MUX_DIS_P           ICON                    "res\\mux_dis1.ico"
+IDI_RWR                 ICON                    "res\\ico00009.ico"
+IDI_RWR_DIS             ICON                    "res\\rwr1.ico"
+IDI_RWR_P               ICON                    "res\\ico00010.ico"
+IDI_RWR_DIS_P           ICON                    "res\\rwr_dis1.ico"
+IDI_GLCD                ICON                    "res\\ico00011.ico"
+IDI_GLCD_DIS            ICON                    "res\\glcd1.ico"
+IDI_GLCD_DIS_P          ICON                    "res\\glcd_dis.ico"
+IDI_GLCD_P              ICON                    "res\\glcd1_p.ico"
+IDI_DACS                ICON                    "res\\ico00012.ico"
+IDI_DACS_DIS            ICON                    "res\\dacs1.ico"
+IDI_DUALDAC             ICON                    "res\\ico00013.ico"
+IDI_DUALDAC_DIS         ICON                    "res\\dac1.ico"
+IDI_DUALDAC_P           ICON                    "res\\ico00014.ico"
+IDI_DUALDAC_DIS_P       ICON                    "res\\dac_dis1.ico"
+IDI_DAC                 ICON                    "res\\ico00015.ico"
+IDI_DAC_P               ICON                    "res\\dac2.ico"
+IDI_DAC_DIS             ICON                    "res\\ico00016.ico"
+IDI_DAC_DIS_P           ICON                    "res\\dac_p1.ico"
+IDI_NOTES_P             ICON                    "res\\notes1.ico"
+IDI_NOTES_B             ICON                    "res\\notes_p1.ico"
+IDI_NOTES               ICON                    "res\\icon2.ico"
+IDI_OUTPUT_P            ICON                    "res\\ico00017.ico"
+IDI_KBS                 ICON                    "res\\KEYBRD02.ICO"
+IDI_KBS_ON              ICON                    "res\\KEYBRD03.ICO"
+IDI_KBS2_P              ICON                    "res\\kbs3.ico"
+IDI_KBS1                ICON                    "res\\kbs1.ico"
+IDI_KBS_OFF             ICON                    "res\\ico00018.ico"
+IDI_KBS2                ICON                    "res\\kbs2.ico"
+IDI_COND_P              ICON                    "res\\cond1.ico"
+IDI_COND_B              ICON                    "res\\cond_p1.ico"
+IDI_COND                ICON                    "res\\cond.ico"
+IDI_SPI_P               ICON                    "res\\spi_p.ico"
+IDI_SPI_DIS_P           ICON                    "res\\spi_dis_.ico"
+IDI_SPI_DIS             ICON                    "res\\spi_dis.ico"
+IDI_SPI                 ICON                    "res\\spi.ico"
+IDI_SPIS                ICON                    "res\\spi1.ico"
+IDI_SPIS_DIS            ICON                    "res\\spim1.ico"
+IDI_DMXS                ICON                    "res\\dmdisp.ico"
+IDI_DMX                 ICON                    "res\\dm.ico"
+IDI_DMX_P               ICON                    "res\\dm_p.ico"
+IDI_DMX_DIS             ICON                    "res\\dm_dis.ico"
+IDI_DMX_DIS_P           ICON                    "res\\dm_p1.ico"
+IDI_DMXS_DIS            ICON                    "res\\dmdisp_d.ico"
+IDI_LO                  ICON                    "res\\dmdisp1.ico"
+IDI_LO_DIS              ICON                    "res\\lo1.ico"
+IDI_LO_P                ICON                    "res\\ico00019.ico"
+IDI_SPIS_P              ICON                    "res\\ico00020.ico"
+IDI_DACS_P              ICON                    "res\\ico00021.ico"
+IDI_DMXS_P              ICON                    "res\\dmxs_p.ico"
+IDI_BROWSE              ICON                    "res\\off1.ico"
+IDI_SIMS                ICON                    "res\\ico00022.ico"
+IDI_CLEAR               ICON                    "res\\minus1.ico"
+IDI_USIM_RED            ICON                    "res\\usim_off.ico"
+IDI_USIM_ONGR           ICON                    "res\\usim_on2.ico"
+IDI_USIM_ONGR1          ICON                    "res\\ico00023.ico"
+IDI_USIM_DIS            ICON                    "res\\ico00024.ico"
+IDI_USIM_DIS_RED        ICON                    "res\\usim_dis.ico"
+IDI_CLCD_DIS_P          ICON                    "res\\lcd_dis_.ico"
+IDI_CLCD_P              ICON                    "res\\lcd_on_p.ico"
+IDI_CLCD                ICON                    "res\\lcd_on.ico"
+IDI_LCD_PAGE            ICON                    "res\\clcd1.ico"
+IDI_LCD_PAGE_P          ICON                    "res\\lcd_page.ico"
+IDI_LCD_PAGE_DIS        ICON                    "res\\ico00026.ico"
+IDI_LCD_PAGE_DIS_P      ICON                    "res\\ico00027.ico"
+IDI_STEPS_P             ICON                    "res\\spis_p1.ico"
+IDI_STEPS_DIS           ICON                    "res\\steps_di.ico"
+IDI_STEPS               ICON                    "res\\steps.ico"
+IDI_STEP_P              ICON                    "res\\step_p.ico"
+IDI_STEP_DIS_P          ICON                    "res\\ico00028.ico"
+IDI_STEP_DIS            ICON                    "res\\step_dis.ico"
+IDI_STEP                ICON                    "res\\step.ico"
+#endif    // Neutral (Default) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_INSTALL             ICON                    "res\\ico00025.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_USIM_DIALOG DIALOGEX 0, 0, 319, 269
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Universal Simulation Interface Manager"
+MENU IDR_DIALOG_MENU
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Tab1",IDC_TAB1,"SysTabControl32",0x0,101,0,215,256
+    CONTROL         "Tree1",IDC_DEVICESTREE,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | TVS_EDITLABELS | TVS_DISABLEDRAGDROP | TVS_FULLROWSELECT | WS_BORDER | WS_TABSTOP,0,0,96,256,WS_EX_CLIENTEDGE
+    CONTROL         "Tab1",IDC_TAB2,"SysTabControl32",0x0,207,11,6,256
+    CONTROL         "Tab1",IDC_TAB3,"SysTabControl32",0x0,215,11,6,256
+    CONTROL         "Tab1",IDC_TAB4,"SysTabControl32",0x0,224,11,6,256
+    CONTROL         "Tab1",IDC_TAB5,"SysTabControl32",0x0,233,11,6,256
+    CONTROL         "Tab1",IDC_TAB6,"SysTabControl32",0x0,242,11,6,256
+    CONTROL         "Tab1",IDC_TAB8,"SysTabControl32",0x0,261,11,6,256
+    LTEXT           "",IDC_XBAR,96,7,4,241,NOT WS_GROUP,WS_EX_DLGMODALFRAME | WS_EX_CLIENTEDGE
+    CONTROL         "Tab1",IDC_TAB9,"SysTabControl32",0x0,271,11,6,256
+    CONTROL         "Tab1",IDC_TAB10,"SysTabControl32",0x0,280,11,6,256
+    CONTROL         "Tab1",IDC_TAB11,"SysTabControl32",0x0,290,11,6,256
+    CONTROL         "Tab1",IDC_TAB12,"SysTabControl32",0x0,299,11,6,256
+    CONTROL         "Tab1",IDC_TAB7,"SysTabControl32",0x0,251,11,6,256
+END
+
+IDD_ABOUTBOX DIALOG  0, 0, 217, 157
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Universal Simulation Interface Manager"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Universal Simulation Interface Manager Version 1.0.0",IDC_VERSION,10,31,191,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2010",IDC_STATIC,10,42,119,8
+    DEFPUSHBUTTON   "OK",IDOK,83,138,50,14,WS_GROUP
+    CONTROL         167,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE,0,0,217,26
+    EDITTEXT        IDC_EDIT2,11,66,194,62,ES_MULTILINE | ES_READONLY | WS_VSCROLL
+END
+
+IDD_OUTPUT DIALOGEX 0, 0, 300, 237
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Output Pin",IDC_STATIC0,2,0,296,234,0,WS_EX_TRANSPARENT
+    LTEXT           "Output",IDC_OUTPUTNAME,15,11,188,8,0,WS_EX_TRANSPARENT
+    GROUPBOX        "",IDC_STATIC1,8,22,283,97
+    PUSHBUTTON      "Clear All",IDC_CLEAR,247,215,39,13
+    CTEXT           "HARDWARE DISABLED",IDC_ENABLE,207,9,84,12,SS_CENTERIMAGE | NOT WS_GROUP,WS_EX_TRANSPARENT | WS_EX_STATICEDGE
+    EDITTEXT        IDC_NOTES,33,215,205,12,ES_MULTILINE | ES_AUTOHSCROLL
+    LTEXT           "Notes:",IDC_STATIC9,10,216,21,10
+    LTEXT           "IF",IDC_STATIC,18,30,8,10
+    COMBOBOX        IDC_OP_COMBO,18,62,27,103,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_OP_VALUE,46,62,49,13,WS_DISABLED
+    COMBOBOX        IDC_OP_COMBO2,101,62,37,104,CBS_DROPDOWNLIST | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_OP_COMBO3,144,62,27,99,CBS_DROPDOWNLIST | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_OP_VALUE2,172,62,49,13,WS_DISABLED
+    EDITTEXT        IDC_EDIT1,86,99,51,13,ES_AUTOHSCROLL | WS_DISABLED
+    LTEXT           "Enter mask as hex value: 0x12345678",IDC_STATIC3,145,102,128,10
+    LTEXT           "User Defined Mask :",IDC_STATIC2,17,102,66,7
+    CONTROL         "Slider1",IDC_OB_LEVEL_SLIDER,"msctls_trackbar32",TBS_AUTOTICKS | TBS_TOP | WS_TABSTOP,174,187,98,21
+    LTEXT           "Level :",IDC_STATIC8,125,194,22,8
+    LTEXT           "0",IDC_OB_TEXT3,180,178,8,8
+    LTEXT           "10",IDC_OB_TEXT4,260,178,8,8
+    EDITTEXT        IDC_OB_LEVEL,151,194,25,12,ES_READONLY | NOT WS_BORDER,WS_EX_TRANSPARENT
+    GROUPBOX        "Output Options",IDC_STATIC5,8,172,283,38
+    CONTROL         "",IDC_LAMPTEST,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,195,8,8,0,HIDC_LAMPTEST
+    CONTROL         "",IDC_INVERT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,64,195,8,8,0,HIDC_INVERT
+    LTEXT           "Lamp Test",IDC_STATIC6,15,184,34,8
+    LTEXT           "Invert",IDC_STATIC7,59,184,19,8
+    PUSHBUTTON      "Sim Data",IDC_FLIGHTDATA,17,43,44,13
+    LTEXT           "",IDC_TEXT1,66,43,165,12,SS_CENTERIMAGE | NOT WS_GROUP,WS_EX_STATICEDGE
+    PUSHBUTTON      "Clear",IDC_CLEARDATA,238,43,44,13
+    PUSHBUTTON      "Bitmask",IDC_MASKDATA,17,81,44,13,WS_DISABLED
+    LTEXT           "",IDC_TEXT2,66,81,165,12,SS_CENTERIMAGE | NOT WS_GROUP,WS_EX_STATICEDGE
+    PUSHBUTTON      "Clear",IDC_CLEARMASK,238,80,44,13,WS_DISABLED
+    CONTROL         "Group 1",IDC_GROUP1,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,58,1,45,8
+    CONTROL         "Group 2",IDC_GROUP2,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,104,2,45,8
+END
+
+IDD_DEFAULT DIALOGEX 0, 0, 297, 236
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Refresh",IDC_REFRESH,35,165,30,28,BS_ICON
+    LTEXT           "Refresh Device List",IDC_STATIC6,74,173,75,11
+    CONTROL         167,IDC_STATIC1,"Static",SS_BITMAP,42,6,209,25,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Updates",IDC_UPDATE,162,165,30,28,BS_ICON
+    LTEXT           "Check for updates",IDC_STATIC7,202,174,75,11
+    PUSHBUTTON      "Help",IDC_HELP2,35,202,30,28,BS_ICON
+    LTEXT           "Read Help File",IDC_STATIC8,74,211,75,11
+    PUSHBUTTON      "Help",IDC_WEB,162,202,30,28,BS_ICON
+    LTEXT           "Visit Beta Innovations",IDC_STATIC9,202,211,75,11
+    EDITTEXT        IDC_EDIT1,91,38,136,12,ES_AUTOHSCROLL | ES_OEMCONVERT | ES_READONLY
+    LTEXT           "Status :  ",IDC_STATIC2,61,41,24,8,SS_CENTERIMAGE
+    CONTROL         "Auto connect to simulators.",IDC_AUTOCONNECT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,29,86,104,8
+    GROUPBOX        "Options",IDC_STATIC5,16,55,263,101
+    CONTROL         "Start application in System Tray.",IDC_MINIMIZED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,29,120,119,8
+    CONTROL         "Check for software updates on startup.",IDC_AUTOUPDATE,
+                    "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,29,103,145,8
+    CONTROL         "Start application on Windows startup.",IDC_AUTOSTART,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,29,137,149,8
+    CONTROL         "Disable USIM",IDC_DISABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,29,69,104,8
+END
+
+IDD_7SEG DIALOGEX 0, 0, 297, 237
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Display",IDC_STATIC0,2,0,293,234,0,WS_EX_TRANSPARENT
+    LTEXT           "Output",IDC_OUTPUTNAME,15,11,190,8,0,WS_EX_TRANSPARENT
+    PUSHBUTTON      "Clear All",IDC_CLEAR,248,215,35,13,WS_DISABLED
+    CONTROL         "Group 1",IDC_GROUP1,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE,85,0,41,12
+    CTEXT           "HARDWARE DISABLED",IDC_ENABLE,207,9,81,12,SS_CENTERIMAGE | NOT WS_GROUP,WS_EX_STATICEDGE
+    EDITTEXT        IDC_NOTES,34,215,205,12,ES_MULTILINE | ES_AUTOHSCROLL | WS_DISABLED
+    LTEXT           "Notes:",IDC_STATIC5,10,216,22,10
+    GROUPBOX        "Output Parameters",IDC_STATIC2,8,159,280,46
+    LTEXT           "Level :",IDC_STATIC4,102,185,22,8
+    CONTROL         "Slider1",IDC_OB_LEVEL_SLIDER,"msctls_trackbar32",TBS_AUTOTICKS | TBS_TOP | WS_DISABLED | WS_TABSTOP,151,178,123,21
+    LTEXT           "0",IDC_OB_TEXT3,156,169,5,8,WS_DISABLED
+    LTEXT           "10",IDC_OB_TEXT4,261,169,9,8,WS_DISABLED
+    EDITTEXT        IDC_OB_LEVEL,128,185,25,12,ES_READONLY | WS_DISABLED | NOT WS_BORDER,WS_EX_TRANSPARENT
+    LTEXT           "Lamp Test",IDC_STATIC3,13,173,34,8
+    CONTROL         "",IDC_LAMPTEST,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,185,8,8,0,HIDC_LAMPTEST
+    LTEXT           "Override all segment settings.",IDC_STATIC,35,35,93,8
+    CONTROL         "",IDC_INVERT,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,19,35,10,8,0,HIDC_INVERT
+    CONTROL         "Custom1",IDC_GRID,"MFCGridCtrl",WS_TABSTOP,10,56,263,98,0,HIDC_GRID
+    PUSHBUTTON      "+",IDC_ADD,274,66,13,13,BS_ICON | BS_CENTER | BS_VCENTER
+    PUSHBUTTON      "-",IDC_REMOVE,274,81,13,13,BS_ICON | BS_CENTER | BS_VCENTER
+    LTEXT           " X  X  X  X  .  X  X  X\nGrouping  .  Digits",IDC_STATIC1,176,31,86,17
+    PUSHBUTTON      "C",IDC_CLEARDATA,274,97,13,13,BS_ICON | BS_CENTER | BS_VCENTER
+END
+
+IDD_RWR DIALOGEX 0, 0, 300, 237
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "RWR Output",IDC_STATIC0,2,0,296,234,0,WS_EX_TRANSPARENT
+    LTEXT           "Output",IDC_OUTPUTNAME,15,11,190,8,0,WS_EX_TRANSPARENT
+    PUSHBUTTON      "Clear All",IDC_CLEAR,247,215,39,13
+    CONTROL         "Group 1",IDC_GROUP1,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE,59,0,39,12
+    CTEXT           "HARDWARE DISABLED",IDC_ENABLE,207,9,84,12,SS_CENTERIMAGE | NOT WS_GROUP,WS_EX_STATICEDGE
+    EDITTEXT        IDC_NOTES,33,215,205,12,ES_MULTILINE | ES_AUTOHSCROLL
+    LTEXT           "Notes:",IDC_STATIC3,10,216,21,10
+    GROUPBOX        "Output Options",IDC_STATIC1,8,159,283,46
+    LTEXT           "Test Pattern",IDC_STATIC2,45,182,40,8
+    CONTROL         "",IDC_LAMPTEST,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,182,8,8,0,HIDC_LAMPTEST
+    LTEXT           "Enable CRT RWR",-1,45,38,60,8
+    CONTROL         "",IDC_ENABLE_RWR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,38,8,8,0,HIDC_ENABLE_RWR
+    GROUPBOX        "Falcon 4 Options",IDC_STATIC11,8,24,283,46
+END
+
+IDD_GLCD DIALOGEX 0, 0, 300, 237
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_NOTES,33,215,205,12,ES_MULTILINE | ES_AUTOHSCROLL
+    PUSHBUTTON      "Clear All",IDC_CLEAR,247,215,39,13
+    GROUPBOX        "LCD Output",IDC_STATIC0,2,0,296,234,0,WS_EX_TRANSPARENT
+    LTEXT           "Output",IDC_OUTPUTNAME,15,11,190,8,0,WS_EX_TRANSPARENT
+    CONTROL         "Group 1",IDC_GROUP1,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE,59,0,39,12
+    CTEXT           "HARDWARE DISABLED",IDC_ENABLE,207,9,84,12,SS_CENTERIMAGE | NOT WS_GROUP,WS_EX_STATICEDGE
+    LTEXT           "Notes:",IDC_STATIC4,10,216,21,10
+    GROUPBOX        "Output Options",IDC_STATIC1,8,182,283,26
+    LTEXT           "Test",IDC_STATIC2,45,194,15,8
+    LTEXT           "Enable DED/PFD Formatted LCD Text",IDC_STATIC12,47,35,132,8
+    CONTROL         "",IDC_INVERT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,97,194,8,8,0,HIDC_INVERT
+    LTEXT           "Invert Display",IDC_STATIC3,116,194,44,8
+    CONTROL         "",IDC_ENABLE_DED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,29,35,8,8,0,HIDC_ENABLE_DED
+    CONTROL         "",IDC_LAMPTEST,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,194,8,8,0,HIDC_LAMPTEST
+    CONTROL         "Tab1",IDC_TAB1,"SysTabControl32",0x0,15,63,267,110
+    GROUPBOX        "Falcon 4 Formatting Options",IDC_STATIC11,8,24,283,26
+    GROUPBOX        "LCD Pages",IDC_STATIC5,8,51,283,129
+END
+
+IDD_SPIDAC DIALOGEX 0, 0, 300, 237
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "SPI/DAC Output",IDC_STATIC0,2,0,296,234,0,WS_EX_TRANSPARENT
+    LTEXT           "Output",IDC_OUTPUTNAME,15,11,190,8,0,WS_EX_TRANSPARENT
+    PUSHBUTTON      "Clear All",IDC_CLEAR,247,215,39,13
+    CONTROL         "Group 1",IDC_GROUP1,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE,59,0,39,12
+    CTEXT           "HARDWARE DISABLED",IDC_ENABLE,207,9,84,12,SS_CENTERIMAGE | NOT WS_GROUP,WS_EX_STATICEDGE
+    EDITTEXT        IDC_NOTES,33,215,205,12,ES_MULTILINE | ES_AUTOHSCROLL
+    LTEXT           "Notes:",IDC_STATIC3,10,216,21,10
+    GROUPBOX        "Output Options",IDC_STATIC2,8,175,283,35
+    LTEXT           "Test",IDC_STATIC6,45,190,15,8
+    CONTROL         "",IDC_LAMPTEST,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,190,8,8,0,HIDC_LAMPTEST
+    GROUPBOX        "Output Parameters",IDC_STATIC1,8,29,283,144
+    CONTROL         "Custom1",IDC_GRID,"MFCGridCtrl",WS_TABSTOP,15,57,250,109,0,HIDC_GRID
+    PUSHBUTTON      "+",IDC_ADD,270,64,13,13,BS_ICON | BS_CENTER | BS_VCENTER
+    PUSHBUTTON      "-",IDC_REMOVE,270,80,13,13,BS_ICON | BS_CENTER | BS_VCENTER
+    PUSHBUTTON      "x = Sim Data",IDC_FLIGHTDATA,14,39,46,13
+    LTEXT           "",IDC_TEXT1,63,39,170,12,SS_CENTERIMAGE | NOT WS_GROUP,WS_EX_STATICEDGE
+    PUSHBUTTON      "Clear",IDC_CLEARDATA,239,39,44,13
+END
+
+IDD_DATAOUT DIALOG  0, 0, 262, 186
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "F4 Raw Data"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,105,165,50,14
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,7,248,151
+END
+
+IDD_REPLACE DIALOGEX 0, 0, 187, 79
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Transfer Settings"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,35,58,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,100,58,50,14
+    COMBOBOX        IDC_OP_COMBO,7,20,173,37,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP,0,HIDC_OP_COMBO
+    LTEXT           "Transfer all settings to the following device:",IDC_STATIC,7,7,173,8
+    LTEXT           "WARNING! All setting for the selected device will be overwritten.",IDC_STATIC,7,38,173,18
+END
+
+IDD_CALSPI DIALOGEX 0, 0, 327, 111
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTERMOUSE | WS_POPUP | WS_CAPTION
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Calibrate SPI / DAC"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,104,90,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,171,90,50,14
+    GROUPBOX        "Calibration",IDC_STATIC,7,0,313,83
+    CONTROL         "Slider1",IDC_SLIDER1,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,157,36,135,12
+    LTEXT           "Set Min Position :",IDC_STATIC,31,38,62,8
+    CONTROL         "Slider1",IDC_SLIDER2,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,157,52,135,12
+    LTEXT           "Set Max Position :",IDC_STATIC,31,54,62,8
+    EDITTEXT        IDC_MIN,99,36,51,12,ES_RIGHT | NOT WS_BORDER,WS_EX_CLIENTEDGE
+    EDITTEXT        IDC_MAX,99,52,51,12,ES_RIGHT | NOT WS_BORDER,WS_EX_CLIENTEDGE
+    LTEXT           "Use arrow keys for fine adjustment.",IDC_STATIC,169,67,112,8
+    CONTROL         "",IDC_CALIBRATE_MIN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,38,8,8,WS_EX_TRANSPARENT,HIDC_CALIBRATE_MIN
+    CONTROL         "",IDC_CALIBRATE_MAX,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,54,8,8,WS_EX_TRANSPARENT,HIDC_CALIBRATE_MAX
+    CONTROL         "Slider1",IDC_SLIDER3,"msctls_trackbar32",TBS_BOTH | TBS_NOTICKS | WS_TABSTOP,157,20,135,12
+    LTEXT           "Set Offset Position :",IDC_STATIC,31,22,62,8
+    CTEXT           "-2147483647",IDC_STATIC1,142,10,44,8
+    CTEXT           "-2147483647",IDC_STATIC2,266,10,45,8
+    EDITTEXT        IDC_OFFSET,99,20,51,12,ES_RIGHT | NOT WS_BORDER,WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_CALIBRATE_OFFSET,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,22,8,8,WS_EX_TRANSPARENT,HIDC_CALIBRATE_OFFSET
+END
+
+IDD_NOTES DIALOGEX 0, 0, 300, 197
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Notes",IDC_STATIC1,2,0,296,193,0,WS_EX_TRANSPARENT
+    LTEXT           "IO",IDC_IONAME,15,11,190,8,0,WS_EX_TRANSPARENT
+    PUSHBUTTON      "Clear All",IDC_CLEAR,247,171,39,13
+    CTEXT           "HARDWARE DISABLED",IDC_ENABLE,207,9,84,12,SS_CENTERIMAGE | NOT WS_GROUP,WS_EX_STATICEDGE
+    EDITTEXT        IDC_DESC,54,32,222,12,ES_MULTILINE | ES_AUTOHSCROLL
+    RTEXT           "Description:",IDC_STATIC2,10,33,41,10
+    EDITTEXT        IDC_NOTES,54,53,222,108,ES_MULTILINE | ES_WANTRETURN
+    RTEXT           "Notes:",IDC_STATIC3,10,54,39,10
+END
+
+IDD_SEND_KEYS DIALOGEX 0, 0, 300, 237
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Keys",IDC_STATIC0,2,0,296,234,0,WS_EX_TRANSPARENT
+    PUSHBUTTON      "Clear All",IDC_CLEAR,247,215,39,13
+    CONTROL         "Group 1",IDC_GROUP1,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE,59,0,39,12
+    CTEXT           "HARDWARE DISABLED",IDC_ENABLE,207,9,84,12,SS_CENTERIMAGE | NOT WS_GROUP,WS_EX_STATICEDGE
+    EDITTEXT        IDC_NOTES,33,215,205,12,ES_MULTILINE | ES_AUTOHSCROLL
+    LTEXT           "Notes:",IDC_STATIC1,10,216,21,10
+    GROUPBOX        "On Press",IDC_ONPRESS,8,24,283,101
+    GROUPBOX        "On Release",IDC_ONRELEASE,8,126,283,85
+    PUSHBUTTON      "+",IDC_P_ADD,272,60,13,13,BS_ICON | BS_CENTER | BS_VCENTER | WS_DISABLED
+    PUSHBUTTON      "-",IDC_P_REMOVE,272,73,13,13,BS_ICON | BS_CENTER | BS_VCENTER | WS_DISABLED
+    PUSHBUTTON      "+",IDC_R_ADD,272,163,13,13,BS_ICON | BS_CENTER | BS_VCENTER | WS_DISABLED
+    PUSHBUTTON      "-",IDC_R_REMOVE,272,176,13,13,BS_ICON | BS_CENTER | BS_VCENTER | WS_DISABLED
+    LTEXT           "Input",IDC_IONAME,15,11,135,8
+    CONTROL         "Repeat while ON",IDC_REPEAT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,22,110,74,10
+    CONTROL         "R",IDC_PRESS_REC,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,272,34,12,10
+    CONTROL         "R",IDC_RELEASE_REC,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,272,137,12,10
+    PUSHBUTTON      "C",IDC_P_CLEAR,272,47,13,13,BS_CENTER | BS_VCENTER | WS_DISABLED
+    PUSHBUTTON      "C",IDC_R_CLEAR,272,150,13,13,BS_CENTER | BS_VCENTER | WS_DISABLED
+    CONTROL         "Hold keys while ON",IDC_HOLDKEY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,158,110,79,9
+    CONTROL         "Custom1",IDC_P_GRID,"MFCGridCtrl",WS_TABSTOP,15,35,250,68,0,HIDC_P_GRID
+    CONTROL         "Custom1",IDC_R_GRID,"MFCGridCtrl",WS_TABSTOP,15,137,250,68,0,HIDC_R_GRID
+END
+
+IDD_INPUT_FLAGS DIALOGEX 0, 0, 300, 237
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Input Flags",IDC_STATIC0,2,0,296,234,0,WS_EX_TRANSPARENT
+    LTEXT           "INPUT",IDC_IONAME,15,11,190,8
+    PUSHBUTTON      "Clear All",IDC_CLEAR,247,215,39,13
+    CONTROL         "Group 1",IDC_GROUP1,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE,88,0,39,12
+    GROUPBOX        "Flag Assignments",IDC_STATIC1,8,29,283,177
+    CONTROL         "Custom1",IDC_GRID,"MFCGridCtrl",WS_TABSTOP,15,39,250,160,0,HIDC_GRID
+    PUSHBUTTON      "+",IDC_ADD,270,52,13,13,BS_ICON | BS_CENTER | BS_VCENTER
+    PUSHBUTTON      "-",IDC_REMOVE,270,68,13,13,BS_ICON | BS_CENTER | BS_VCENTER
+    CTEXT           "HARDWARE DISABLED",IDC_ENABLE,207,9,81,12,SS_CENTERIMAGE | NOT WS_GROUP,WS_EX_STATICEDGE
+END
+
+IDD_COND_INPUT DIALOGEX 0, 0, 300, 237
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Light Bits",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,15,22,43,9,WS_EX_TRANSPARENT
+    COMBOBOX        IDC_LB1_COMBO,57,46,150,140,CBS_DROPDOWNLIST | CBS_SORT | WS_DISABLED | WS_VSCROLL | WS_TABSTOP,0,HIDC_LB1_COMBO
+    EDITTEXT        IDC_EDIT1,235,45,51,13,ES_AUTOHSCROLL | WS_DISABLED
+    CONTROL         "Sim Data",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,15,71,48,9,WS_EX_TRANSPARENT
+    COMBOBOX        IDC_OP_COMBO,41,103,27,69,CBS_DROPDOWNLIST | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_OP_VALUE,69,103,49,13,WS_DISABLED
+    COMBOBOX        IDC_OP_COMBO2,124,103,37,48,CBS_DROPDOWNLIST | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_OP_COMBO3,167,103,27,69,CBS_DROPDOWNLIST | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_OP_VALUE2,195,103,49,13,WS_DISABLED
+    CONTROL         "User Variables",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_DISABLED,15,124,59,9,WS_EX_TRANSPARENT
+    COMBOBOX        IDC_UV_COMBO,73,135,160,140,CBS_DROPDOWNLIST | CBS_SORT | WS_DISABLED | WS_VSCROLL | WS_TABSTOP,0,HIDC_UV_COMBO
+    COMBOBOX        IDC_UVOP_COMBO,41,156,27,69,CBS_DROPDOWNLIST | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_UVOP_VALUE,69,156,49,13,WS_DISABLED
+    COMBOBOX        IDC_UVOP_COMBO2,124,156,37,48,CBS_DROPDOWNLIST | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_UVOP_COMBO3,167,156,27,69,CBS_DROPDOWNLIST | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_UVOP_VALUE2,195,156,49,13,WS_DISABLED
+    COMBOBOX        IDC_VAR_COMBO,79,191,160,140,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,0,HIDC_VAR_COMBO
+    EDITTEXT        IDC_NOTES,33,215,205,12,ES_MULTILINE | ES_AUTOHSCROLL
+    PUSHBUTTON      "Clear All",IDC_CLEAR,247,215,39,13
+    GROUPBOX        "Input Conditions",IDC_STATIC0,2,0,296,234,0,WS_EX_TRANSPARENT
+    CONTROL         "Group 1",IDC_GROUP1,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE,67,0,39,12
+    CTEXT           "HARDWARE DISABLED",IDC_ENABLE,207,9,84,12,SS_CENTERIMAGE | NOT WS_GROUP,WS_EX_STATICEDGE
+    LTEXT           "Notes:",IDC_STATIC,10,216,21,10
+    GROUPBOX        "Output Options",IDC_STATIC,8,180,283,30
+    LTEXT           "Input",IDC_IONAME,15,11,135,8
+    LTEXT           "Assign to variable :",IDC_STATIC,14,193,60,8
+    GROUPBOX        "",IDC_STATIC,8,22,283,46
+    LTEXT           "IF Light Bit :",IDC_STATIC,14,48,38,8
+    GROUPBOX        "",IDC_STATIC,8,71,283,52
+    LTEXT           "IF",IDC_STATIC,28,105,8,10
+    LTEXT           "Enter mask as hex value: 0x12345678",IDC_STATIC,161,32,128,10
+    LTEXT           "Mask :",IDC_STATIC,211,48,21,7
+    GROUPBOX        "",IDC_STATIC,8,124,283,52
+    LTEXT           "Variable :",IDC_STATIC,27,138,35,8
+    LTEXT           "IF",IDC_STATIC,28,159,8,10
+    PUSHBUTTON      "Sim Data",IDC_BUTTON1,23,84,44,13
+    LTEXT           "",IDC_FLIGHTDATA,79,86,204,9,SS_SUNKEN
+END
+
+IDD_OUTPUT_FLAGS DIALOGEX 0, 0, 300, 237
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Output Flags",IDC_STATIC0,2,0,296,234,0,WS_EX_TRANSPARENT
+    LTEXT           "Output",IDC_IONAME,15,11,190,8
+    CONTROL         "Group 1",IDC_GROUP1,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE,88,0,39,12
+    GROUPBOX        "Flag Assignments",IDC_STATIC1,8,29,283,141
+    CONTROL         "Custom1",IDC_GRID,"MFCGridCtrl",WS_TABSTOP,15,39,269,123,0,HIDC_GRID
+    CTEXT           "HARDWARE DISABLED",IDC_ENABLE,207,9,81,12,SS_CENTERIMAGE | NOT WS_GROUP,WS_EX_STATICEDGE
+    PUSHBUTTON      "Clear All",IDC_CLEAR,247,215,39,13
+    EDITTEXT        IDC_NOTES,33,215,205,12,ES_MULTILINE | ES_AUTOHSCROLL
+    LTEXT           "Notes:",IDC_STATIC4,10,216,21,10
+    GROUPBOX        "Output Options",IDC_STATIC2,8,172,283,38
+    LTEXT           "Monitor Main Power in Falcon 4",IDC_STATIC3,38,189,112,8
+    CONTROL         "",IDC_POWERFLAG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,189,8,8,0,HIDC_POWERFLAG
+END
+
+IDD_SIMPATH DIALOGEX 0, 0, 297, 285
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Simulator List",IDC_STATIC1,8,5,276,223
+    CONTROL         "Custom1",IDC_GRID,"MFCGridCtrl",WS_TABSTOP,16,19,260,201,0,HIDC_GRID
+    PUSHBUTTON      "Clear Selection",IDC_CLEARITEM,79,239,56,14
+    PUSHBUTTON      "Defaults",IDC_CLEARALL,145,239,56,14
+END
+
+IDD_VARSLIST DIALOGEX 0, 0, 276, 240
+STYLE DS_SETFONT | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Simulation Variable List"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Search Item",IDC_STATIC2,15,9,41,8,NOT WS_GROUP
+    EDITTEXT        IDC_ED_SEARCH_ITEM,60,7,87,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Search Next",IDC_BT_SEARCH_ITEM,152,7,52,12
+    PUSHBUTTON      "Reset Search",IDC_BT_RESET_SEARCH,209,7,52,12,NOT WS_VISIBLE | WS_DISABLED
+    RTEXT           "Real-time value: ",IDC_STATIC1,9,166,52,8,NOT WS_GROUP
+    LTEXT           "",IDC_VALUETEXT,64,165,58,9,SS_SUNKEN | NOT WS_GROUP
+    CONTROL         "Show Simulation Variables",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,80,184,114,8
+    CONTROL         "Show Simulation Commands",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,80,194,114,8
+    CONTROL         "Show Simulation Bitmasks",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,80,204,114,8
+    DEFPUSHBUTTON   "Select",IDOK,57,219,50,14
+    PUSHBUTTON      "Select None",IDC_CLEARDATA,112,219,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,167,219,50,14
+    RTEXT           "Array Index: ",IDC_STATIC13,133,166,42,8,NOT WS_GROUP
+    EDITTEXT        IDC_EMINMAX,178,165,37,10,ES_CENTER | ES_NUMBER | WS_DISABLED
+    CTEXT           "Min-Max",IDC_SMINMAX,220,165,42,10,NOT WS_GROUP
+END
+
+IDD_VARIABLES DIALOGEX 0, 0, 300, 237
+STYLE DS_SETFONT | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "Variables",IDC_STATIC0,2,0,296,234,0,WS_EX_TRANSPARENT
+    CONTROL         "Group 1",IDC_GROUP1,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE,59,0,39,12
+    CONTROL         "Group 2",IDC_GROUP2,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE,103,0,39,12
+    LTEXT           "INPUT",IDC_IONAME,15,11,188,8,0,WS_EX_TRANSPARENT
+    CTEXT           "HARDWARE DISABLED",IDC_ENABLE,207,9,84,12,SS_CENTERIMAGE | NOT WS_GROUP,WS_EX_TRANSPARENT | WS_EX_STATICEDGE
+    GROUPBOX        "On Press",IDC_STATIC1,8,22,283,73
+    PUSHBUTTON      "Data/Cmd",IDC_OP_FLIGHTDATA,20,37,44,13
+    LTEXT           "",IDC_OP_TEXT,69,37,155,12,SS_CENTERIMAGE | NOT WS_GROUP,WS_EX_STATICEDGE
+    PUSHBUTTON      "Clear",IDC_OP_CLEARDATA,233,37,44,13
+    CONTROL         "Bit Mask :",IDC_OP_RADIO1,"Button",BS_AUTORADIOBUTTON | BS_LEFT | WS_GROUP,17,59,48,8
+    COMBOBOX        IDC_OP_COMBO1,65,57,31,33,CBS_DROPDOWNLIST | CBS_SORT | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_OP_MASK,99,57,43,13,WS_DISABLED
+    CONTROL         "Set Value :",IDC_OP_RADIO2,"Button",BS_AUTORADIOBUTTON | BS_LEFT,162,59,49,8
+    EDITTEXT        IDC_OP_VALUE,228,56,49,13,WS_DISABLED
+    CONTROL         "Increment by :",IDC_OP_RADIO3,"Button",BS_AUTORADIOBUTTON | BS_LEFT,17,77,59,8
+    EDITTEXT        IDC_OP_INC,78,75,37,13,ES_NUMBER | WS_DISABLED
+    CONTROL         "Spin1",IDC_OP_INC_SPIN,"msctls_updown32",UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | UDS_NOTHOUSANDS,117,75,9,13
+    CONTROL         "Decrement by :",IDC_OP_RADIO4,"Button",BS_AUTORADIOBUTTON | BS_LEFT,162,77,61,8
+    EDITTEXT        IDC_OP_DEC,228,75,37,13,ES_NUMBER | WS_DISABLED
+    CONTROL         "Spin1",IDC_OP_DEC_SPIN,"msctls_updown32",UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | UDS_NOTHOUSANDS,267,75,11,13
+    GROUPBOX        "On Release",IDC_STATIC2,8,97,283,73
+    PUSHBUTTON      "Data/Cmd",IDC_OR_FLIGHTDATA,20,111,44,13
+    LTEXT           "",IDC_OR_TEXT,69,111,155,12,SS_CENTERIMAGE | NOT WS_GROUP,WS_EX_STATICEDGE
+    PUSHBUTTON      "Clear",IDC_OR_CLEARDATA,231,111,44,13
+    CONTROL         "Bit Mask :",IDC_OR_RADIO1,"Button",BS_AUTORADIOBUTTON | BS_LEFT | WS_GROUP,17,134,46,8
+    COMBOBOX        IDC_OR_COMBO1,65,132,31,33,CBS_DROPDOWNLIST | CBS_SORT | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_OR_MASK,99,132,43,13,WS_DISABLED
+    CONTROL         "Set Value :",IDC_OR_RADIO2,"Button",BS_AUTORADIOBUTTON | BS_LEFT,162,134,50,8
+    EDITTEXT        IDC_OR_VALUE,226,131,49,13,WS_DISABLED
+    CONTROL         "Increment by :",IDC_OR_RADIO3,"Button",BS_AUTORADIOBUTTON | BS_LEFT,17,152,59,8
+    EDITTEXT        IDC_OR_INC,78,150,37,13,ES_NUMBER | WS_DISABLED
+    CONTROL         "Spin1",IDC_OR_INC_SPIN,"msctls_updown32",UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | UDS_NOTHOUSANDS,117,150,11,13
+    CONTROL         "Decrement by :",IDC_OR_RADIO4,"Button",BS_AUTORADIOBUTTON | BS_LEFT,162,152,61,8
+    EDITTEXT        IDC_OR_DEC,226,150,37,13,ES_NUMBER | WS_DISABLED
+    CONTROL         "Spin1",IDC_OR_DEC_SPIN,"msctls_updown32",UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | UDS_NOTHOUSANDS,265,150,11,13
+    LTEXT           "Notes:",IDC_STATIC8,10,216,21,10
+    EDITTEXT        IDC_NOTES,33,215,205,12,ES_MULTILINE | ES_AUTOHSCROLL
+    PUSHBUTTON      "Clear All",IDC_CLEAR,247,215,39,13
+END
+
+IDD_LCD_LINES DIALOGEX 0, 0, 305, 160
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Enable Page Display",IDC_ENABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,7,82,9,WS_EX_TRANSPARENT
+    CONTROL         "Prev. Input Flag :",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,11,26,68,9,WS_EX_TRANSPARENT
+    COMBOBOX        IDC_COMBO_PREV,86,24,68,121,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_NEXT,219,24,68,121,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Display Page Input Flag :",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,11,44,90,9
+    COMBOBOX        IDC_COMBO_DISPLAY,105,42,68,133,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT1,7,66,274,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "<<",IDC_BUTTON1,281,66,17,12
+    EDITTEXT        IDC_EDIT2,7,80,274,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "<<",IDC_BUTTON2,281,80,17,12
+    EDITTEXT        IDC_EDIT3,7,94,274,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "<<",IDC_BUTTON3,281,94,17,12
+    EDITTEXT        IDC_EDIT4,7,108,274,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "<<",IDC_BUTTON4,281,108,17,12
+    EDITTEXT        IDC_EDIT5,7,122,274,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "<<",IDC_BUTTON5,281,122,17,12
+    GROUPBOX        "",IDC_STATIC1,7,7,291,55
+    LTEXT           "Next Input Flag :",IDC_STATIC,160,26,54,8
+    PUSHBUTTON      "Clear Page",IDC_CLEAR,130,139,46,14
+END
+
+IDD_CALSTEP DIALOGEX 0, 0, 186, 111
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTERMOUSE | WS_POPUP | WS_CAPTION
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Calibrate Stepper"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_CALIBRATE_OFFSET,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,28,8,8,WS_EX_TRANSPARENT,HIDC_CALIBRATE_OFFSET
+    EDITTEXT        IDC_OFFSET,99,26,51,12,ES_RIGHT | NOT WS_BORDER,WS_EX_CLIENTEDGE
+    CONTROL         "Spin1",IDC_SPIN1,"msctls_updown32",UDS_AUTOBUDDY | UDS_ARROWKEYS | WS_TABSTOP,149,26,11,12
+    CONTROL         "",IDC_CALIBRATE_MIN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,44,8,8,WS_EX_TRANSPARENT,HIDC_CALIBRATE_MIN
+    EDITTEXT        IDC_MIN,99,42,51,12,ES_RIGHT | NOT WS_BORDER,WS_EX_CLIENTEDGE
+    CONTROL         "Spin1",IDC_SPIN2,"msctls_updown32",UDS_AUTOBUDDY | UDS_ARROWKEYS | WS_TABSTOP,149,42,11,12
+    CONTROL         "",IDC_CALIBRATE_MAX,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,60,8,8,WS_EX_TRANSPARENT,HIDC_CALIBRATE_MAX
+    EDITTEXT        IDC_MAX,99,58,51,12,ES_RIGHT | NOT WS_BORDER,WS_EX_CLIENTEDGE
+    CONTROL         "Spin1",IDC_SPIN3,"msctls_updown32",UDS_AUTOBUDDY | UDS_ARROWKEYS | WS_TABSTOP,149,58,11,12
+    DEFPUSHBUTTON   "OK",IDOK,33,90,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,101,90,50,14
+    GROUPBOX        "Calibration",-1,7,0,172,83
+    LTEXT           "Set Min Position :",-1,31,44,62,8
+    LTEXT           "Set Max Position :",-1,31,60,62,8
+    LTEXT           "Set Offset Position :",-1,31,28,62,8
+    CTEXT           "Valid Range : -2147483648 <-> 2147483647",IDC_STATIC1,7,13,165,8,NOT WS_GROUP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 0,1,0,0
+ PRODUCTVERSION 1,0,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "GOBI"
+            VALUE "FileDescription", "Universal Simulation Interface Manager (ALPHA)"
+            VALUE "FileVersion", "0, 1, 0, 0"
+            VALUE "InternalName", "USIM"
+            VALUE "LegalCopyright", "Copyright (C) 2009"
+            VALUE "OriginalFilename", "usim.exe"
+            VALUE "ProductName", "Universal Simulation Interface Manager (ALPHA)"
+            VALUE "ProductVersion", "1, 0, 0, 0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_USIM_DIALOG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 316
+        BOTTOMMARGIN, 267
+    END
+
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 152
+    END
+
+    IDD_OUTPUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 298
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_DEFAULT, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 293
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_7SEG, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 295
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_RWR, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 298
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_GLCD, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 298
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_SPIDAC, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 298
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_DATAOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 255
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 179
+    END
+
+    IDD_REPLACE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 72
+    END
+
+    IDD_CALSPI, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 320
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 104
+    END
+
+    IDD_NOTES, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 298
+        BOTTOMMARGIN, 195
+    END
+
+    IDD_SEND_KEYS, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 298
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_INPUT_FLAGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 298
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_COND_INPUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 298
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_OUTPUT_FLAGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 298
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_SIMPATH, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 293
+        BOTTOMMARGIN, 283
+    END
+
+    IDD_VARSLIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 269
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 233
+    END
+
+    IDD_VARIABLES, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 298
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_LCD_LINES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 298
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 153
+    END
+
+    IDD_CALSTEP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 104
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_LOAD
+    BUTTON      ID_FILE_SAVE
+    BUTTON      ID_FILE_SAVE_AS
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT
+    BUTTON      IDD_ABOUTBOX
+    BUTTON      ID_HELP_FINDER
+    BUTTON      ID_APP_EXIT
+    BUTTON      IDS_UPDATE
+    BUTTON      IDS_FIRM_UPDATE
+    BUTTON      ID_F4SHOWDATA
+    BUTTON      ID_TRAY_RESTORE
+    BUTTON      ID_SHOWDATA
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_DIALOG_MENU MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Load...",                    ID_FILE_LOAD
+        MENUITEM "&Save",                       ID_FILE_SAVE, GRAYED
+        MENUITEM "S&ave as...",                 ID_FILE_SAVE_AS, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "&Exit",                       ID_APP_EXIT
+    END
+    POPUP "&Tools"
+    BEGIN
+        MENUITEM "&Software version check",     IDS_UPDATE
+        MENUITEM SEPARATOR
+        MENUITEM "Falcon Data",                 ID_F4SHOWDATA
+        MENUITEM "Real-Time Data",              ID_SHOWDATA
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Help Topics",                ID_HELP_FINDER
+        MENUITEM SEPARATOR
+        MENUITEM "&About...",                   IDD_ABOUTBOX
+    END
+END
+
+IDR_POPMENU MENU 
+BEGIN
+    POPUP "TrayMenu"
+    BEGIN
+        MENUITEM "Disable",                     ID_DISABLE
+        MENUITEM "Auto Connect",                ID_AUTOCONNECT
+        MENUITEM SEPARATOR
+        MENUITEM "Restore",                     ID_TRAY_RESTORE
+        MENUITEM SEPARATOR
+        MENUITEM "&Exit",                       ID_APP_EXIT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_OUTPUT DLGINIT
+BEGIN
+    IDC_OP_COMBO, 0x403, 2, 0
+0x003e, 
+    IDC_OP_COMBO, 0x403, 3, 0
+0x3d3e, "\000" 
+    IDC_OP_COMBO, 0x403, 2, 0
+0x003c, 
+    IDC_OP_COMBO, 0x403, 3, 0
+0x3d3c, "\000" 
+    IDC_OP_COMBO, 0x403, 2, 0
+0x003d, 
+    IDC_OP_COMBO, 0x403, 3, 0
+0x3d21, "\000" 
+    IDC_OP_COMBO, 0x403, 2, 0
+0x0026, 
+    IDC_OP_COMBO2, 0x403, 5, 0
+0x4f4e, 0x454e, "\000" 
+    IDC_OP_COMBO2, 0x403, 4, 0
+0x4e41, 0x0044, 
+    IDC_OP_COMBO2, 0x403, 3, 0
+0x524f, "\000" 
+    IDC_OP_COMBO3, 0x403, 2, 0
+0x003e, 
+    IDC_OP_COMBO3, 0x403, 3, 0
+0x3d3e, "\000" 
+    IDC_OP_COMBO3, 0x403, 2, 0
+0x003c, 
+    IDC_OP_COMBO3, 0x403, 3, 0
+0x3d3c, "\000" 
+    IDC_OP_COMBO3, 0x403, 2, 0
+0x003d, 
+    IDC_OP_COMBO3, 0x403, 3, 0
+0x3d21, "\000" 
+    0
+END
+
+IDD_REPLACE DLGINIT
+BEGIN
+    IDC_OP_COMBO, 0x403, 1, 0
+"\000" 
+    0
+END
+
+IDD_COND_INPUT DLGINIT
+BEGIN
+    IDC_LB1_COMBO, 0x403, 1, 0
+"\000" 
+    IDC_OP_COMBO, 0x403, 2, 0
+0x003e, 
+    IDC_OP_COMBO, 0x403, 3, 0
+0x3d3e, "\000" 
+    IDC_OP_COMBO, 0x403, 2, 0
+0x003c, 
+    IDC_OP_COMBO, 0x403, 3, 0
+0x3d3c, "\000" 
+    IDC_OP_COMBO, 0x403, 2, 0
+0x003d, 
+    IDC_OP_COMBO, 0x403, 3, 0
+0x3d21, "\000" 
+    IDC_OP_COMBO2, 0x403, 5, 0
+0x4f4e, 0x454e, "\000" 
+    IDC_OP_COMBO2, 0x403, 4, 0
+0x4e41, 0x0044, 
+    IDC_OP_COMBO2, 0x403, 3, 0
+0x524f, "\000" 
+    IDC_OP_COMBO3, 0x403, 2, 0
+0x003e, 
+    IDC_OP_COMBO3, 0x403, 3, 0
+0x3d3e, "\000" 
+    IDC_OP_COMBO3, 0x403, 2, 0
+0x003c, 
+    IDC_OP_COMBO3, 0x403, 3, 0
+0x3d3c, "\000" 
+    IDC_OP_COMBO3, 0x403, 2, 0
+0x003d, 
+    IDC_OP_COMBO3, 0x403, 3, 0
+0x3d21, "\000" 
+    IDC_UV_COMBO, 0x403, 1, 0
+"\000" 
+    IDC_UVOP_COMBO, 0x403, 2, 0
+0x003e, 
+    IDC_UVOP_COMBO, 0x403, 3, 0
+0x3d3e, "\000" 
+    IDC_UVOP_COMBO, 0x403, 2, 0
+0x003c, 
+    IDC_UVOP_COMBO, 0x403, 3, 0
+0x3d3c, "\000" 
+    IDC_UVOP_COMBO, 0x403, 2, 0
+0x003d, 
+    IDC_UVOP_COMBO, 0x403, 3, 0
+0x3d21, "\000" 
+    IDC_UVOP_COMBO2, 0x403, 5, 0
+0x4f4e, 0x454e, "\000" 
+    IDC_UVOP_COMBO2, 0x403, 4, 0
+0x4e41, 0x0044, 
+    IDC_UVOP_COMBO2, 0x403, 3, 0
+0x524f, "\000" 
+    IDC_UVOP_COMBO3, 0x403, 2, 0
+0x003e, 
+    IDC_UVOP_COMBO3, 0x403, 3, 0
+0x3d3e, "\000" 
+    IDC_UVOP_COMBO3, 0x403, 2, 0
+0x003c, 
+    IDC_UVOP_COMBO3, 0x403, 3, 0
+0x3d3c, "\000" 
+    IDC_UVOP_COMBO3, 0x403, 2, 0
+0x003d, 
+    IDC_UVOP_COMBO3, 0x403, 3, 0
+0x3d21, "\000" 
+    IDC_VAR_COMBO, 0x403, 1, 0
+"\000" 
+    0
+END
+
+IDD_VARIABLES DLGINIT
+BEGIN
+    IDC_OP_COMBO1, 0x403, 4, 0
+0x4e41, 0x0044, 
+    IDC_OP_COMBO1, 0x403, 3, 0
+0x524f, "\000" 
+    IDC_OR_COMBO1, 0x403, 4, 0
+0x4e41, 0x0044, 
+    IDC_OR_COMBO1, 0x403, 3, 0
+0x524f, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_SPLITTER            CURSOR                  "RES\\Splitter.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_UPDATE_AVAILABLE    "New version %d.%x.%x.%x is available online. Visit online update page?"
+    IDS_UPDATE_NO           "No Updates available."
+    IDS_UPDATE_NOCHECK      "Unable to check for updates."
+    IDS_VERSION             "Universal Simulation Interface Manager Version %s"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_1          "Interface File : "
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_2          " "
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_SAVE            "Save"
+    ID_FILE_SAVE_AS         "Save as..."
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EXPAND               "Expand all"
+    ID_FILE_LOAD            "Load file"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About USIM..."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_UPDATE              "http://www.betainnovations.ca/usim_update.txt"
+    IDS_HELPFILE            ".\\usim.pdf"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Canada) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENC)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_CAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_VARS_P              ICON                    "res\\offsets1.ico"
+IDI_VARS_B              ICON                    "res\\offsets_.ico"
+IDI_VARS                ICON                    "res\\vars.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_POPMENU TOOLBAR  16, 16
+BEGIN
+    BUTTON      ID_REFRESH
+    BUTTON      ID_EXPAND
+    BUTTON      ID_COLLAPSE
+    BUTTON      ID_CLEAR
+    BUTTON      ID_SWAP
+    BUTTON      ID_REMOVE
+    SEPARATOR
+    BUTTON      ID_COPY_ITEM
+    BUTTON      ID_PASTE_ITEM
+    BUTTON      ID_CLEAR_ITEM
+    BUTTON      ID_EXPORT_ITEM
+    BUTTON      ID_IMPORT_ITEM
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_POPMENU             BITMAP                  "res\\toolbar1.bmp"
+IDB_LOGO                BITMAP                  "res\\beta_logo_310.bmp"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\USIM.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (Canada) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\USIM.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

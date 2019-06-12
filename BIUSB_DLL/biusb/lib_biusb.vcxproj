@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{50FD1CF1-7357-4E25-BB0A-83D277EA0EF5}</ProjectGuid>
+    <RootNamespace>lib_biusb</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>15.0.27130.2010</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\Lib_Release\</OutDir>
+    <IntDir>.\Lib_Release\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\Lib_Debug\</OutDir>
+    <IntDir>.\Lib_Debug\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;HID_EXPORTS;BIHID_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeaderOutputFile>.\Lib_Release/lib_biusb.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Lib_Release/</AssemblerListingLocation>
+      <ObjectFileName>.\Lib_Release/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Lib_Release/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <CallingConvention>Cdecl</CallingConvention>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>Lib_Release\biusb.lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Lib_Release/lib_biusb.bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command>copy $(OutDir)biusb.lib "D:\Projects\CT129N Mill\PMM2_PlugIn\hid_dll"
+copy $(OutDir)biusb.lib "D:\Projects\CT129N Mill\DRO\DRO_PlugIn\hid_dll"
+copy $(OutDir)biusb.lib "D:\Projects\Joystick Project\Software\Device Manager\bi_cfg\HID_DLL"
+copy biusb.h "D:\My Documents\Download\CAD Tools\Mach3\SDK.2.62\PMM2_PlugIn\hid_dll"
+copy biusb.h "D:\Projects\Joystick Project\Software\Device Manager\bi_cfg\HID_DLL"
+copy intel_hex.h "D:\Projects\Joystick Project\Software\Device Manager\bi_cfg\HID_DLL"
+copy $(OutDir)biusb.lib "D:\Projects\Joystick Project\Software\USIM\USIM\hid_dll"
+copy intel_hex.h "D:\Projects\Joystick Project\Software\USIM\USIM\hid_dll"
+copy biusb.h "D:\Projects\Joystick Project\Software\USIM\USIM\hid_dll"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;HID_EXPORTS;BIHID_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeaderOutputFile>.\Lib_Debug/lib_biusb.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Lib_Debug/</AssemblerListingLocation>
+      <ObjectFileName>.\Lib_Debug/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Lib_Debug/</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CallingConvention>Cdecl</CallingConvention>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>Lib_Debug\biusbd.lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+    </Lib>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Lib_Debug/lib_biusb.bsc</OutputFile>
+    </Bscmake>
+    <PostBuildEvent>
+      <Command>copy $(OutDir)biusbd.lib "D:\Projects\CT129N Mill\PMM2_PlugIn\hid_dll"
+copy $(OutDir)biusbd.lib "D:\Projects\CT129N Mill\DRO\DRO_PlugIn\hid_dll"
+copy $(OutDir)biusbd.lib "D:\Projects\Joystick Project\Software\Device Manager\bi_cfg\HID_DLL"
+copy biusb.h "D:\Projects\Joystick Project\Software\Device Manager\bi_cfg\HID_DLL"
+copy intel_hex.h "D:\Projects\Joystick Project\Software\Device Manager\bi_cfg\HID_DLL"
+copy $(OutDir)biusbd.lib "D:\Projects\Joystick Project\Software\USIM\USIM\hid_dll"
+copy intel_hex.h "D:\Projects\Joystick Project\Software\USIM\USIM\hid_dll"
+copy biusb.h "D:\Projects\Joystick Project\Software\USIM\USIM\hid_dll"
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="biapi.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="biusb.cpp" />
+    <ClCompile Include="StdAfx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bidllapi.h" />
+    <ClInclude Include="biusb.h" />
+    <ClInclude Include="EFeeprom.h" />
+    <ClInclude Include="FUeeprom.h" />
+    <ClInclude Include="intel_hex.h" />
+    <ClInclude Include="PLeeprom.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="StdAfx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="biusb.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="biusb.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

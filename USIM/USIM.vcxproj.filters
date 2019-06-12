@@ -1,0 +1,1696 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{1e76c073-c25b-4a69-8d8b-876c5ac12c62}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Source Files\NewMenu">
+      <UniqueIdentifier>{a997191a-e7b8-4585-b5eb-081436f7db46}</UniqueIdentifier>
+      <Extensions>c</Extensions>
+    </Filter>
+    <Filter Include="Source Files\ColorTreeCtrl">
+      <UniqueIdentifier>{f4642dcf-225e-4888-9b09-06542b4f4736}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ReadOnlyEdit">
+      <UniqueIdentifier>{9ac84822-73ff-474d-9366-f41507f740c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\XTabCtrl">
+      <UniqueIdentifier>{0e907630-3552-48b0-9e32-0db919aee685}</UniqueIdentifier>
+      <Extensions>c</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Output">
+      <UniqueIdentifier>{5bd8ac73-0a68-40c4-a0d4-35f279af4522}</UniqueIdentifier>
+      <Extensions>c</Extensions>
+    </Filter>
+    <Filter Include="Source Files\amsEdit">
+      <UniqueIdentifier>{5288c186-dfdd-47e7-a616-2dae65d5f2d6}</UniqueIdentifier>
+      <Extensions>C</Extensions>
+    </Filter>
+    <Filter Include="Source Files\CEAdvButton">
+      <UniqueIdentifier>{07bb8bc7-621f-4204-aee7-963cbd0ed9a4}</UniqueIdentifier>
+      <Extensions>c</Extensions>
+    </Filter>
+    <Filter Include="Source Files\ButtonSSL">
+      <UniqueIdentifier>{dd9a376a-c87b-4894-971d-55a0f9debcd9}</UniqueIdentifier>
+      <Extensions>c</Extensions>
+    </Filter>
+    <Filter Include="Source Files\SmartEdit">
+      <UniqueIdentifier>{1427fd07-02f1-45f9-97f0-0101e6567f01}</UniqueIdentifier>
+      <Extensions>c</Extensions>
+    </Filter>
+    <Filter Include="Source Files\DefTabCtrl">
+      <UniqueIdentifier>{39d66336-f1cc-4942-810a-3d98eded3701}</UniqueIdentifier>
+      <Extensions>c</Extensions>
+    </Filter>
+    <Filter Include="Source Files\UpdateCheck">
+      <UniqueIdentifier>{55f2f5b5-3061-43ee-b4f0-e7e7beb52681}</UniqueIdentifier>
+      <Extensions>c</Extensions>
+    </Filter>
+    <Filter Include="Source Files\ThreadClass">
+      <UniqueIdentifier>{98074ae1-0683-44ae-b1c7-9edf047ebb35}</UniqueIdentifier>
+      <Extensions>c</Extensions>
+    </Filter>
+    <Filter Include="Source Files\PathSplit">
+      <UniqueIdentifier>{30f216c4-40dd-40cb-b4b4-83d6b612a9ee}</UniqueIdentifier>
+      <Extensions>c</Extensions>
+    </Filter>
+    <Filter Include="Source Files\GridCtrl">
+      <UniqueIdentifier>{60a498be-07be-4fb6-b346-7a53dc2e54c0}</UniqueIdentifier>
+      <Extensions>c</Extensions>
+    </Filter>
+    <Filter Include="Source Files\NewCellTypes">
+      <UniqueIdentifier>{0c735372-4bbb-42c1-b236-88ec5aaee685}</UniqueIdentifier>
+      <Extensions>c</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Version">
+      <UniqueIdentifier>{bbb2581e-3397-4063-9253-c437ef6ee294}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\HexEdit">
+      <UniqueIdentifier>{d55da3aa-441b-4f93-83ed-62dfa223f91d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Input">
+      <UniqueIdentifier>{c3ea54aa-da22-4680-a475-9b2419e048a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ResizableLib">
+      <UniqueIdentifier>{dc28344d-8b12-4430-a854-c4416f3e2c0f}</UniqueIdentifier>
+      <Extensions>c</Extensions>
+    </Filter>
+    <Filter Include="Source Files\xySplitterWnd">
+      <UniqueIdentifier>{dbf99752-0842-4fa1-9230-332b441b4846}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\TrayDialog">
+      <UniqueIdentifier>{34fb6ffb-6cd6-42a6-a326-c27d45302e6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\w32process">
+      <UniqueIdentifier>{85eb1258-7ab3-4b9d-9a6e-e533946bc688}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\NumSpinCtrl">
+      <UniqueIdentifier>{bfaad292-9100-426b-9417-34eb88c445e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\libtree">
+      <UniqueIdentifier>{13908032-5cf0-4c90-9761-6d5e1257b461}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\FileOperations">
+      <UniqueIdentifier>{ab3b269a-dab0-4a9e-9c06-a4bd56f47735}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\FileEdit">
+      <UniqueIdentifier>{43aded02-f2e8-4cc0-8656-728d9252742f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SimplexParser">
+      <UniqueIdentifier>{10d2ed38-1162-4546-96d2-b961a701b8f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{2e06913c-c906-4c56-b4d5-d85cf6067729}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Header Files\NewMenu_H">
+      <UniqueIdentifier>{1c9f98f7-f111-43f4-9c2b-ce066754db4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ColorTreeCtrl_H">
+      <UniqueIdentifier>{57e952ea-b7e8-4c9c-94a1-a851681d7645}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ReadOnlyEdit_H">
+      <UniqueIdentifier>{3d70fed0-04b6-4d84-883f-dd366fa617e2}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Header Files\XTabCtrl_H">
+      <UniqueIdentifier>{8b015aa0-6b9a-462f-a7cf-890c8d9dc778}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Output_H">
+      <UniqueIdentifier>{dbfc9845-d185-4f65-a1cc-979e65db9551}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Header Files\CEAdvButton_H">
+      <UniqueIdentifier>{8ce72267-58bf-4bb7-ac25-e98710b4873d}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Header Files\ButtonSSL_H">
+      <UniqueIdentifier>{5a716e4c-09ae-478e-baff-69ece76bcb87}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Header Files\SmartEdit_H">
+      <UniqueIdentifier>{b4145168-019a-45d4-aabb-e124d52d800c}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Header Files\DefTabCtrl_H">
+      <UniqueIdentifier>{9dc3d39f-8c46-4ef0-b8ef-9ced413c9ea0}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Header Files\UpdateCheck_H">
+      <UniqueIdentifier>{703149b1-ad65-4a23-a086-3d01d180bd61}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Header Files\ThreadClass_H">
+      <UniqueIdentifier>{2d0c0afd-b1f3-4919-9303-eab45cf80917}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Header Files\GridCtrl_H">
+      <UniqueIdentifier>{3726ca39-2fac-4847-8bd1-628908c8199d}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Header Files\NewCellTypes_H">
+      <UniqueIdentifier>{20c98bd3-3eed-4076-9a94-1c4fad6ff137}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Version_H">
+      <UniqueIdentifier>{cfdf6fe9-adce-4868-bc03-8598da51e8ef}</UniqueIdentifier>
+      <Extensions>H</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Inputs_H">
+      <UniqueIdentifier>{04146c7c-a8bd-4566-a795-e8115b875710}</UniqueIdentifier>
+      <Extensions>H</Extensions>
+    </Filter>
+    <Filter Include="Header Files\ResizableLib_H">
+      <UniqueIdentifier>{58afa775-9f1b-4e56-b48c-8764b3122e81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\w32process_H">
+      <UniqueIdentifier>{20faffd3-8ba2-4b04-9576-af625d70be23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\TrayDialog_H">
+      <UniqueIdentifier>{8f92a0f7-060f-4c9d-9e36-cdb809d57be0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{a2ac1758-17fd-4e36-b2b5-c4c88054fbe8}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="Help Files">
+      <UniqueIdentifier>{afc7aa66-153c-40c1-aefd-349d6e1e97a3}</UniqueIdentifier>
+      <Extensions>cnt;rtf</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="F4DataOut.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F4SharedMem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GPXSharedMem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyboardHook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyStatusBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ReplaceDevice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RFSharedMem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SaveDevice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SaveUserVars.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SimBinSharedMem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeDevices.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="USIM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="USIMDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VarListDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XPSharedMem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NewMenu\NewMenu.cpp">
+      <Filter>Source Files\NewMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorTreeCtrl\TreeCtrlEx.cpp">
+      <Filter>Source Files\ColorTreeCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadOnlyEdit\ReadOnlyEdit.cpp">
+      <Filter>Source Files\ReadOnlyEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="XTabCtrl\XTabCtrl.cpp">
+      <Filter>Source Files\XTabCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="CalSPI.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="CalSTEP.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="CLCDFlagsTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="CLCDLinesTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="CLCDLinesTabCtrl.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="CLCDNotesTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="CLCDPage.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="CLCDTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="CLCDTabCtrl.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="DispFlagsTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayPage.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="DispNotesTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="DispTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="DispTabCtrl.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="DotMXFlagsTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="DotMXNotesTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="DotMXPage.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="DotMXTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="DotMXTabCtrl.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="FlagsPage.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="FlagsTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="GLCDFlagsTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="GLCDLinesTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="GLCDLinesTabCtrl.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="GLCDNotesTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="GLCDTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="GLCDTabCtrl.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="LatchedFlagsTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="LatchedNotesTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="LatchedTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="LatchedTabCtrl.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="MuxFlagsTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="MuxNotesTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="MuxTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="MuxTabCtrl.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputFlagsTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputNotesTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputPage.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputTabCtrl.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="RWRFlagsTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="RWRNotesTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="RwrPage.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="RWRTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="RWRTabCtrl.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="SPIFlagsTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="SPINotesTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="SPIPage.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="SPITab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="SPITabCtrl.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="STEPFlagsTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="STEPNotesTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="STEPPage.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="STEPTab.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="STEPTabCtrl.cpp">
+      <Filter>Source Files\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="amsEdit\amsEdit.cpp">
+      <Filter>Source Files\amsEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="CEAdvButton\CEAdvButton.cpp">
+      <Filter>Source Files\CEAdvButton</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonSSL\ButtonSSL.cpp">
+      <Filter>Source Files\ButtonSSL</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonSSL\OddButton.cpp">
+      <Filter>Source Files\ButtonSSL</Filter>
+    </ClCompile>
+    <ClCompile Include="SmartEdit\Sliders.cpp">
+      <Filter>Source Files\SmartEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="SmartEdit\SmartEdit.cpp">
+      <Filter>Source Files\SmartEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultTab.cpp">
+      <Filter>Source Files\DefTabCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="DefTabCtrl.cpp">
+      <Filter>Source Files\DefTabCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="SimPathTab.cpp">
+      <Filter>Source Files\DefTabCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateCheck\UpdateCheck.cpp">
+      <Filter>Source Files\UpdateCheck</Filter>
+    </ClCompile>
+    <ClCompile Include="IL2_UDPThread.cpp">
+      <Filter>Source Files\ThreadClass</Filter>
+    </ClCompile>
+    <ClCompile Include="InputThread.cpp">
+      <Filter>Source Files\ThreadClass</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyCheckThread.cpp">
+      <Filter>Source Files\ThreadClass</Filter>
+    </ClCompile>
+    <ClCompile Include="LFS_UDPThread.cpp">
+      <Filter>Source Files\ThreadClass</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputThread.cpp">
+      <Filter>Source Files\ThreadClass</Filter>
+    </ClCompile>
+    <ClCompile Include="SendKeysThread.cpp">
+      <Filter>Source Files\ThreadClass</Filter>
+    </ClCompile>
+    <ClCompile Include="SimConnectThread.cpp">
+      <Filter>Source Files\ThreadClass</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadClass\Thread.cpp">
+      <Filter>Source Files\ThreadClass</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeThread.cpp">
+      <Filter>Source Files\ThreadClass</Filter>
+    </ClCompile>
+    <ClCompile Include="PathSplit\CPathSplit.cpp">
+      <Filter>Source Files\PathSplit</Filter>
+    </ClCompile>
+    <ClCompile Include="GridCtrl_src\GridCell.cpp">
+      <Filter>Source Files\GridCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="GridCtrl_src\GridCellBase.cpp">
+      <Filter>Source Files\GridCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="GridCtrl_src\GridCtrl.cpp">
+      <Filter>Source Files\GridCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="GridCtrl_src\GridDropTarget.cpp">
+      <Filter>Source Files\GridCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="GridCtrl_src\InPlaceEdit.cpp">
+      <Filter>Source Files\GridCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="GridCtrl_src\TitleTip.cpp">
+      <Filter>Source Files\GridCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="NewCellTypes\GridCellCheck.cpp">
+      <Filter>Source Files\NewCellTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="NewCellTypes\GridCellCombo.cpp">
+      <Filter>Source Files\NewCellTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="NewCellTypes\GridCellDateTime.cpp">
+      <Filter>Source Files\NewCellTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="NewCellTypes\GridCellNumeric.cpp">
+      <Filter>Source Files\NewCellTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="NewCellTypes\GridCellRadio.cpp">
+      <Filter>Source Files\NewCellTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="NewCellTypes\GridURLCell.cpp">
+      <Filter>Source Files\NewCellTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="Version\Version.cpp">
+      <Filter>Source Files\Version</Filter>
+    </ClCompile>
+    <ClCompile Include="HexEdit\HexEdit.cpp">
+      <Filter>Source Files\HexEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="InputFlagTab.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="InputsTabCtrl.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="NotesPage.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="NotesTab.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="SendKeysPage.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="SendKeysTab.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="VariablesPage.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="VariablesTab.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="ResizableLib\ResizableDialog.cpp">
+      <Filter>Source Files\ResizableLib</Filter>
+    </ClCompile>
+    <ClCompile Include="ResizableLib\ResizableGrip.cpp">
+      <Filter>Source Files\ResizableLib</Filter>
+    </ClCompile>
+    <ClCompile Include="ResizableLib\ResizableLayout.cpp">
+      <Filter>Source Files\ResizableLib</Filter>
+    </ClCompile>
+    <ClCompile Include="ResizableLib\ResizableMinMax.cpp">
+      <Filter>Source Files\ResizableLib</Filter>
+    </ClCompile>
+    <ClCompile Include="ResizableLib\ResizableState.cpp">
+      <Filter>Source Files\ResizableLib</Filter>
+    </ClCompile>
+    <ClCompile Include="xySplitterWnd\xySplitterWnd.cpp">
+      <Filter>Source Files\xySplitterWnd</Filter>
+    </ClCompile>
+    <ClCompile Include="TrayDialog\TrayDialog.cpp">
+      <Filter>Source Files\TrayDialog</Filter>
+    </ClCompile>
+    <ClCompile Include="w32process\w32process.cpp">
+      <Filter>Source Files\w32process</Filter>
+    </ClCompile>
+    <ClCompile Include="NumSpinCtrl\NumSpinCtrl.cpp">
+      <Filter>Source Files\NumSpinCtrl</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\editmask.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTree.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeCheckButton.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeColorPopUp.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeFileDlg.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeFontSel.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeFontSelColorButton.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeFontSelFontCombo.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeFontSelGlobals.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeFontSelSizeCombo.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeImagePopUp.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeInfo.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeIPAddressEdit.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeItem.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeItemCheckBox.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeItemColor.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeItemComboBox.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeItemDate.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeItemFile.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeItemFont.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeItemHyperLink.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeItemImage.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeItemIPAddress.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeItemRadio.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeItemSpinner.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeItemStatic.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeList.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeRadioButton.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeSpinnerButton.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\OptionTreeSpinnerEdit.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\PreciseTimer.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="libtree\regexp.cpp">
+      <Filter>Source Files\libtree</Filter>
+    </ClCompile>
+    <ClCompile Include="FileOperations\FileOperations.cpp">
+      <Filter>Source Files\FileOperations</Filter>
+    </ClCompile>
+    <ClCompile Include="FileEdit.cpp">
+      <Filter>Source Files\FileEdit</Filter>
+    </ClCompile>
+    <ClCompile Include="SimplexParser\FormelParser.cpp">
+      <Filter>Source Files\SimplexParser</Filter>
+    </ClCompile>
+    <ClCompile Include="SimplexParser\PhysConst.cpp">
+      <Filter>Source Files\SimplexParser</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CalSTEP.h">
+      <Filter>Source Files\Output</Filter>
+    </ClInclude>
+    <ClInclude Include="STEPFlagsTab.h">
+      <Filter>Source Files\Output</Filter>
+    </ClInclude>
+    <ClInclude Include="amsEdit\amsEdit.h">
+      <Filter>Source Files\amsEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="PathSplit\CPathSplit.h">
+      <Filter>Source Files\PathSplit</Filter>
+    </ClInclude>
+    <ClInclude Include="HexEdit\HexEdit.h">
+      <Filter>Source Files\HexEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="xySplitterWnd\xySplitterWnd.h">
+      <Filter>Source Files\xySplitterWnd</Filter>
+    </ClInclude>
+    <ClInclude Include="NumSpinCtrl\NumSpinCtrl.h">
+      <Filter>Source Files\NumSpinCtrl</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\editmask.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTree.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeCheckButton.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeColorPopUp.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeDef.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeFileDlg.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeFontSel.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeFontSelColorButton.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeFontSelFontCombo.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeFontSelGlobals.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeFontSelSizeCombo.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeImagePopUp.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeInfo.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeIPAddressEdit.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeItem.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeItemCheckBox.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeItemColor.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeItemComboBox.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeItemDate.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeItemFile.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeItemFont.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeItemHyperLink.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeItemImage.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeItemIPAddress.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeItemRadio.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeItemSpinner.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeItemStatic.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeList.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeRadioButton.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeSpinnerButton.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\OptionTreeSpinnerEdit.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\PreciseTimer.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="libtree\regexp.h">
+      <Filter>Source Files\libtree</Filter>
+    </ClInclude>
+    <ClInclude Include="FileOperations\FileOperations.h">
+      <Filter>Source Files\FileOperations</Filter>
+    </ClInclude>
+    <ClInclude Include="FileEdit.h">
+      <Filter>Source Files\FileEdit</Filter>
+    </ClInclude>
+    <ClInclude Include="SimplexParser\FormelParser.h">
+      <Filter>Source Files\SimplexParser</Filter>
+    </ClInclude>
+    <ClInclude Include="SimplexParser\PhysConst.h">
+      <Filter>Source Files\SimplexParser</Filter>
+    </ClInclude>
+    <ClInclude Include="AFflightData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="hid_dll\BIAPI.H">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="hid_dll\bicfg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BMSflightData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="COptionTree\CommonRes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F4DataOut.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F4FlightData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F4SharedMem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F4VarList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GPXdatarefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GPXSharedMem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GPXSimData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IL2datarefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IL2FlightData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="hid_dll\intel_hex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyboardHook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LFSdatarefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LFSSimData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyStatusBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReplaceDevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RFdatarefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RFSharedMem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RFSimData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveDevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveUserVars.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SimBindatarefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SimBinSharedMem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SimBinSimData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeDevices.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="USIM.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="USIMDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VarListDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XPdatarefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XPFlightData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XPSharedMem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NewMenu\NewMenu.h">
+      <Filter>Header Files\NewMenu_H</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorTreeCtrl\TreeCtrlEx.h">
+      <Filter>Header Files\ColorTreeCtrl_H</Filter>
+    </ClInclude>
+    <ClInclude Include="Format.h">
+      <Filter>Header Files\ReadOnlyEdit_H</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadOnlyEdit\ReadOnlyEdit.h">
+      <Filter>Header Files\ReadOnlyEdit_H</Filter>
+    </ClInclude>
+    <ClInclude Include="XTabCtrl\XTabCtrl.h">
+      <Filter>Header Files\XTabCtrl_H</Filter>
+    </ClInclude>
+    <ClInclude Include="CalSPI.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="CLCDFlagsTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="CLCDLinesTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="CLCDLinesTabCtrl.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="CLCDNotesTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="CLCDPage.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="CLCDTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="CLCDTabCtrl.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="DispFlagsTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayPage.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="DispNotesTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="DispTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="DispTabCtrl.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="DotMXFlagsTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="DotMXNotesTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="DotMXPage.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="DotMXTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="DotMXTabCtrl.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="FlagsPage.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="FlagsTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="GLCDFlagsTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="GLCDLinesTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="GLCDLinesTabCtrl.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="GLCDNotesTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="GLCDTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="GLCDTabCtrl.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="LatchedFlagsTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="LatchedNotesTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="LatchedTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="LatchedTabCtrl.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="MuxFlagsTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="MuxNotesTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="MuxTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="MuxTabCtrl.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputFlagsTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputNotesTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputPage.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputTabCtrl.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="RWRFlagsTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="RWRNotesTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="RwrPage.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="RWRTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="RWRTabCtrl.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="SPIFlagsTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="SPINotesTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="SPIPage.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="SPITab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="SPITabCtrl.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="STEPNotesTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="STEPPage.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="STEPTab.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="STEPTabCtrl.h">
+      <Filter>Header Files\Output_H</Filter>
+    </ClInclude>
+    <ClInclude Include="CEAdvButton\CEAdvButton.h">
+      <Filter>Header Files\CEAdvButton_H</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonSSL\ButtonSSL.h">
+      <Filter>Header Files\ButtonSSL_H</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonSSL\OddButton.h">
+      <Filter>Header Files\ButtonSSL_H</Filter>
+    </ClInclude>
+    <ClInclude Include="SmartEdit\Sliders.h">
+      <Filter>Header Files\SmartEdit_H</Filter>
+    </ClInclude>
+    <ClInclude Include="SmartEdit\SmartEdit.h">
+      <Filter>Header Files\SmartEdit_H</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultTab.h">
+      <Filter>Header Files\DefTabCtrl_H</Filter>
+    </ClInclude>
+    <ClInclude Include="DefTabCtrl.h">
+      <Filter>Header Files\DefTabCtrl_H</Filter>
+    </ClInclude>
+    <ClInclude Include="SimPathTab.h">
+      <Filter>Header Files\DefTabCtrl_H</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateCheck\UpdateCheck.h">
+      <Filter>Header Files\UpdateCheck_H</Filter>
+    </ClInclude>
+    <ClInclude Include="IL2_UDPThread.h">
+      <Filter>Header Files\ThreadClass_H</Filter>
+    </ClInclude>
+    <ClInclude Include="InputThread.h">
+      <Filter>Header Files\ThreadClass_H</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyCheckThread.h">
+      <Filter>Header Files\ThreadClass_H</Filter>
+    </ClInclude>
+    <ClInclude Include="LFS_UDPThread.h">
+      <Filter>Header Files\ThreadClass_H</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputThread.h">
+      <Filter>Header Files\ThreadClass_H</Filter>
+    </ClInclude>
+    <ClInclude Include="SendKeysThread.h">
+      <Filter>Header Files\ThreadClass_H</Filter>
+    </ClInclude>
+    <ClInclude Include="SimConnectThread.h">
+      <Filter>Header Files\ThreadClass_H</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadClass\Thread.h">
+      <Filter>Header Files\ThreadClass_H</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeThread.h">
+      <Filter>Header Files\ThreadClass_H</Filter>
+    </ClInclude>
+    <ClInclude Include="GridCtrl_src\CellRange.h">
+      <Filter>Header Files\GridCtrl_H</Filter>
+    </ClInclude>
+    <ClInclude Include="GridCtrl_src\GridCell.h">
+      <Filter>Header Files\GridCtrl_H</Filter>
+    </ClInclude>
+    <ClInclude Include="GridCtrl_src\GridCellBase.h">
+      <Filter>Header Files\GridCtrl_H</Filter>
+    </ClInclude>
+    <ClInclude Include="GridCtrl_src\GridCtrl.h">
+      <Filter>Header Files\GridCtrl_H</Filter>
+    </ClInclude>
+    <ClInclude Include="GridCtrl_src\GridDropTarget.h">
+      <Filter>Header Files\GridCtrl_H</Filter>
+    </ClInclude>
+    <ClInclude Include="GridCtrl_src\InPlaceEdit.h">
+      <Filter>Header Files\GridCtrl_H</Filter>
+    </ClInclude>
+    <ClInclude Include="GridCtrl_src\MemDC.h">
+      <Filter>Header Files\GridCtrl_H</Filter>
+    </ClInclude>
+    <ClInclude Include="GridCtrl_src\TitleTip.h">
+      <Filter>Header Files\GridCtrl_H</Filter>
+    </ClInclude>
+    <ClInclude Include="NewCellTypes\GridCellCheck.h">
+      <Filter>Header Files\NewCellTypes_H</Filter>
+    </ClInclude>
+    <ClInclude Include="NewCellTypes\GridCellCombo.h">
+      <Filter>Header Files\NewCellTypes_H</Filter>
+    </ClInclude>
+    <ClInclude Include="NewCellTypes\GridCellDateTime.h">
+      <Filter>Header Files\NewCellTypes_H</Filter>
+    </ClInclude>
+    <ClInclude Include="NewCellTypes\GridCellNumeric.h">
+      <Filter>Header Files\NewCellTypes_H</Filter>
+    </ClInclude>
+    <ClInclude Include="NewCellTypes\GridCellRadio.h">
+      <Filter>Header Files\NewCellTypes_H</Filter>
+    </ClInclude>
+    <ClInclude Include="NewCellTypes\GridURLCell.h">
+      <Filter>Header Files\NewCellTypes_H</Filter>
+    </ClInclude>
+    <ClInclude Include="Version\Version.h">
+      <Filter>Header Files\Version_H</Filter>
+    </ClInclude>
+    <ClInclude Include="InputFlagTab.h">
+      <Filter>Header Files\Inputs_H</Filter>
+    </ClInclude>
+    <ClInclude Include="InputsTabCtrl.h">
+      <Filter>Header Files\Inputs_H</Filter>
+    </ClInclude>
+    <ClInclude Include="NotesPage.h">
+      <Filter>Header Files\Inputs_H</Filter>
+    </ClInclude>
+    <ClInclude Include="NotesTab.h">
+      <Filter>Header Files\Inputs_H</Filter>
+    </ClInclude>
+    <ClInclude Include="SendKeysPage.h">
+      <Filter>Header Files\Inputs_H</Filter>
+    </ClInclude>
+    <ClInclude Include="SendKeysTab.h">
+      <Filter>Header Files\Inputs_H</Filter>
+    </ClInclude>
+    <ClInclude Include="VariablesPage.h">
+      <Filter>Header Files\Inputs_H</Filter>
+    </ClInclude>
+    <ClInclude Include="VariablesTab.h">
+      <Filter>Header Files\Inputs_H</Filter>
+    </ClInclude>
+    <ClInclude Include="ResizableLib\ResizableDialog.h">
+      <Filter>Header Files\ResizableLib_H</Filter>
+    </ClInclude>
+    <ClInclude Include="ResizableLib\ResizableGrip.h">
+      <Filter>Header Files\ResizableLib_H</Filter>
+    </ClInclude>
+    <ClInclude Include="ResizableLib\ResizableLayout.h">
+      <Filter>Header Files\ResizableLib_H</Filter>
+    </ClInclude>
+    <ClInclude Include="ResizableLib\ResizableMinMax.h">
+      <Filter>Header Files\ResizableLib_H</Filter>
+    </ClInclude>
+    <ClInclude Include="ResizableLib\ResizableState.h">
+      <Filter>Header Files\ResizableLib_H</Filter>
+    </ClInclude>
+    <ClInclude Include="w32process\w32process.h">
+      <Filter>Header Files\w32process_H</Filter>
+    </ClInclude>
+    <ClInclude Include="TrayDialog\TrayDialog.h">
+      <Filter>Header Files\TrayDialog_H</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="arrow.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="RES\Splitter.cur">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\USIM.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="hlp\AfxDlg.rtf">
+      <Filter>Help Files</Filter>
+    </None>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\beta_logo_310.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\BI_CFG.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmap1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\card.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\card1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\clcd1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\cond.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\cond1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\cond_p1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\dac1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\dac2.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\dac_dis1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\dac_p1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\dacs1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\devices1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\digital.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\dis_off.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\dis_off1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\dis_off_p.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\dis_on.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\dis_p.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\dm.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\dm_dis.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\dm_p.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\dm_p1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\dmdisp.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\dmdisp1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\dmdisp_d.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\dmxs_p.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\down.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\F4-BMS.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\f4on1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\falcon1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\favicon.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\glcd1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\glcd1_p.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\glcd_dis.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\gr_off.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\gr_off_p.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\gr_on.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\gr_on_p.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\help.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00001.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00002.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00003.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00004.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00005.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00006.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00007.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00008.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00009.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00010.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00011.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00012.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00013.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00014.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00015.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ico00016.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\ico00017.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\ico00018.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\ico00019.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\ico00020.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\ico00021.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\ico00022.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\ico00023.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\ico00024.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\ico00025.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\ico00026.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\ico00027.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\ico00028.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\icon1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\icon2.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\input.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\input1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\joystick1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\joystick2.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\jp1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\kbs1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\kbs2.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\kbs3.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\KEYBRD02.ICO">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\KEYBRD03.ICO">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\keys.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\latched.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\latched_.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\lcd_dis_.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\lcd_on.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\lcd_on1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\lcd_on_p.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\lcd_page.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\lo1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\minus1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\mux1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\mux_dis1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\NETHOOD.ICO">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\no_card.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\non.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\notes1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\notes_p1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\off.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\off1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\offsets1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\offsets_.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\on.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\on_red.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\output1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Pc3.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\plcc.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\plcc1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\plcc_dis.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\plus1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\port1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\port3.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\que1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\red_off.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\red_off1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\red_on.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\red_on1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\rotary1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\rwr1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\rwr_dis1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\spi.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\spi1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\spi_dis.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\spi_dis_.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\spi_p.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\spim1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\spis_p1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\step.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\step_dis.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\step_p.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\steps.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\steps_di.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Toolbar.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\toolbar1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\update.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\usb1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\Usb2.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\USIM.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\usim_dis.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\usim_off.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\usim_on2.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\vars.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="USIM.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="hid_dll\biusb.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="hid_dll\biusb_dev.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>
