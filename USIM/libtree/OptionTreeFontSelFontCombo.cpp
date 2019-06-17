@@ -31,6 +31,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
+#define AFX_IDB_TRUETYPE 32384
 /////////////////////////////////////////////////////////////////////////////
 // COptionTreeFontSelFontCombo
 

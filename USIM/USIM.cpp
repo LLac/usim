@@ -2,7 +2,7 @@
 //
 
 #include "stdafx.h"
-#include <vld.h>
+//#include <vld.h>
 #include "USIM.h"
 #include "USIMDlg.h"
 #include "VarListDlg.h"

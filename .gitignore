@@ -355,3 +355,7 @@ MigrationBackup/
 /BIUSB_DLL/biusb/Lib_Release/biusb.lib
 /BIUSB_DLL/biusb/Lib_Release/biusb.res
 /BIUSB_DLL/biusb/Lib_Release/vc90.idb
+*.tlog
+*.lastbuildstate
+/BIUSB_DLL/biusb/Lib_Debug/lib_biusb.idb
+/USIM/HLP/USIM.hm
