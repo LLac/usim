@@ -113,7 +113,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(OutDir)USIMx64.exe" "C:\Projects\Joystick Project\Software\USIM\USIM\Debug"</Command>
+      <Command>copy "$(OutDir)USIMx64.exe" "$(OutDir)..\..\..\USIM\Debug"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
