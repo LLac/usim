@@ -83,7 +83,6 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -153,7 +152,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(OutDir)USIMx64.exe" "C:\Projects\Joystick Project\Software\USIM\USIM\Release"</Command>
+      <Command>copy "$(OutDir)USIMx64.exe" "$(OutDir)..\..\..\USIM\Release"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
