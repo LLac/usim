@@ -72,7 +72,7 @@ DWORD CSimConnectThread::ThreadHandler()
 	static UCHAR Dispatcher = 0;
 	static UCHAR pulseme = 0;
 	STARTUPINFO info={sizeof(info)};
-	CString cPath = "USIMx64.exe";
+
 	SECURITY_ATTRIBUTES saAttr; 
 	BOOL ErrorFound = false;
 
@@ -116,8 +116,8 @@ DWORD CSimConnectThread::ThreadHandler()
 					pulseme = !pulseme;
 					pUSIMDlg->TrayUpdate();
 				}
+				ScanProcesses();
 			}
-			ScanProcesses();
 			break;
 
 		case CThread::CMD_INITIALIZE:
@@ -170,7 +170,7 @@ DWORD CSimConnectThread::ThreadHandler()
 					info.hStdInput = g_hChildStd_IN_Rd;
 					info.dwFlags |= STARTF_USESTDHANDLES;
 
-					CreateProcess((LPTSTR)(LPCTSTR)cPath, 
+					CreateProcess((LPTSTR)(LPCTSTR)IDS_CPATH,	// Launch USIM x64 child process
 						NULL, 
 						NULL, 
 						NULL, 
@@ -188,6 +188,11 @@ DWORD CSimConnectThread::ThreadHandler()
 		case CThread::CMD_PAUSE:
 			m_Run = FALSE;
 			SetActivityStatus(CThread::THREAD_PAUSED);
+			break;
+
+		case CThread::CMD_CONTINUE:
+			m_Run = TRUE;
+			SetActivityStatus(CThread::THREAD_CONTINUING);
 			break;
 
 		case CThread::CMD_STOP:
@@ -233,7 +238,7 @@ void CSimConnectThread::ScanProcesses()
 	BOOL bSuccess = 0;
 
 	// 50 ms elapsed
-	if ((timeGetTime() - m_deltaT_IW) < 500) 
+	if ((timeGetTime() - m_deltaT_IW) < 500) // check sim status every 0.5 sec
 		return;
 
 	m_deltaT_IW = timeGetTime();
@@ -371,9 +376,6 @@ void CSimConnectThread::SimConnect(UINT nIndex)
 			break;
 
 		case SIM_F4BMS:
-		case SIM_F4AF:
-		case SIM_F4FF:
-		case SIM_F4OF:
 			// load config file
 			if (!theApp.SimList[nIndex].USCFile.IsEmpty())
 				theApp.m_FilePath = theApp.SimList[nIndex].USCFile;
@@ -455,10 +457,7 @@ void CSimConnectThread::SimConnect(UINT nIndex)
 	if (retflag) {
 		theApp.m_SimulationModel = (UCHAR)theApp.SimList[nIndex].SimType;
 
-//		if (theApp.m_KeyCheckThread.GetActivityStatus() == CThread::THREAD_RUNNING)
-			pUSIMDlg->TraySetIcon(IDI_USIM_ON);
-//		else
-//			pUSIMDlg->TraySetIcon(IDI_USIM_RED);
+		pUSIMDlg->TraySetIcon(IDI_USIM_ON);
 		pUSIMDlg->TrayUpdate();
 		TRACE("Simtype %d running...\n", theApp.SimList[nIndex].SimType);
 	} else {
@@ -503,9 +502,6 @@ void CSimConnectThread::SimDisconnect(UINT SimType)
 			break;
 
 		case SIM_F4BMS:
-		case SIM_F4AF:
-		case SIM_F4FF:
-		case SIM_F4OF:
 			theApp.m_F4SharedMem.StopSharedMem();
 			break;
 

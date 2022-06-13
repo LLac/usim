@@ -62,7 +62,7 @@ private:
 	void UpdateSTEP(UINT, UINT);
 	void UpdateSingleSTEP(CSTEPPage *, UINT, UINT, UINT);
 
-	BOOL CheckConditions(double, COutputPage *);
+	BOOL CheckConditions(double, double, COutputPage *);
 	BOOL CheckFlags(CFlagsPage *);
 	BOOL CheckLCDPageFlags(CFlagsPage *);
 	CString ParseLCDText(CString, UCHAR);

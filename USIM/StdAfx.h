@@ -82,7 +82,6 @@ extern "C"
 
 #include "F4FlightData.h"
 #include "BMSflightData.h"
-#include "AFflightData.h"
 #include "F4VarList.h"
 
 #define ArraySize(X) (sizeof X / sizeof *X)

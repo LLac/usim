@@ -28,6 +28,8 @@ struct _BITS_LIST
 #define ALTBITS			0x0100
 #define POWERBITS		0x0200
 #define BLINKBITS		0x0400
+#define TACANBITS		0x0800
+#define MISCBITS		0x1000
 #define ALLUSERBITS		0x0FFF
 
 _BITS_LIST const F4BitsArray[] = { 
@@ -36,14 +38,14 @@ _BITS_LIST const F4BitsArray[] = {
 	{"Falcon_4/LightBits_1/User_Defined_LightBits_1",		0,								USERLIGHTBITS_1},
 	{"Falcon_4/LightBits_1/Caution_Lights/Master_Caution",	F4FlightData::MasterCaution,	LIGHTBITS_1},
 	{"Falcon_4/LightBits_1/Brow_Lights/TF",					F4FlightData::TF,				LIGHTBITS_1},
-	{"Falcon_4/LightBits_1/Brow_Lights/OBS",				F4FlightData::OBS,				LIGHTBITS_1},
-	{"Falcon_4/LightBits_1/Brow_Lights/ALT",				F4FlightData::ALT,				LIGHTBITS_1},
-	{"Falcon_4/LightBits_1/Brow_Lights/BMS:WOW",			F4FlightData::WOW,				LIGHTBITS_1},
+	{"Falcon_4/LightBits_1/Brow_Lights/OXY_BROW",			F4FlightData::OXY_BROW,			LIGHTBITS_1},
+	{"Falcon_4/LightBits_1/Brow_Lights/EQUIP_HOT",			F4FlightData::EQUIP_HOT,		LIGHTBITS_1},
+	{"Falcon_4/LightBits_1/Brow_Lights/ONGROUND",		 F4FlightData::ONGROUND,			LIGHTBITS_1},
 	{"Falcon_4/LightBits_1/Brow_Lights/ENG_FIRE",			F4FlightData::ENG_FIRE,			LIGHTBITS_1},
 	{"Falcon_4/LightBits_1/Brow_Lights/CONFIG",				F4FlightData::CONFIG,			LIGHTBITS_1},
 	{"Falcon_4/LightBits_1/Brow_Lights/HYD",				F4FlightData::HYD,				LIGHTBITS_1},
-	{"Falcon_4/LightBits_1/Brow_Lights/OIL",				F4FlightData::OIL,				LIGHTBITS_1},
-	{"Falcon_4/LightBits_1/Brow_Lights/DUAL",				F4FlightData::DUAL,				LIGHTBITS_1},
+	{"Falcon_4/LightBits_1/Brow_Lights/Flcs_ABCD",			F4FlightData::Flcs_ABCD,		LIGHTBITS_1},
+	{"Falcon_4/LightBits_1/Brow_Lights/FLCS",				F4FlightData::FLCS,				LIGHTBITS_1},
 	{"Falcon_4/LightBits_1/Brow_Lights/CAN",				F4FlightData::CAN,				LIGHTBITS_1},
 	{"Falcon_4/LightBits_1/Brow_Lights/T_L_CFG",			F4FlightData::T_L_CFG,			LIGHTBITS_1},
 	{"Falcon_4/LightBits_1/AOA_Indexers/AOAAbove",			F4FlightData::AOAAbove,			LIGHTBITS_1},
@@ -63,8 +65,8 @@ _BITS_LIST const F4BitsArray[] = {
 	{"Falcon_4/LightBits_1/Caution_Lights/ECM", 			F4FlightData::ECM,				LIGHTBITS_1},
 	{"Falcon_4/LightBits_1/Caution_Lights/NWSFail", 		F4FlightData::NWSFail,			LIGHTBITS_1},
 	{"Falcon_4/LightBits_1/Caution_Lights/CabinPress", 		F4FlightData::CabinPress,		LIGHTBITS_1},
-	{"Falcon_4/LightBits_1/Caution_Lights/BMS-OF:AutoPilotOn",	F4FlightData::AutoPilotOn,	LIGHTBITS_1},
-	{"Falcon_4/LightBits_1/Caution_Lights/BMS-OF:TFR_STBY", F4FlightData::TFR_STBY,			LIGHTBITS_1},
+	{"Falcon_4/LightBits_1/Caution_Lights/AutoPilotOn",		F4FlightData::AutoPilotOn,		LIGHTBITS_1},
+	{"Falcon_4/LightBits_1/Caution_Lights/TFR_STBY",		F4FlightData::TFR_STBY,			LIGHTBITS_1},
 //
 	{"Falcon_4/LightBits_2/User_Defined_LightBits_2",		0,								USERLIGHTBITS_2},
 	{"Falcon_4/LightBits_2/Threat_Warning_Prime/HandOff",	F4FlightData::HandOff,			LIGHTBITS_2},
@@ -98,7 +100,7 @@ _BITS_LIST const F4BitsArray[] = {
 	{"Falcon_4/LightBits_2/Engine_lights/ANTI_SKID",		F4FlightData::ANTI_SKID,		LIGHTBITS_2},
 	{"Falcon_4/LightBits_2/Engine_lights/TFR_ENGAGED",		F4FlightData::TFR_ENGAGED,		LIGHTBITS_2},
 	{"Falcon_4/LightBits_2/Engine_lights/GEARHANDLE",		F4FlightData::GEARHANDLE,		LIGHTBITS_2},
-	{"Falcon_4/LightBits_2/Engine_lights/BMS:ENGINE",		F4FlightData::ENGINE,			LIGHTBITS_2},
+	{"Falcon_4/LightBits_2/Engine_lights/ENGINE",			F4FlightData::ENGINE,			LIGHTBITS_2},
 //
 	{"Falcon_4/LightBits_3/User_Defined_LightBits_3",		0,								USERLIGHTBITS_3},
 	{"Falcon_4/LightBits_3/Electrical/FlcsPmg",				F4FlightData::FlcsPmg,			LIGHTBITS_3},
@@ -111,17 +113,31 @@ _BITS_LIST const F4BitsArray[] = {
 	{"Falcon_4/LightBits_3/Electrical/BatFail",				F4FlightData::BatFail,			LIGHTBITS_3},
 	{"Falcon_4/LightBits_3/Electrical/Hydrazine",			F4FlightData::Hydrazine,		LIGHTBITS_3},
 	{"Falcon_4/LightBits_3/Electrical/Air",					F4FlightData::Air,				LIGHTBITS_3},
+	{"Falcon_4/LightBits_3/Electrical/Elec_Fault",			F4FlightData::Elec_Fault,		LIGHTBITS_3},
 	{"Falcon_4/LightBits_3/Electrical/Lef_Fault",			F4FlightData::Lef_Fault,		LIGHTBITS_3},
-	{"Falcon_4/LightBits_3/Electrical/BMS-OF:Power_Off_|_AF:OnGround", F4FlightData::Power_Off,	LIGHTBITS_3},
-	{"Falcon_4/LightBits_3/Electrical/BMS-OF:Eng2_Fire",	F4FlightData::Eng2_Fire,		LIGHTBITS_3},
-	{"Falcon_4/LightBits_3/Electrical/BMS-OF:Lock",			F4FlightData::Lock,				LIGHTBITS_3},
-	{"Falcon_4/LightBits_3/Electrical/BMS-OF:Shoot",		F4FlightData::Shoot,			LIGHTBITS_3},
-	{"Falcon_4/LightBits_3/Electrical/BMS-OF:NoseGearDown",	F4FlightData::NoseGearDown,		LIGHTBITS_3},
-	{"Falcon_4/LightBits_3/Electrical/BMS-OF:LeftGearDown",	F4FlightData::LeftGearDown,		LIGHTBITS_3},
-	{"Falcon_4/LightBits_3/Electrical/BMS-OF:RightGearDown",F4FlightData::RightGearDown,	LIGHTBITS_3},
-	{"Falcon_4/LightBits_3/Electrical/OF:ParkBrakeOn",		F4FlightData::ParkBrakeOn,		LIGHTBITS_3},
-	{"Falcon_4/LightBits_3/Electrical/OF-AF:PowerOffFlag",	F4FlightData::PowerOffFlag,		LIGHTBITS_3},
-	{"Falcon_4/LightBits_3/Caution Panel/OF:Cadc",			F4FlightData::cadc,				LIGHTBITS_3},
+	{"Falcon_4/LightBits_3/Electrical/OnGround",			F4FlightData::OnGround,			LIGHTBITS_3},
+
+	{"Falcon_4/LightBits_3/Electrical/FlcsBitRun",			F4FlightData::FlcsBitRun,		LIGHTBITS_3},
+	{"Falcon_4/LightBits_3/Electrical/FlcsBitFail",			F4FlightData::FlcsBitFail,		LIGHTBITS_3},
+	{"Falcon_4/LightBits_3/Electrical/FlcsBitFail",			F4FlightData::FlcsBitFail,		LIGHTBITS_3},
+	{"Falcon_4/LightBits_3/Electrical/NoseGearDown",		F4FlightData::NoseGearDown,		LIGHTBITS_3},
+	{"Falcon_4/LightBits_3/Electrical/LeftGearDown",		F4FlightData::LeftGearDown,		LIGHTBITS_3},
+	{"Falcon_4/LightBits_3/Electrical/RightGearDown",		F4FlightData::RightGearDown,	LIGHTBITS_3},
+	{"Falcon_4/LightBits_3/Electrical/ParkBrakeOn",			F4FlightData::ParkBrakeOn,		LIGHTBITS_3},
+	{"Falcon_4/LightBits_3/Electrical/Power_Off",			F4FlightData::Power_Off,		LIGHTBITS_3},
+
+	{"Falcon_4/LightBits_3/Caution Panel/cadc",				F4FlightData::cadc,				LIGHTBITS_3},
+	{"Falcon_4/LightBits_3/Caution Panel/Inlet_Icing",		F4FlightData::Inlet_Icing,		LIGHTBITS_3},
+
+	{"Falcon_4/LightBits_3/Left Aux Console/SpeedBrake",	F4FlightData::SpeedBrake,		LIGHTBITS_3},
+
+	{"Falcon_4/LightBits_3/Threat Warning Prime/SysTest",	F4FlightData::SysTest,			LIGHTBITS_3},
+
+	{"Falcon_4/LightBits_3/Master Caution/MCAnnounced",		F4FlightData::MCAnnounced,		LIGHTBITS_3},
+
+	{"Falcon_4/LightBits_3/MLG/MLGWOW",						F4FlightData::MLGWOW,			LIGHTBITS_3},
+	{"Falcon_4/LightBits_3/MLG/NLGWOW",						F4FlightData::NLGWOW,			LIGHTBITS_3},
+	{"Falcon_4/LightBits_3/MLG/ATF_Not_Engaged",			F4FlightData::ATF_Not_Engaged,	LIGHTBITS_3},
 //
 	{"Falcon_4/HSI_Bits/HSI/User_Defined_HSIBits",			0,								USERHSIBITS},
 	{"Falcon_4/HSI_Bits/HSI/To_True",						F4FlightData::ToTrue,			HSIBITS},
@@ -138,12 +154,15 @@ _BITS_LIST const F4BitsArray[] = {
 	{"Falcon_4/HSI_Bits/HSI/VVI",							F4FlightData::VVI,				HSIBITS},
 	{"Falcon_4/HSI_Bits/HSI/AOA",							F4FlightData::AOA,				HSIBITS},
 	{"Falcon_4/HSI_Bits/HSI/AVTR",							F4FlightData::AVTR,				HSIBITS},
-	{"Falcon_4/HSI_Bits/HSI/OF:OuterMarker",				F4FlightData::OuterMarker,		HSIBITS},
-	{"Falcon_4/HSI_Bits/HSI/OF:MiddleMarker",				F4FlightData::MiddleMarker,		HSIBITS},
-	{"Falcon_4/HSI_Bits/HSI/OF:FromTrue",					F4FlightData::FromTrue,			HSIBITS},
+	{"Falcon_4/HSI_Bits/HSI/OuterMarker",					F4FlightData::OuterMarker,		HSIBITS},
+	{"Falcon_4/HSI_Bits/HSI/MiddleMarker",					F4FlightData::MiddleMarker,		HSIBITS},
+	{"Falcon_4/HSI_Bits/HSI/FromTrue",						F4FlightData::FromTrue,			HSIBITS},
 // NEW SECTION SM 2
-	{"Falcon_4/Alt_Bits/Cal_Type",							F4FlightData::CalType,			ALTBITS},
-	{"Falcon_4/Alt_Bits/Pneu_Flag",							F4FlightData::PneuFlag,			ALTBITS},
+	{ "Falcon_4/TACAN_Bits/Band",							F4FlightData::band,				TACANBITS },
+	{ "Falcon_4/TACAN_Bits/Mode",							F4FlightData::mode,				TACANBITS },
+
+	{ "Falcon_4/Alt_Bits/Cal_Type",							F4FlightData::CalType,			ALTBITS },
+	{ "Falcon_4/Alt_Bits/Pneu_Flag",						F4FlightData::PneuFlag,			ALTBITS },
 
 	{"Falcon_4/Power_Bits/Bus_Power_Battery",				F4FlightData::BusPowerBattery,		POWERBITS},
 	{"Falcon_4/Power_Bits/Bus_Power_Emergency",				F4FlightData::BusPowerEmergency,	POWERBITS},
@@ -153,18 +172,25 @@ _BITS_LIST const F4BitsArray[] = {
 	{"Falcon_4/Power_Bits/Standby_Generator",				F4FlightData::StandbyGenerator,		POWERBITS},
 	{"Falcon_4/Power_Bits/Jet_Fuel_Starter",				F4FlightData::JetFuelStarter,		POWERBITS},
 
-	{"Falcon_4/Blink_Bits/B_Outer_Marker",					F4FlightData::BOuterMarker,		BLINKBITS},
-	{"Falcon_4/Blink_Bits/B_Middle_Marker",					F4FlightData::BMiddleMarker,	BLINKBITS},
-	{"Falcon_4/Blink_Bits/B_PROBE_HEAT",					F4FlightData::BPROBEHEAT,		BLINKBITS},
-	{"Falcon_4/Blink_Bits/B_Aux_Srch",						F4FlightData::BAuxSrch,			BLINKBITS},
-	{"Falcon_4/Blink_Bits/B_Launch",						F4FlightData::BLaunch,			BLINKBITS},
-	{"Falcon_4/Blink_Bits/B_Pri_Mode",						F4FlightData::BPriMode,			BLINKBITS},
-	{"Falcon_4/Blink_Bits/B_Unk",							F4FlightData::BUnk,				BLINKBITS},
-	{"Falcon_4/Blink_Bits/B_Elec_Fault",					F4FlightData::BElec_Fault,		BLINKBITS},
-	{"Falcon_4/Blink_Bits/OXY_BROW",						F4FlightData::OXY_BROW,			BLINKBITS},
-	{"Falcon_4/Blink_Bits/B_EPU_On",						F4FlightData::BEPUOn,			BLINKBITS},
+	{"Falcon_4/Blink_Bits/Outer_Marker",					F4FlightData::BOuterMarker,		BLINKBITS},
+	{"Falcon_4/Blink_Bits/Middle_Marker",					F4FlightData::BMiddleMarker,	BLINKBITS},
+	{"Falcon_4/Blink_Bits/PROBE_HEAT",						F4FlightData::BPROBEHEAT,		BLINKBITS},
+	{"Falcon_4/Blink_Bits/Aux_Srch",						F4FlightData::BAuxSrch,			BLINKBITS},
+	{"Falcon_4/Blink_Bits/Launch",							F4FlightData::BLaunch,			BLINKBITS},
+	{"Falcon_4/Blink_Bits/Pri_Mode",						F4FlightData::BPriMode,			BLINKBITS},
+	{"Falcon_4/Blink_Bits/Unk",								F4FlightData::BUnk,				BLINKBITS},
+	{"Falcon_4/Blink_Bits/Elec_Fault",						F4FlightData::BElec_Fault,		BLINKBITS},
+	{"Falcon_4/Blink_Bits/OXY_BROW",						F4FlightData::BOXY_BROW,		BLINKBITS},
+	{"Falcon_4/Blink_Bits/EPU_On",							F4FlightData::BEPUOn,			BLINKBITS},
 	{"Falcon_4/Blink_Bits/JFS_On_Slow",						F4FlightData::JFSOn_Slow,		BLINKBITS},
-	{"Falcon_4/Blink_Bits/JFS_On_Fast",						F4FlightData::JFSOn_Fast,		BLINKBITS}
+	{"Falcon_4/Blink_Bits/JFS_On_Fast",						F4FlightData::JFSOn_Fast,		BLINKBITS},
+
+	{"Falcon_4/Misc_Bits/RALT_Valid",						F4FlightData::RALT_Valid,		MISCBITS},
+	{"Falcon_4/Misc_Bits/Flcs_Flcc_A",						F4FlightData::Flcs_Flcc_A,		MISCBITS},
+	{"Falcon_4/Misc_Bits/Flcs_Flcc_B",						F4FlightData::Flcs_Flcc_B,		MISCBITS},
+	{"Falcon_4/Misc_Bits/Flcs_Flcc_C",						F4FlightData::Flcs_Flcc_C,		MISCBITS},
+	{"Falcon_4/Misc_Bits/Flcs_Flcc_D",						F4FlightData::Flcs_Flcc_D,		MISCBITS},
+	{"Falcon_4/Misc_Bits/Solenoid_Status",					F4FlightData::SolenoidStatus,	MISCBITS}
 };
 
 struct _F4DATA_MEM
@@ -200,11 +226,11 @@ _F4DATA_MEM const F4DataArray[] = {
 
 	{"Nozzle Position",				xplmType_Float, "Falcon_4/aircraft/Nozzle_Position",				"%",		"Ownship engine nozzle percent open (0-100)"},
 	{"Nozzle Position 2",			xplmType_Float, "Falcon_4/aircraft/Nozzle_Position_2",				"%",		"Ownship engine nozzle 2 percent open (0-100) multi-engine"},
-	{"USIM Nozzle Position",		xplmType_Float, "Falcon_4/aircraft/USIM_Nozzle_Position",			"%",		"Corrected Ownship engine nozzle percent open (0-100)"},
 	{"LOX",							xplmType_Float, "Falcon_4/aircraft/LOX",							"l",		"Liquid Oxygen (Liters 0-5)"},
 	{"Fuel Internal",				xplmType_Float, "Falcon_4/aircraft/Fuel_Internal",					"lbs",		"Ownship internal fuel (Lbs)"},
 	{"Fuel External",				xplmType_Float, "Falcon_4/aircraft/Fuel_External",					"lbs",		"Ownship external fuel (Lbs)"},
 	{"Fuel Flow",					xplmType_Float, "Falcon_4/aircraft/Fuel_Flow",						"lbs/hr",	"Ownship fuel flow (Lbs/Hour)"},
+	{"Fuel Flow 2",					xplmType_Float, "Falcon_4/aircraft/Fuel_Flow_2",					"lbs/hr",	"Ownship fuel flow (Lbs/Hour)"},
 	{"Engine RPM",					xplmType_Float, "Falcon_4/aircraft/Engine_RPM",						"%",		"wnship engine rpm (Percent 0-103)"},
 	{"Engine RPM 2",				xplmType_Float, "Falcon_4/aircraft/Engine_RPM_2",					"%",		"wnship engine rpm2 (Percent 0-103) multi-engine"},
 	{"Fwd Turbine Inlet Temp",		xplmType_Float, "Falcon_4/aircraft/Fwd_Turbine_Inlet_Temp",			"deg C",	"Ownship Forward Turbine Inlet Temp (Degrees C)"},
@@ -217,13 +243,9 @@ _F4DATA_MEM const F4DataArray[] = {
 	{"Fuel - FWD",					xplmType_Float,	"Falcon_4/aircraft/Fuel-FWD",						"",			"Fuel - FWD"},
 	{"Fuel - AFT",					xplmType_Float,	"Falcon_4/aircraft/Fuel-AFT",						"",			"Fuel - AFT"},
 	{"Fuel - Total",				xplmType_Float,	"Falcon_4/aircraft/Fuel-Total",						"",			"Fuel - Total"},
-	{"USIM HYD A",					xplmType_Float,	"Falcon_4/aircraft/HYD_A",							"psi",		"USIM - Ownship HYD Pressure (0-4000) PSI"},
-	{"USIM HYD B",					xplmType_Float,	"Falcon_4/aircraft/HYD_B",							"psi",		"USIM - Ownship HYD Pressure (0-4000) PSI"},
-	{"USIM Cabin Pressure ALT",		xplmType_Float,	"Falcon_4/aircraft/Cabin_Pressure_ALT",				"ft",		"USIM - Ownship Cabin Pressure (0-50000) FT"},
 	{"Cabin Alt",					xplmType_Float,	"Falcon_4/aircraft/Cabin_ALT",						"ft",		"Ownship Cabin Pressure (0-50000) FT"},
 	{"Hyd Pressure A",				xplmType_Float,	"Falcon_4/aircraft/Hyd_Pressure_A",					"psi",		"Ownship HYD Pressure (0-4000) PSI"},
 	{"Hyd Pressure B",				xplmType_Float,	"Falcon_4/aircraft/Hyd_Pressure_B",					"psi",		"Ownship HYD Pressure (0-4000) PSI"},
-	{"Fuel Flow 2",					xplmType_Float, "Falcon_4/aircraft/Fuel_Flow_2",					"lbs/hr",	"Ownship fuel flow (Lbs/Hour)"},
 	{"Lef Pos",						xplmType_Float, "Falcon_4/aircraft/Lef_Pos",						"",			"Ownship LEF position"},
 	{"Tef Pos",						xplmType_Float, "Falcon_4/aircraft/Tef_Pos",						"",			"Ownship TEF position"},
 	{"VTOL Pos",					xplmType_Float, "Falcon_4/aircraft/VTOL_Pos",						"",			"Ownship VTOL exhaust angle"},
@@ -273,8 +295,9 @@ _F4DATA_MEM const F4DataArray[] = {
 	{"Light Bits 3",				xplmType_IntHex,"Falcon_4/cockpit/electrical/Light_Bits_3",			"",			"Electrical / EPU / Caution panel bits"},
 	{"Parking Brake",				xplmType_Byte,	"Falcon_4/cockpit/electrical/Parking_Brake",		"",			"Parking Brake magnetic switch"},
 	{"Alt Bits",					xplmType_IntHex,"Falcon_4/cockpit/electrical/Alt_Bits",				"",			"Various altimeter bits"},
-	{"Power Bits",					xplmType_IntHex,"Falcon_4/cockpit/electrical/Power_Bits",			"",			"Various altimeter bits"},
+	{"Power Bits",					xplmType_IntHex,"Falcon_4/cockpit/electrical/Power_Bits",			"",			"Various Power bits"},
 	{"Blink Bits",					xplmType_IntHex,"Falcon_4/cockpit/electrical/Blink_Bits",			"",			"Cockpit indicator lights blink status"},
+	{"Misc Bits",					xplmType_IntHex,"Falcon_4/cockpit/electrical/Misc_Bits",			"",			"Various status flags"},
 	
 	{"DED Line 1",					xplmType_Char,	"Falcon_4/cockpit/displays/DED_Line_1",				"",			"DED Line 1"},
 	{"DED Line 2",					xplmType_Char,	"Falcon_4/cockpit/displays/DED_Line_2",				"",			"DED Line 2"},
@@ -292,8 +315,7 @@ _F4DATA_MEM const F4DataArray[] = {
 	{"OSRAM Display O4 - Flare",	xplmType_Char,	"Falcon_4/cockpit/displays/OSRAM_Display_O4-Flare",	"",			"OSRAM Display O4 - Flare"},
 
 	{"Current Time",				xplmType_Int,	"Falcon_4/simulation/Current_Time",					"sec",		"Ownship ACD index number, i.e. which aircraft type are we flying."},
-	{"Vehicle ACD",					xplmType_Int,	"Falcon_4/simulation/Vehicle_ACD",					"",			"Cockpit indicator lights blink status"},
-	{"Version Num 2",				xplmType_Int,	"Falcon_4/simulation/Version_Num_2",				"",			"Version of FlightData2 mem area"}
+	{"Vehicle ACD",					xplmType_Int,	"Falcon_4/simulation/Vehicle_ACD",					"",			"Cockpit indicator lights blink status"}
 };
 
 #endif // !defined(AFX_F4VARLIST_H__CA36354A_1443_4BC7_ACB7_90FF6AE36F97__INCLUDED_)

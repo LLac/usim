@@ -17,14 +17,14 @@ public:
 
          // Brow Lights
          TF        = 0x2,
-         OBS       = 0x4,
-         ALT       = 0x8,
-		 WOW       = 0x10,  // MD -- NB: this is not a lamp bit!
+		 OXY_BROW  = 0x4,   // repurposed for eyebrow OXY LOW (was OBS, unused)
+		 EQUIP_HOT = 0x8,   // Caution light; repurposed for cooling fault (was: not used)
+		 ONGROUND  = 0x10,  // True if on ground: this is not a lamp bit!
          ENG_FIRE  = 0x20,
 		 CONFIG	   = 0x40,
          HYD       = 0x80,
-         OIL       = 0x100,
-         DUAL      = 0x200,
+         Flcs_ABCD = 0x100, // TEST panel FLCS channel lamps; repurposed, was OIL (see HYD; that lamp is not split face)
+         FLCS      = 0x200, // Right eyebrow; was called DUAL which matches block 25, 30/32 and older 40/42
          CAN       = 0x400,
          T_L_CFG   = 0x800,
 
@@ -109,7 +109,8 @@ public:
 
 		// MD 20031016: Use this with the MAL/IND light code in cautions.cpp
 		// please update this is you add/change bits!
-		AllLampBits2On     = 0xFFFFFEFF
+		AllLampBits2On = 0xFFFFF03F,
+		AllLampBits2OnExceptCarapace = AllLampBits2On ^ HandOff ^ Launch ^ PriMode ^ Naval ^ Unk ^ TgtSep ^ AuxSrch ^ AuxAct ^ AuxLow ^ AuxPwr
 	};
 
 	enum LightBits3
@@ -128,26 +129,50 @@ public:
 		Hydrazine	=	0x100,
 		Air			=	0x200,
 
-		// Caution panel
-		Elec_Fault	=	0x400,
-		Lef_Fault	=	0x800,
-		OnGround	=	0x1000,
-		Power_Off =   0x1000,   // Set if there is no electrical power
-		Eng2_Fire	=	0x2000,//TJL 01/24/04 Multi-engine
-		Lock		=	0x4000,//TJL 01/24/04 Lock Light Cue
-		Shoot		=	0x8000,//TJL 01/24/04 Shoot light cue
-		NoseGearDown  =   0x10000,  // MD -- 20040301: on means down and locked
-		LeftGearDown  =   0x20000,  // MD -- 20040301: on means down and locked
-		RightGearDown =   0x40000,  // MD -- 20040301: on means down and locked
-		ParkBrakeOn   =	0x100000, // Parking brake engaged; NOTE: not a lamp bit
-		PowerOffFlag     = 0x200000, // Set if there is no electrical power.  NB: not a lamp bit
+        // Caution panel
+        Elec_Fault = 0x400,
+        Lef_Fault  = 0x800,
+
+		OnGround	  = 0x1000,   // weight-on-wheels
+        FlcsBitRun    = 0x2000,   // FLT CONTROL panel RUN light (used to be Multi-engine fire light)
+        FlcsBitFail   = 0x4000,   // FLT CONTROL panel FAIL light (used to be Lock light Cue; non-F-16)
+        DbuWarn       = 0x8000,   // Right eyebrow DBU ON cell; was Shoot light cue; non-F16
+        NoseGearDown  = 0x10000,  // Landing gear panel; on means down and locked
+        LeftGearDown  = 0x20000,  // Landing gear panel; on means down and locked
+        RightGearDown = 0x40000,  // Landing gear panel; on means down and locked
+		ParkBrakeOn   = 0x100000, // Parking brake engaged; NOTE: not a lamp bit
+        Power_Off     = 0x200000, // Set if there is no electrical power.  NB: not a lamp bit
 
 		// Caution panel
 		cadc	= 0x400000,
+		// Left Aux console
+		SpeedBrake = 0x800000,  // True if speed brake is in anything other than stowed position
 
-		// MD 20031016: Use this with the MAL/IND light code in cautions.cpp
-		// please update this is you add/change bits!
-		AllLampBits3On     = 0x0047EFFF
+        // Threat Warning Prime - additional bits
+		SysTest  = 0x1000000,
+
+		// Master Caution WILL come up (actual lightBit has 3sec delay like in RL),
+		// usable for cockpit builders with RL equipment which has a delay on its own.
+		// Will be set to false again as soon as the MasterCaution bit is set.
+		MCAnnounced = 0x2000000,
+
+		//MLGWOW is only for AFM , it means WOW switches on MLG are triggered => FLCS switches to WOWPitchRockGain
+		MLGWOW = 0x4000000,
+		NLGWOW = 0x8000000,
+
+		ATF_Not_Engaged = 0x10000000,
+		
+		// Caution panel
+		Inlet_Icing = 0x20000000,
+		// Free bits in LightBits3		
+		//0x20000000,
+		//0x40000000,
+		//0x80000000,
+
+		// Used with the MAL/IND light code to light up "everything"
+        // please update this if you add/change bits!
+		AllLampBits3On = 0x3147EFFF,
+		AllLampBits3OnExceptCarapace = AllLampBits3On ^ SysTest
 	};
 
 	enum HsiBits
@@ -195,20 +220,20 @@ public:
 	float gs;           // Ownship Normal Gs
 	float windOffset;   // Wind delta to FPM (Radians)
 	float nozzlePos;    // Ownship engine nozzle percent open (0-100)
-	float nozzlePos2;	// Ownship engine nozzle2 percent open (0-100) //TJL 01/14/04 Multi-engine
+	//float nozzlePos2;   // MOVED TO FlightData2! Ownship engine nozzle2 percent open (0-100) 
 	float internalFuel; // Ownship internal fuel (Lbs)
 	float externalFuel; // Ownship external fuel (Lbs)
 	float fuelFlow;     // Ownship fuel flow (Lbs/Hour)
 	float rpm;          // Ownship engine rpm (Percent 0-103)
-	float rpm2;         // Ownship engine rpm2 (Percent 0-103) //TJL 01/14/04 multi-engine
+	//float rpm2;         // MOVED TO FlightData2! Ownship engine rpm2 (Percent 0-103)
 	float ftit;         // Ownship Forward Turbine Inlet Temp (Degrees C)
-	float ftit2;        // Ownship Forward Turbine Inlet Temp2 (Degrees C)//TJL 01/14/04 multi-engine
+	//float ftit2;        // MOVED TO FlightData2! Ownship Forward Turbine Inlet Temp2 (Degrees C)
 	float gearPos;      // Ownship Gear position 0 = up, 1 = down;
 	float speedBrake;   // Ownship speed brake position 0 = closed, 1 = 60 Degrees open
 	float epuFuel;      // Ownship EPU fuel (Percent 0-100)
 	float oilPressure;  // Ownship Oil Pressure (Percent 0-100)
-	float oilPressure2; // Ownship Oil Pressure2 (Percent 0-100)//TJL 01/14/04 Multi-engine
-	int   lightBits;    // Cockpit Indicator Lights, one bit per bulb. See enum
+	//float oilPressure2; // MOVED TO FlightData2! Ownship Oil Pressure2 (Percent 0-100)
+    unsigned int   lightBits;    // Cockpit Indicator Lights, one bit per bulb. See enum
 
 	// These are inputs. Use them carefully
 	float headPitch;    // Head pitch offset from design eye (radians)
@@ -216,8 +241,8 @@ public:
 	float headYaw;      // Head yaw offset from design eye (radians)
 
 	// new lights
-	int   lightBits2;         // Cockpit Indicator Lights, one bit per bulb. See enum
-	int   lightBits3;         // Cockpit Indicator Lights, one bit per bulb. See enum
+    unsigned int   lightBits2;   // Cockpit Indicator Lights, one bit per bulb. See enum
+    unsigned int   lightBits3;   // Cockpit Indicator Lights, one bit per bulb. See enum
 
 	// chaff/flare
 	float ChaffCount;	       // Number of Chaff left
@@ -256,7 +281,7 @@ public:
 	float TrimYaw;			// Value of trim in yaw axis, -0.5 to +0.5
 
 	// HSI flags
-	int hsiBits;              // HSI flags
+    unsigned int hsiBits;      // HSI flags
 
 	//DED Lines
 	char DEDLines[5][26];	//25 usable chars
@@ -292,15 +317,11 @@ public:
 	int MainPower;
 
 	// Custom VARs
-	float hydA;				// Ownship HYD Pressure (0-4000) PSI
-	float hydB;				// Ownship HYD Pressure (0-4000) PSI
-	float CabinPressure;	// Ownship Cabin Pressure (0-50000) FT
 	char PRKMag;			// Parking Brake magnetic switch
 	char O1[5];				// OSRAM Display O1
 	char O2[5];				// OSRAM Display O2
 	char O3Chaff[5];		// OSRAM Display O3
 	char O4Flare[5];		// OSRAM Display O4
-	float USIMnozzlePos;    // Ownship engine nozzle percent open (0-100)
 	float LOX;				// Ownship Liquid Oxygen liters (0-5)
 
 	// New section SM 2
@@ -351,14 +372,14 @@ public:
 
 		// not working yet, defined for future use
 		BElec_Fault   = 0x80,	// defined in LightBits3 - non-resetting fault
-		OXY_BROW     = 0x100,	// defined in LightBits  - monitor fault during Obogs
+		BOXY_BROW     = 0x100,	// defined in LightBits  - monitor fault during Obogs
 		BEPUOn        = 0x200,	// defined in LightBits3 - abnormal EPU operation
 		JFSOn_Slow   = 0x400,	// defined in LightBits3 - slow blinking: non-critical failure
 		JFSOn_Fast   = 0x800,	// defined in LightBits3 - fast blinking: critical failure
 	};
 
 	// CMDS mode state
-	enum CmdsModes
+	enum CmdsModes : int
 	{
 		CmdsOFF  = 0,
 		CmdsSTBY = 1,
@@ -369,7 +390,7 @@ public:
 	};
 
 	// HSI/eHSI mode state
-	enum NavModes 
+	enum NavModes : unsigned char
 	{
 		ILS_TACAN   = 0,
 		TACAN       = 1, 
@@ -388,9 +409,69 @@ public:
 		UNKNOWN = 5, // ???
 	};
 
+	// RTT area indices
+	enum RTT_areas
+	{
+		RTT_HUD       = 0,
+		RTT_PFL       = 1,
+		RTT_DED       = 2,
+		RTT_RWR       = 3,
+		RTT_MFDLEFT   = 4,
+		RTT_MFDRIGHT  = 5,
+		RTT_HMS       = 6,
+		RTT_noOfAreas = 7,
+	};
+
+	// instrument backlight brightness
+	enum InstrLight : unsigned char
+	{
+		INSTR_LIGHT_OFF = 0,
+		INSTR_LIGHT_DIM = 1,
+		INSTR_LIGHT_BRT = 2,
+	};
+
+	// Bitching Betty VMS sounds playing
+	enum BettyBits : unsigned int
+	{
+		Betty_Allwords       = 0x00001,
+		Betty_Pullup         = 0x00002,
+		Betty_Altitude       = 0x00004,
+		Betty_Warning        = 0x00008,
+		Betty_Jammer         = 0x00010,
+		Betty_Counter        = 0x00020,
+		Betty_ChaffFlare     = 0x00040,
+		Betty_ChaffFlare_Low = 0x00080,
+		Betty_ChaffFlare_Out = 0x00100,
+		Betty_Lock           = 0x00200,
+		Betty_Caution        = 0x00400,
+		Betty_Bingo          = 0x00800,
+		Betty_Data           = 0x01000,
+		Betty_IFF            = 0x02000,
+		Betty_Lowspeed       = 0x04000,
+		Betty_Beeps          = 0x08000,
+		Betty_AOA            = 0x10000,
+		Betty_MaxG           = 0x20000,
+	};
+
+	// various flags - chances are that by now, we'll add new flags rarely and sparsely, so having a single "bulk pool" seems reasonable, size-wise
+	enum MiscBits : unsigned int
+	{
+		RALT_Valid			= 0x01, // indicates weather the RALT reading is valid/reliable
+		Flcs_Flcc_A			= 0x02,
+		Flcs_Flcc_B			= 0x04,
+		Flcs_Flcc_C			= 0x08,
+		Flcs_Flcc_D			= 0x10,
+		SolenoidStatus		= 0x20, //0 not powered or failed or WOW  , 1 is working OK
+
+		AllLampBitsFlccOn	= 0x1e,
+	};
 
 	// VERSION 1
-	unsigned char navMode;  // current mode selected for HSI/eHSI, see NavModes enum for details
+	float nozzlePos2;       // Ownship engine nozzle2 percent open (0-100)
+	float rpm2;             // Ownship engine rpm2 (Percent 0-103)
+	float ftit2;            // Ownship Forward Turbine Inlet Temp2 (Degrees C)
+	float oilPressure2;     // Ownship Oil Pressure2 (Percent 0-100)
+	NavModes navMode;       // (unsigned char) current mode selected for HSI/eHSI, see NavModes enum for details
 	float AAUZ;             // Ownship barometric altitude given by AAU (depends on calibration)
 	char tacanInfo[NUMBER_OF_SOURCES]; // Tacan band/mode settings for UFC and AUX COMM
 
@@ -402,7 +483,7 @@ public:
 						// NOTE: these bits indicate only *if* a lamp is blinking, in addition to the
 						// existing on/off bits. It's up to the external program to implement the
 						// *actual* blinking.
-	int cmdsMode;		// Ownship CMDS mode state, see CmdsModes enum for details
+	CmdsModes cmdsMode;	// (int) Ownship CMDS mode state, see CmdsModes enum for details
 	int BupUhfPreset;	// BUP UHF channel preset
 
 	// VERSION 3
@@ -429,6 +510,44 @@ public:
 	char pilotsOnline;                                // Number of pilots in an MP session
 	char pilotsCallsign[MAX_CALLSIGNS][CALLSIGN_LEN]; // List of pilots callsign connected to an MP session
 	char pilotsStatus[MAX_CALLSIGNS];                 // Status of the MP pilots, see enum FlyStates
+	// VERSION 10
+	float bumpIntensity; // Intensity of a "bump" while taxiing/rolling, 0..1
+
+	// VERSION 11
+	float latitude;      // Ownship latitude in degrees (as known by avionics)
+	float longitude;     // Ownship longitude in degrees (as known by avionics)
+
+	// VERSION 12
+	unsigned short RTT_size[2];                 // RTT overall width and height
+	unsigned short RTT_area[RTT_noOfAreas][4];  // For each area: left/top/right/bottom
+
+	// VERSION 13
+	char iffBackupMode1Digit1;                     // IFF panel backup Mode1 digit 1
+	char iffBackupMode1Digit2;                     // IFF panel backup Mode1 digit 2
+	char iffBackupMode3ADigit1;                    // IFF panel backup Mode3A digit 1
+	char iffBackupMode3ADigit2;                    // IFF panel backup Mode3A digit 2
+
+	// VERSION 14
+	InstrLight instrLight;  // (unsigned char) current instrument backlight brightness setting, see InstrLight enum for details
+
+	// VERSION 15
+	unsigned int bettyBits;      // see BettyBits enum for details
+	unsigned int miscBits;       // see MiscBits enum for details
+	float RALT;                  // radar altitude (only valid/ reliable if MiscBit "RALT_Valid" is set)
+	float bingoFuel;             // bingo fuel level
+	float caraAlow;              // cara alow setting
+	float bullseyeX;             // bullseye X in sim coordinates (same as ownship, i.e. North (Ft))
+	float bullseyeY;             // bullseye Y in sim coordinates (same as ownship, i.e. East (Ft))
+	int BMSVersionMajor;         // E.g.  4.
+	int BMSVersionMinor;         //         34.
+	int BMSVersionMicro;         //            1
+	int BMSBuildNumber;          //              build 20050
+	unsigned int StringAreaSize; // the overall size of the StringData/FalconSharedMemoryAreaString area
+	unsigned int StringAreaTime; // last time the StringData/FalconSharedMemoryAreaString area has been changed - you only need to re-read the string shared mem if this changes
+	unsigned int DrawingAreaSize;// the overall size of the DrawingData/FalconSharedMemoryAreaDrawing area
+	
+	// VERSION 16
+	float turnRate;              // actual turn rate (no delay or dampening) in degrees/second
 };
 
 #endif

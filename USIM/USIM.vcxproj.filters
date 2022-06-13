@@ -801,9 +801,6 @@
     <ClInclude Include="SimplexParser\PhysConst.h">
       <Filter>Source Files\SimplexParser</Filter>
     </ClInclude>
-    <ClInclude Include="AFflightData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="hid_dll\BIAPI.H">
       <Filter>Header Files</Filter>
     </ClInclude>

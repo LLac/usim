@@ -6,14 +6,18 @@
 #define IDD_ABOUTBOX                    100
 #define IDS_ABOUTBOX                    101
 #define ID_COLLAPSE                     102
+#define IDS_CPATH                       102
 #define ID_REFRESH                      103
 #define ID_CLEAR                        104
 #define ID_DISABLE_ITEM                 105
 #define IDC_GROUP2                      105
 #define ID_HIDE_ITEMS                   106
 #define ID_SWAP                         107
+#define IDC_GROUP3                      107
 #define ID_REMOVE                       108
+#define IDC_GROUP4                      108
 #define ID_SETTINGS                     109
+#define IDC_GROUP5                      109
 #define ID_NONE                         110
 #define ID_INPUTS                       111
 #define ID_DEVICE                       112
@@ -101,9 +105,11 @@
 #define IDC_EDIT1                       1001
 #define IDC_R_GRID                      1001
 #define IDC_CHECK1                      1002
+#define IDC_EDIT6                       1002
 #define IDC_LIST1                       1003
 #define IDC_CHECK2                      1003
 #define IDC_EDIT3                       1003
+#define IDC_EDIT7                       1003
 #define IDC_AUTOCONNECT                 1004
 #define IDC_ED_SEARCH_ITEM              1004
 #define IDC_EDIT4                       1004
@@ -190,26 +196,35 @@
 #define IDC_EDIT2                       1050
 #define IDC_STATIC11                    1050
 #define IDC_HSI_COMBO                   1051
+#define IDC_STATIC14                    1051
 #define IDC_ACTIVATE                    1052
 #define IDC_TREE                        1052
+#define IDC_STATIC15                    1052
 #define IDC_POWERFLAG                   1053
 #define IDC_FLIGHTDATA                  1053
 #define IDC_TEXT1                       1054
 #define IDC_CLEARITEM                   1055
 #define IDC_OP_FLIGHTDATA               1055
+#define IDC_STATIC16                    1055
 #define IDC_CLEARALL                    1056
+#define IDC_FLIGHTDATA2                 1056
 #define IDC_OR_FLIGHTDATA               1057
 #define IDC_MASKDATA                    1057
 #define IDC_OR_TEXT                     1058
 #define IDC_TEXT2                       1058
 #define IDC_OP_TEXT                     1059
+#define IDC_MASKDATA2                   1059
 #define IDC_MAX_TEXT                    1060
 #define IDC_CLEARDATA                   1060
 #define IDC_OR_CLEARDATA                1060
 #define IDC_OP_CLEARDATA                1061
 #define IDC_VALUETEXT                   1061
 #define IDC_CLEARMASK                   1061
+#define IDC_TEXT3                       1062
+#define IDC_CLEARMASK2                  1063
+#define IDC_TEXT4                       1064
 #define IDC_COMBO_DISPLAY               1065
+#define IDC_CLEARDATA2                  1065
 #define IDC_COMBO_PREV                  1066
 #define IDC_COMBO_NEXT                  1067
 #define IDC_STATIC12                    1070
@@ -428,7 +443,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        154
+#define _APS_NEXT_RESOURCE_VALUE        156
 #define _APS_NEXT_COMMAND_VALUE         32787
 #define _APS_NEXT_CONTROL_VALUE         1076
 #define _APS_NEXT_SYMED_VALUE           198

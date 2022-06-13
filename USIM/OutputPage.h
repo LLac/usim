@@ -22,16 +22,19 @@ public:
 
 public:
 	// OUTPUT PAGE
-	int			m_BitMask;
-	UINT		m_BitType;
+	int			m_BitMask, m_BlinkMask;
+	UINT		m_BitType, m_BlinkType;
+	UINT		m_BlinkOnTime, m_BlinkOffTime;
+	UINT		m_BlinkOnTimeCnt, m_BlinkOffTimeCnt;
+	BOOL		m_BlinkOnFlag;
 	CString		m_Notes;
 	UINT		m_OBRate;
 	UINT		m_OBLevel;
 	UCHAR		m_LampTest;
 	UCHAR		m_Invert;
-	CString		m_VarTokenName, m_BitMaskName;
-	UINT		m_VarTokenIndex;
-	UINT		m_VarArrayTokenIndex;
+	CString		m_VarTokenName, m_BitMaskName, m_VarBlinkTokenName, m_BlinkMaskName;
+	UINT		m_VarTokenIndex, m_VarBlinkTokenIndex;
+	UINT		m_VarArrayTokenIndex, m_VarArrayBlinkTokenIndex;
 	UINT		m_SimType;
 	BOOL		m_Read;
 	BOOL		m_Write;

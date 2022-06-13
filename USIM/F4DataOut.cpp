@@ -77,14 +77,8 @@ void CF4DataOut::DisplayData()
 	lvi.iSubItem = 1;
 
 	lvi.iItem = i++;
-	if (theApp.m_SimulationModel == SIM_F4AF)
-		strItem.Format(_T("AF %i"), theApp.m_F4FlightData.VersionNum);
-	else if (theApp.m_SimulationModel == SIM_F4FF)
-		strItem.Format(_T("FF %i"), theApp.m_F4FlightData.VersionNum);
-	else if (theApp.m_SimulationModel == SIM_F4BMS)
-		strItem.Format(_T("BMS %i"), theApp.m_F4FlightData.VersionNum);
-	else if (theApp.m_SimulationModel == SIM_F4OF)
-		strItem.Format(_T("OF %i"), theApp.m_F4FlightData.VersionNum);
+	if (theApp.m_SimulationModel == SIM_F4BMS)
+		strItem.Format(_T("BMS SM1 Ver %i : SM2 Ver %i"), theApp.m_F4FlightData.VersionNum, theApp.m_F4FlightData.VersionNum2);
 	else if (theApp.m_SimulationModel == SIM_TEST)
 		strItem.Format(_T("TEST %i"), theApp.m_F4FlightData.VersionNum);
 	else if (theApp.m_SimulationModel == SIM_KBS)
@@ -110,6 +104,26 @@ void CF4DataOut::DisplayData()
 
 	lvi.iItem = i++;
 	strItem.Format(_T("0x%Xh"), theApp.m_F4FlightData.hsiBits);
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.SetItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem.Format(_T("0x%Xh"), theApp.m_F4FlightData.altBits);
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.SetItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem.Format(_T("0x%Xh"), theApp.m_F4FlightData.powerBits);
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.SetItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem.Format(_T("0x%Xh"), theApp.m_F4FlightData.blinkBits);
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.SetItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem.Format(_T("0x%Xh"), theApp.m_F4FlightData.miscBits);
 	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
 	m_DataList.SetItem(&lvi);
 
@@ -146,11 +160,6 @@ void CF4DataOut::DisplayData()
 
 	lvi.iItem = i++;
 	strItem.Format(_T("%.6f"), theApp.m_F4FlightData.z);
-	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
-	m_DataList.SetItem(&lvi);
-
-	lvi.iItem = i++;
-	strItem.Format(_T("%.6f"), theApp.m_F4FlightData.xDot);
 	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
 	m_DataList.SetItem(&lvi);
 
@@ -246,6 +255,11 @@ void CF4DataOut::DisplayData()
 
 	lvi.iItem = i++;
 	strItem.Format(_T("%.6f"), theApp.m_F4FlightData.fuelFlow);
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.SetItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem.Format(_T("%.6f"), theApp.m_F4FlightData.fuelFlow2);
 	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
 	m_DataList.SetItem(&lvi);
 
@@ -445,22 +459,92 @@ void CF4DataOut::DisplayData()
 	m_DataList.SetItem(&lvi);
 
 	lvi.iItem = i++;
-	strItem.Format(_T("%.6f"), theApp.m_F4FlightData.CabinPressure);
+	strItem.Format(_T("%.6f"), theApp.m_F4FlightData.cabinAlt);
 	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
 	m_DataList.SetItem(&lvi);
 
 	lvi.iItem = i++;
-	strItem.Format(_T("%.6f"), theApp.m_F4FlightData.hydA);
+	strItem.Format(_T("%.6f"), theApp.m_F4FlightData.hydPressureA);
 	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
 	m_DataList.SetItem(&lvi);
 
 	lvi.iItem = i++;
-	strItem.Format(_T("%.6f"), theApp.m_F4FlightData.hydB);
+	strItem.Format(_T("%.6f"), theApp.m_F4FlightData.hydPressureB);
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.SetItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem.Format(_T("%d"), theApp.m_F4FlightData.navMode);
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.SetItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem.Format(_T("%.6f"), theApp.m_F4FlightData.AAUZ);
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.SetItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem.Format(_T("%d"), theApp.m_F4FlightData.tacanInfo[0]);
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.SetItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem.Format(_T("%d"), theApp.m_F4FlightData.tacanInfo[1]);
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.SetItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem.Format(_T("%d"), theApp.m_F4FlightData.AltCalReading);
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.SetItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem.Format(_T("%d"), theApp.m_F4FlightData.cmdsMode);
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.SetItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem.Format(_T("%d"), theApp.m_F4FlightData.BupUhfPreset);
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.SetItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem.Format(_T("%d"), theApp.m_F4FlightData.BupUhfFreq);
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.SetItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem.Format(_T("%d"), theApp.m_F4FlightData.currentTime);
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.SetItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem.Format(_T("%d"), theApp.m_F4FlightData.vehicleACD);
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.SetItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem.Format(_T("%.6f"), theApp.m_F4FlightData.lefPos);
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.SetItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem.Format(_T("%.6f"), theApp.m_F4FlightData.tefPos);
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.SetItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem.Format(_T("%.6f"), theApp.m_F4FlightData.vtolPos);
 	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
 	m_DataList.SetItem(&lvi);
 
 	lvi.iItem = i++;
 	strItem.Format(_T("%d"), theApp.m_F4FlightData.PRKMag);
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.SetItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem.Format(_T("%.6f"), theApp.m_F4FlightData.LOX);
 	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
 	m_DataList.SetItem(&lvi);
 
@@ -593,6 +677,26 @@ BOOL CF4DataOut::OnInitDialog()
 	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
 	m_DataList.InsertItem(&lvi);
 
+	lvi.iItem = i++;
+	strItem = _T("altBits");
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.InsertItem(&lvi);
+	
+	lvi.iItem = i++;
+	strItem = _T("powerBits");
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.InsertItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem = _T("blinkBits");
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.InsertItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem = _T("miscBits");
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.InsertItem(&lvi);
+
 	int j;
 	for (j = 0; j < 5; j++) {
 		lvi.iItem = i++;
@@ -630,11 +734,6 @@ BOOL CF4DataOut::OnInitDialog()
 
 	lvi.iItem = i++;
 	strItem = _T("z");
-	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
-	m_DataList.InsertItem(&lvi);
-
-	lvi.iItem = i++;
-	strItem = _T("xDot");
 	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
 	m_DataList.InsertItem(&lvi);
 
@@ -730,6 +829,11 @@ BOOL CF4DataOut::OnInitDialog()
 
 	lvi.iItem = i++;
 	strItem = _T("fuelFlow");
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.InsertItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem = _T("fuelFlow2");
 	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
 	m_DataList.InsertItem(&lvi);
 
@@ -929,22 +1033,92 @@ BOOL CF4DataOut::OnInitDialog()
 	m_DataList.InsertItem(&lvi);
 
 	lvi.iItem = i++;
-	strItem = _T("CabinePressure");
+	strItem = _T("cabinAlt");
 	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
 	m_DataList.InsertItem(&lvi);
 
 	lvi.iItem = i++;
-	strItem = _T("hydA");
+	strItem = _T("hydPressureA");
 	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
 	m_DataList.InsertItem(&lvi);
 
 	lvi.iItem = i++;
-	strItem = _T("hydB");
+	strItem = _T("hydPressureA");
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.InsertItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem = _T("navMode");
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.InsertItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem = _T("AAUZ");
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.InsertItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem = _T("tacanInfo[0]");
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.InsertItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem = _T("tacanInfo[1]");
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.InsertItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem = _T("AltCalReading");
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.InsertItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem = _T("cmdsMode");
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.InsertItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem = _T("BupUhfPreset");
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.InsertItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem = _T("BupUhfFreq");
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.InsertItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem = _T("currentTime");
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.InsertItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem = _T("vehicleACD");
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.InsertItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem = _T("lefPos");
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.InsertItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem = _T("tefPos");
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.InsertItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem = _T("vtolPos");
 	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
 	m_DataList.InsertItem(&lvi);
 
 	lvi.iItem = i++;
 	strItem = _T("PRKMag");
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.InsertItem(&lvi);
+
+	lvi.iItem = i++;
+	strItem = _T("LOX");
 	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
 	m_DataList.InsertItem(&lvi);
 

@@ -53,6 +53,15 @@ void COutputPage::Serialize( CArchive &ar, UINT uiFileVersion )
 		ar << m_BitMask;
 		ar << m_BitType;
 		ar << m_BitMaskName;
+
+		ar << m_VarBlinkTokenName;
+		ar << m_VarArrayBlinkTokenIndex;
+		ar << m_BlinkMask;
+		ar << m_BlinkType;
+		ar << m_BlinkMaskName;
+		ar << m_BlinkOnTime;
+		ar << m_BlinkOffTime;
+
 		ar << m_OBLevel;
 		ar << m_Invert;
 		ar << m_Notes;
@@ -65,14 +74,10 @@ void COutputPage::Serialize( CArchive &ar, UINT uiFileVersion )
 
 		ar >> m_VarTokenName;
 		// check if older file version loading
-		switch (uiFileVersion) {
-			case ID_SAVEFILEVERSION:
-				ar >> m_VarArrayTokenIndex;
-			break;
-			case ID_SAVEFILEVERSION_1:
-				m_VarArrayTokenIndex = 0;
-			break;
-		}
+		if (uiFileVersion == ID_SAVEFILEVERSION_1)
+			m_VarArrayTokenIndex = 0;
+		else
+			ar >> m_VarArrayTokenIndex;
 		ar >> m_SimType;
 		ar >> m_Read;
 		ar >> m_Write;
@@ -84,6 +89,16 @@ void COutputPage::Serialize( CArchive &ar, UINT uiFileVersion )
 		ar >> m_BitMask;
 		ar >> m_BitType;
 		ar >> m_BitMaskName;
+		if (uiFileVersion > ID_SAVEFILEVERSION_2) {
+			ar >> m_VarBlinkTokenName;
+			ar >> m_VarArrayBlinkTokenIndex;
+			ar >> m_BlinkMask;
+			ar >> m_BlinkType;
+			ar >> m_BlinkMaskName;
+			ar >> m_BlinkOnTime;
+			ar >> m_BlinkOffTime;
+			m_VarBlinkTokenIndex = SearchIndex(m_VarBlinkTokenName, m_SimType, 0);
+		}
 		ar >> m_OBLevel;
 		ar >> m_Invert;
 		ar >> m_Notes;
@@ -107,8 +122,18 @@ void COutputPage::CopyData(COutputPage *pArray)
 	m_OPValue2 = pArray->m_OPValue2;
 	m_BitMask = pArray->m_BitMask;
 	m_BitType = pArray->m_BitType;
-	m_OBLevel = pArray->m_OBLevel;
 	m_BitMaskName = pArray->m_BitMaskName;
+
+	m_VarBlinkTokenName = pArray->m_VarBlinkTokenName;
+	m_VarArrayBlinkTokenIndex = pArray->m_VarArrayBlinkTokenIndex;
+	m_VarBlinkTokenIndex = pArray->m_VarBlinkTokenIndex;
+	m_BlinkMask = pArray->m_BlinkMask;
+	m_BlinkType = pArray->m_BlinkType;
+	m_BlinkMaskName = pArray->m_BlinkMaskName;
+	m_BlinkOnTime = pArray->m_BlinkOnTime;
+	m_BlinkOffTime = pArray->m_BlinkOffTime;
+
+	m_OBLevel = pArray->m_OBLevel;
 	m_LampTest = 0;
 	m_Invert = pArray->m_Invert;
 	m_Notes = pArray->m_Notes;
@@ -129,8 +154,18 @@ void COutputPage::PasteData(COutputPage *pArray)
 	pArray->m_OPValue2 = m_OPValue2;
 	pArray->m_BitMask = m_BitMask;
 	pArray->m_BitType = m_BitType;
-	pArray->m_OBLevel = m_OBLevel;
 	pArray->m_BitMaskName = m_BitMaskName;
+
+	pArray->m_VarBlinkTokenName = m_VarBlinkTokenName;
+	pArray->m_VarArrayBlinkTokenIndex = m_VarArrayBlinkTokenIndex;
+	pArray->m_VarBlinkTokenIndex = m_VarBlinkTokenIndex;
+	pArray->m_BlinkMask = m_BlinkMask;
+	pArray->m_BlinkType = m_BlinkType;
+	pArray->m_BlinkMaskName = m_BlinkMaskName;
+	pArray->m_BlinkOnTime = m_BlinkOnTime;
+	pArray->m_BlinkOffTime = m_BlinkOffTime;
+
+	pArray->m_OBLevel = m_OBLevel;
 	pArray->m_Invert = m_Invert;
 	pArray->m_Notes = m_Notes;
 }
@@ -151,6 +186,17 @@ void COutputPage::Clear()
 	m_BitMask = 0;
 	m_BitType = 0;
 	m_BitMaskName.Empty();
+
+	m_VarBlinkTokenName.Empty();
+	m_VarArrayBlinkTokenIndex = 0;
+	m_VarBlinkTokenIndex = 0;
+	m_BlinkMask = 0;
+	m_BlinkType = 0;
+	m_BlinkMaskName.Empty();
+	m_BlinkOnTime = 0;
+	m_BlinkOffTime = 0;
+	m_BlinkOnFlag = false;
+
 	m_OBLevel = 10;
 	m_LampTest = 0;
 	m_Invert = 0;

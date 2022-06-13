@@ -525,9 +525,6 @@ void COutputThread::UpdateSingleSTEP(CSTEPPage *pSTEPArray, UINT dIndex, UINT nP
 			break;
 
 			case SIM_F4BMS:
-			case SIM_F4AF:
-			case SIM_F4OF:
-			case SIM_F4FF:
 			case SIM_F4USIM:
 				SimValue = VarTypeConversion(	F4DataArray[vIndex].VarType,
 														theApp.m_pF4VarToken[vIndex]);
@@ -736,9 +733,6 @@ void COutputThread::UpdateSingleSPI(CSPIPage *pSPIArray, UINT dIndex, UINT nPort
 			break;
 
 			case SIM_F4BMS:
-			case SIM_F4AF:
-			case SIM_F4OF:
-			case SIM_F4FF:
 			case SIM_F4USIM:
 				SimValue = VarTypeConversion(	F4DataArray[vIndex].VarType,
 														theApp.m_pF4VarToken[vIndex]);
@@ -915,33 +909,6 @@ void COutputThread::UpdateCrtRWR(UINT dIndex, UINT nPort)
 
 				xPos  = radius * sin(angle_rad);
 				 // Flip this display if we are upside down
-				xPos *=  ((RADTODEG(fabs(theApp.m_F4FlightData.roll)) > 120.0F) ? -1 : 1);
-				xPos +=  1.0;
-				yPos  = radius * cos(angle_rad) + 1.0;
-
-				theApp.m_pDevArray[dIndex]->m_CrtRwrOutputs[i].xPos = (UCHAR)(xPos*127);
-				theApp.m_pDevArray[dIndex]->m_CrtRwrOutputs[i].yPos = (UCHAR)(yPos*127);
-			}
-		} else if (theApp.m_SimulationModel == SIM_F4AF) {
-			theApp.m_pDevArray[dIndex]->m_RWRSymbolCnt = (UCHAR)theApp.m_F4FlightData.RwrObjectCount;
-			for (i=0; i<theApp.m_F4FlightData.RwrObjectCount; i++) {
-				theApp.m_pDevArray[dIndex]->m_CrtRwrOutputs[i].symbol = (UCHAR)theApp.m_F4FlightData.RWRsymbol[i];
-				theApp.m_pDevArray[dIndex]->m_CrtRwrOutputs[i].missileActivity = theApp.m_F4FlightData.missileActivity[i]&0x01;
-				theApp.m_pDevArray[dIndex]->m_CrtRwrOutputs[i].missileLaunch = theApp.m_F4FlightData.missileLaunch[i]&0x01;
-				theApp.m_pDevArray[dIndex]->m_CrtRwrOutputs[i].newguy = theApp.m_F4FlightData.newDetection[i]&0x01;
-				theApp.m_pDevArray[dIndex]->m_CrtRwrOutputs[i].selected = theApp.m_F4FlightData.selected[i]&0x01;
-
-				angle_rad = theApp.m_F4FlightData.bearing[i] - theApp.m_F4FlightData.yaw;
-
-				if (theApp.m_F4FlightData.lethality[i] > 1.0)
-					// 0.95 keeps things from leaking off the edge of the display
-					radius = (2.0F - theApp.m_F4FlightData.lethality[i]) * 0.95f;    
-				else
-					// 0.95 keeps things from leaking off the edge of the display
-					radius = (1.0F - theApp.m_F4FlightData.lethality[i]) * 0.95f;
-
-				xPos  = radius * sin(angle_rad);
-				 // Flip this display is we are upside down
 				xPos *=  ((RADTODEG(fabs(theApp.m_F4FlightData.roll)) > 120.0F) ? -1 : 1);
 				xPos +=  1.0;
 				yPos  = radius * cos(angle_rad) + 1.0;
@@ -1518,8 +1485,8 @@ CString COutputThread::ParseLCDText(CString lpszSource, UCHAR nDEDMode)
 
 void COutputThread::ReadDirectOutputs(UINT dIndex, UINT nPort)
 {
-	UINT	oIndex, vIndex, vSimType, start_index, end_index;
-	double	SimValue;
+	UINT	oIndex, vIndex, vIndex2, vSimType, start_index, end_index;
+	double	SimValue, SimValue2;
 
 	start_index = nPort*EEEF_NUM_OUTPUTS_PER_PORT;
 	end_index = nPort*EEEF_NUM_OUTPUTS_PER_PORT + EEEF_NUM_OUTPUTS_PER_PORT;
@@ -1531,8 +1498,10 @@ void COutputThread::ReadDirectOutputs(UINT dIndex, UINT nPort)
 			theApp.m_SimulationModel != SIM_NONE) {
 
 			SimValue = 0;
+			SimValue2 = 0;
 
 			vIndex = theApp.m_pDevArray[dIndex]->m_OutputArray[oIndex].m_VarTokenIndex;
+			vIndex2 = theApp.m_pDevArray[dIndex]->m_OutputArray[oIndex].m_VarBlinkTokenIndex;
 			vSimType = theApp.m_pDevArray[dIndex]->m_OutputArray[oIndex].m_SimType;
 
 			switch (vSimType) {
@@ -1542,6 +1511,11 @@ void COutputThread::ReadDirectOutputs(UINT dIndex, UINT nPort)
 					theApp.m_pXPFlightData->Data[vIndex].Active = true;
 					SimValue = VarTypeConversion (	XPDataArray[vIndex].VarType,
 													&theApp.m_pXPFlightData->Data[vIndex].dDataRead);
+					if (vIndex2 == 0)
+						break;
+					theApp.m_pXPFlightData->Data[vIndex2].Active = true;
+					SimValue2 = VarTypeConversion(XPDataArray[vIndex2].VarType,
+						&theApp.m_pXPFlightData->Data[vIndex2].dDataRead);
 				break;
 
 				case SIM_IL2:
@@ -1552,17 +1526,23 @@ void COutputThread::ReadDirectOutputs(UINT dIndex, UINT nPort)
 					theApp.m_IL2FlightData.Data[vIndex].Active = true;
 					SimValue = VarTypeConversion (	IL2DataArray[vIndex].VarType,
 													&theApp.m_IL2FlightData.Data[vIndex].dDataRead);
+					if (vIndex2 == 0)
+						break;
+					theApp.m_IL2FlightData.Data[vIndex2].Active = true;
+					SimValue2 = VarTypeConversion(IL2DataArray[vIndex2].VarType,
+						&theApp.m_IL2FlightData.Data[vIndex2].dDataRead);
 				break;
 
 				case SIM_F4BMS:
-				case SIM_F4AF:
-				case SIM_F4OF:
-				case SIM_F4FF:
 				case SIM_F4USIM:
 					if (theApp.m_pF4VarToken[vIndex] == NULL)
 						break;
 					SimValue = VarTypeConversion(	F4DataArray[vIndex].VarType,
 													theApp.m_pF4VarToken[vIndex]);
+					if (theApp.m_pF4VarToken[vIndex2] == NULL)
+						break;
+					SimValue2 = VarTypeConversion(F4DataArray[vIndex2].VarType,
+						theApp.m_pF4VarToken[vIndex2]);
 				break;
 
 				case SIM_GTR:
@@ -1578,6 +1558,10 @@ void COutputThread::ReadDirectOutputs(UINT dIndex, UINT nPort)
 						break;
 					SimValue = VarTypeConversion(	SimBinDataArray[vIndex].VarType,
 													theApp.m_pSimBinVarToken[vIndex]);
+					if (theApp.m_pSimBinVarToken[vIndex2] == NULL)
+						break;
+					SimValue2 = VarTypeConversion(SimBinDataArray[vIndex2].VarType,
+						theApp.m_pSimBinVarToken[vIndex2]);
 				break;
 
 				case SIM_RF:
@@ -1585,6 +1569,10 @@ void COutputThread::ReadDirectOutputs(UINT dIndex, UINT nPort)
 						break;
 					SimValue = VarTypeConversion(	RFDataArray[vIndex].VarType,
 													theApp.m_pRFVarToken[vIndex]);
+					if (theApp.m_pRFVarToken[vIndex2] == NULL)
+						break;
+					SimValue2 = VarTypeConversion(RFDataArray[vIndex2].VarType,
+						theApp.m_pRFVarToken[vIndex2]);
 				break;
 
 				case SIM_GPX:
@@ -1592,6 +1580,10 @@ void COutputThread::ReadDirectOutputs(UINT dIndex, UINT nPort)
 						break;
 					SimValue = VarTypeConversion(	GPXDataArray[vIndex].VarType,
 													theApp.m_pGPXVarToken[vIndex]);
+					if (theApp.m_pGPXVarToken[vIndex2] == NULL)
+						break;
+					SimValue2 = VarTypeConversion(GPXDataArray[vIndex2].VarType,
+						theApp.m_pGPXVarToken[vIndex2]);
 				break;
 
 				case SIM_LFS:
@@ -1599,14 +1591,19 @@ void COutputThread::ReadDirectOutputs(UINT dIndex, UINT nPort)
 						break;
 					SimValue = VarTypeConversion(	LFSDataArray[vIndex].VarType,
 													theApp.m_pLFSVarToken[vIndex]);
+					if (theApp.m_pLFSVarToken[vIndex2] == NULL)
+						break;
+					SimValue2 = VarTypeConversion(LFSDataArray[vIndex2].VarType,
+						theApp.m_pLFSVarToken[vIndex2]);
 				break;
 
 				case USIM_INPUT_FLAGS:
 					SimValue = theApp.m_UserVarsArray.m_IOFlags[vIndex].FlagValue;
+					SimValue2 = theApp.m_UserVarsArray.m_IOFlags[vIndex2].FlagValue;
 				break;
 			}
 
-			if (CheckConditions(SimValue, &theApp.m_pDevArray[dIndex]->m_OutputArray[oIndex])) {
+			if (CheckConditions(SimValue, SimValue2, &theApp.m_pDevArray[dIndex]->m_OutputArray[oIndex])) {
 				// bit ON
 				theApp.m_pDevArray[dIndex]->m_Outputs[oIndex] = 1;
 			} else {
@@ -1617,21 +1614,19 @@ void COutputThread::ReadDirectOutputs(UINT dIndex, UINT nPort)
 			if (!CheckFlags(&theApp.m_pDevArray[dIndex]->m_OutputFlagsArray[oIndex]))
 				theApp.m_pDevArray[dIndex]->m_Outputs[oIndex] = 0;
 
-			if (theApp.m_pDevArray[dIndex]->m_OutputArray[oIndex].m_LampTest)
-				theApp.m_pDevArray[dIndex]->m_Outputs[oIndex] = 1;
-
 			if (theApp.m_pDevArray[dIndex]->m_OutputArray[oIndex].m_Invert)
 				theApp.m_pDevArray[dIndex]->m_Outputs[oIndex] = (BYTE)((~theApp.m_pDevArray[dIndex]->m_Outputs[oIndex])&0x01);
 
+			if (theApp.m_pDevArray[dIndex]->m_OutputArray[oIndex].m_LampTest)
+				theApp.m_pDevArray[dIndex]->m_Outputs[oIndex] = 1;
 		} else {
+			if (theApp.m_pDevArray[dIndex]->m_OutputArray[oIndex].m_Invert)
+				theApp.m_pDevArray[dIndex]->m_Outputs[oIndex] = (BYTE)((~theApp.m_pDevArray[dIndex]->m_Outputs[oIndex])&0x01);
+
 			if (theApp.m_pDevArray[dIndex]->m_OutputArray[oIndex].m_LampTest)
 				theApp.m_pDevArray[dIndex]->m_Outputs[oIndex] = 1;
 			else
 				theApp.m_pDevArray[dIndex]->m_Outputs[oIndex] = 0;
-
-			if (theApp.m_pDevArray[dIndex]->m_OutputArray[oIndex].m_Invert)
-				theApp.m_pDevArray[dIndex]->m_Outputs[oIndex] = (BYTE)((~theApp.m_pDevArray[dIndex]->m_Outputs[oIndex])&0x01);
-
 		} // if (theApp.m_pDevArray[dIndex]->m_OutputActive[oIndex] && theApp.m_pDevArray[dIndex]->m_OutputArray[oIndex].IsSet() )
 
 		// if toggled
@@ -1651,8 +1646,8 @@ void COutputThread::ReadDirectOutputs(UINT dIndex, UINT nPort)
 
 void COutputThread::ReadLatchedOutputs(UINT dIndex, UINT nPort)
 {
-	UINT	oIndex, vIndex, vSimType, start_index, end_index;
-	double	SimValue;
+	UINT	oIndex, vIndex, vIndex2, vSimType, start_index, end_index;
+	double	SimValue, SimValue2;
 
 	start_index = nPort*NUM_LATCHED_PER_PORT;
 	end_index = nPort*NUM_LATCHED_PER_PORT + NUM_LATCHED_PER_PORT;
@@ -1666,8 +1661,10 @@ void COutputThread::ReadLatchedOutputs(UINT dIndex, UINT nPort)
 			theApp.m_SimulationModel != SIM_NONE) {
 
 			SimValue = 0;
+			SimValue2 = 0;
 
 			vIndex = theApp.m_pDevArray[dIndex]->m_LOArray[oIndex].m_VarTokenIndex;
+			vIndex2 = theApp.m_pDevArray[dIndex]->m_LOArray[oIndex].m_VarBlinkTokenIndex;
 			vSimType = theApp.m_pDevArray[dIndex]->m_LOArray[oIndex].m_SimType;
 
 			switch (vSimType) {
@@ -1677,6 +1674,12 @@ void COutputThread::ReadLatchedOutputs(UINT dIndex, UINT nPort)
 					theApp.m_pXPFlightData->Data[vIndex].Active = true;
 					SimValue = VarTypeConversion (	XPDataArray[vIndex].VarType,
 													&theApp.m_pXPFlightData->Data[vIndex].dDataRead);
+
+					if (vIndex2 == 0)
+						break;
+					theApp.m_pXPFlightData->Data[vIndex2].Active = true;
+					SimValue2 = VarTypeConversion(XPDataArray[vIndex2].VarType,
+						&theApp.m_pXPFlightData->Data[vIndex2].dDataRead);
 				break;
 
 				case SIM_IL2:
@@ -1687,17 +1690,24 @@ void COutputThread::ReadLatchedOutputs(UINT dIndex, UINT nPort)
 					theApp.m_IL2FlightData.Data[vIndex].Active = true;
 					SimValue = VarTypeConversion (	IL2DataArray[vIndex].VarType,
 													&theApp.m_IL2FlightData.Data[vIndex].dDataRead);
+					if (vIndex2 == 0)
+						break;
+					theApp.m_IL2FlightData.Data[vIndex2].Active = true;
+					SimValue2 = VarTypeConversion(IL2DataArray[vIndex2].VarType,
+						&theApp.m_IL2FlightData.Data[vIndex2].dDataRead);
 				break;
 
 				case SIM_F4BMS:
-				case SIM_F4AF:
-				case SIM_F4OF:
-				case SIM_F4FF:
 				case SIM_F4USIM:
 					if (theApp.m_pF4VarToken[vIndex] == NULL)
 						break;
 					SimValue = VarTypeConversion(	F4DataArray[vIndex].VarType,
 													theApp.m_pF4VarToken[vIndex]);
+
+					if (theApp.m_pF4VarToken[vIndex2] == NULL)
+						break;
+					SimValue2 = VarTypeConversion(F4DataArray[vIndex2].VarType,
+						theApp.m_pF4VarToken[vIndex2]);
 				break;
 
 				case SIM_GTR:
@@ -1713,6 +1723,11 @@ void COutputThread::ReadLatchedOutputs(UINT dIndex, UINT nPort)
 						break;
 					SimValue = VarTypeConversion(	SimBinDataArray[vIndex].VarType,
 													theApp.m_pSimBinVarToken[vIndex]);
+
+					if (theApp.m_pSimBinVarToken[vIndex2] == NULL)
+						break;
+					SimValue2 = VarTypeConversion(SimBinDataArray[vIndex2].VarType,
+						theApp.m_pSimBinVarToken[vIndex2]);
 				break;
 
 				case SIM_RF:
@@ -1720,6 +1735,11 @@ void COutputThread::ReadLatchedOutputs(UINT dIndex, UINT nPort)
 						break;
 					SimValue = VarTypeConversion(	RFDataArray[vIndex].VarType,
 													theApp.m_pRFVarToken[vIndex]);
+
+					if (theApp.m_pRFVarToken[vIndex2] == NULL)
+						break;
+					SimValue2 = VarTypeConversion(RFDataArray[vIndex2].VarType,
+						theApp.m_pRFVarToken[vIndex2]);
 				break;
 
 				case SIM_GPX:
@@ -1727,6 +1747,11 @@ void COutputThread::ReadLatchedOutputs(UINT dIndex, UINT nPort)
 						break;
 					SimValue = VarTypeConversion(	GPXDataArray[vIndex].VarType,
 													theApp.m_pGPXVarToken[vIndex]);
+
+					if (theApp.m_pGPXVarToken[vIndex2] == NULL)
+						break;
+					SimValue2 = VarTypeConversion(GPXDataArray[vIndex2].VarType,
+						theApp.m_pGPXVarToken[vIndex2]);
 				break;
 
 				case SIM_LFS:
@@ -1734,14 +1759,20 @@ void COutputThread::ReadLatchedOutputs(UINT dIndex, UINT nPort)
 						break;
 					SimValue = VarTypeConversion(	LFSDataArray[vIndex].VarType,
 													theApp.m_pLFSVarToken[vIndex]);
+
+					if (theApp.m_pLFSVarToken[vIndex2] == NULL)
+						break;
+					SimValue2 = VarTypeConversion(LFSDataArray[vIndex2].VarType,
+						theApp.m_pLFSVarToken[vIndex2]);
 				break;
 
 				case USIM_INPUT_FLAGS:
 					SimValue = theApp.m_UserVarsArray.m_IOFlags[vIndex].FlagValue;
+					SimValue2 = theApp.m_UserVarsArray.m_IOFlags[vIndex2].FlagValue;
 				break;
 			}
 
-			if (CheckConditions(SimValue, &theApp.m_pDevArray[dIndex]->m_LOArray[oIndex])) {
+			if (CheckConditions(SimValue, SimValue2, &theApp.m_pDevArray[dIndex]->m_LOArray[oIndex])) {
 				// bit ON
 				theApp.m_pDevArray[dIndex]->m_LO[oIndex] = 1;
 			} else {
@@ -1752,21 +1783,19 @@ void COutputThread::ReadLatchedOutputs(UINT dIndex, UINT nPort)
 			if (!CheckFlags(&theApp.m_pDevArray[dIndex]->m_LOFlagsArray[oIndex]))
 				theApp.m_pDevArray[dIndex]->m_LO[oIndex] = 0;
 
+			if (theApp.m_pDevArray[dIndex]->m_LOArray[oIndex].m_Invert)
+				theApp.m_pDevArray[dIndex]->m_LO[oIndex] = (BYTE)((~theApp.m_pDevArray[dIndex]->m_LO[oIndex]) & 0x01);
+
 			if (theApp.m_pDevArray[dIndex]->m_LOArray[oIndex].m_LampTest)
 				theApp.m_pDevArray[dIndex]->m_LO[oIndex] = 1;
-
-			if (theApp.m_pDevArray[dIndex]->m_LOArray[oIndex].m_Invert)
-				theApp.m_pDevArray[dIndex]->m_LO[oIndex] = (BYTE)((~theApp.m_pDevArray[dIndex]->m_LO[oIndex])&0x01);
-
 		} else {
+			if (theApp.m_pDevArray[dIndex]->m_LOArray[oIndex].m_Invert)
+				theApp.m_pDevArray[dIndex]->m_LO[oIndex] = (BYTE)((~theApp.m_pDevArray[dIndex]->m_LO[oIndex]) & 0x01);
+
 			if (theApp.m_pDevArray[dIndex]->m_LOArray[oIndex].m_LampTest)
 				theApp.m_pDevArray[dIndex]->m_LO[oIndex] = 1;
 			else
 				theApp.m_pDevArray[dIndex]->m_LO[oIndex] = 0;
-
-			if (theApp.m_pDevArray[dIndex]->m_LOArray[oIndex].m_Invert)
-				theApp.m_pDevArray[dIndex]->m_LO[oIndex] = (BYTE)((~theApp.m_pDevArray[dIndex]->m_LO[oIndex])&0x01);
-
 		} // if (theApp.m_pDevArray[dIndex]->m_LOActive[oIndex] && theApp.m_pDevArray[dIndex]->m_LOArray[oIndex].IsSet() )
 
 		// if toggled
@@ -1795,8 +1824,8 @@ void COutputThread::ReadLatchedOutputs(UINT dIndex, UINT nPort)
 
 void COutputThread::ReadMuxOutputs(UINT dIndex, UINT nPort)
 {
-	UINT	oIndex, vIndex, vSimType, start_index, end_index;
-	double	SimValue;
+	UINT	oIndex, vIndex, vIndex2, vSimType, start_index, end_index;
+	double	SimValue, SimValue2;
 
 	start_index = nPort*NUM_MUX_PER_PORT;	
 	end_index = nPort*NUM_MUX_PER_PORT + NUM_MUX_PER_PORT;
@@ -1808,8 +1837,10 @@ void COutputThread::ReadMuxOutputs(UINT dIndex, UINT nPort)
 			theApp.m_SimulationModel != SIM_NONE) {
 
 			SimValue = 0;
+			SimValue2 = 0;
 
 			vIndex = theApp.m_pDevArray[dIndex]->m_MuxArray[oIndex].m_VarTokenIndex;
+			vIndex2 = theApp.m_pDevArray[dIndex]->m_MuxArray[oIndex].m_VarBlinkTokenIndex;
 			vSimType = theApp.m_pDevArray[dIndex]->m_MuxArray[oIndex].m_SimType;
 
 			switch (vSimType) {
@@ -1819,6 +1850,11 @@ void COutputThread::ReadMuxOutputs(UINT dIndex, UINT nPort)
 					theApp.m_pXPFlightData->Data[vIndex].Active = true;
 					SimValue = VarTypeConversion (	XPDataArray[vIndex].VarType, 
 													&theApp.m_pXPFlightData->Data[vIndex].dDataRead);
+					if (vIndex2 == 0)
+						break;
+					theApp.m_pXPFlightData->Data[vIndex2].Active = true;
+					SimValue = VarTypeConversion(XPDataArray[vIndex2].VarType,
+						&theApp.m_pXPFlightData->Data[vIndex2].dDataRead);
 				break;
 
 				case SIM_IL2:
@@ -1829,17 +1865,23 @@ void COutputThread::ReadMuxOutputs(UINT dIndex, UINT nPort)
 					theApp.m_IL2FlightData.Data[vIndex].Active = true;
 					SimValue = VarTypeConversion (	IL2DataArray[vIndex].VarType, 
 													&theApp.m_IL2FlightData.Data[vIndex].dDataRead);
+					if (vIndex2 == 0)
+						break;
+					theApp.m_IL2FlightData.Data[vIndex2].Active = true;
+					SimValue2 = VarTypeConversion(IL2DataArray[vIndex2].VarType,
+						&theApp.m_IL2FlightData.Data[vIndex2].dDataRead);
 				break;
 
 				case SIM_F4BMS:
-				case SIM_F4AF:
-				case SIM_F4OF:
-				case SIM_F4FF:
 				case SIM_F4USIM:
 					if (theApp.m_pF4VarToken[vIndex] == NULL)
 						break;
 					SimValue = VarTypeConversion (	F4DataArray[vIndex].VarType,
 													theApp.m_pF4VarToken[vIndex]);
+					if (theApp.m_pF4VarToken[vIndex2] == NULL)
+						break;
+					SimValue2 = VarTypeConversion(F4DataArray[vIndex2].VarType,
+						theApp.m_pF4VarToken[vIndex2]);
 				break;
 
 				case SIM_GTR:
@@ -1855,6 +1897,10 @@ void COutputThread::ReadMuxOutputs(UINT dIndex, UINT nPort)
 						break;
 					SimValue = VarTypeConversion (	SimBinDataArray[vIndex].VarType,
 													theApp.m_pSimBinVarToken[vIndex]);
+					if (theApp.m_pSimBinVarToken[vIndex2] == NULL)
+						break;
+					SimValue2 = VarTypeConversion(SimBinDataArray[vIndex2].VarType,
+						theApp.m_pSimBinVarToken[vIndex2]);
 				break;
 
 				case SIM_RF:
@@ -1862,6 +1908,10 @@ void COutputThread::ReadMuxOutputs(UINT dIndex, UINT nPort)
 						break;
 					SimValue = VarTypeConversion (	RFDataArray[vIndex].VarType,
 													theApp.m_pRFVarToken[vIndex]);
+					if (theApp.m_pRFVarToken[vIndex2] == NULL)
+						break;
+					SimValue2 = VarTypeConversion(RFDataArray[vIndex2].VarType,
+						theApp.m_pRFVarToken[vIndex2]);
 				break;
 
 				case SIM_GPX:
@@ -1869,6 +1919,10 @@ void COutputThread::ReadMuxOutputs(UINT dIndex, UINT nPort)
 						break;
 					SimValue = VarTypeConversion (	GPXDataArray[vIndex].VarType,
 													theApp.m_pGPXVarToken[vIndex]);
+					if (theApp.m_pGPXVarToken[vIndex2] == NULL)
+						break;
+					SimValue2 = VarTypeConversion(GPXDataArray[vIndex2].VarType,
+						theApp.m_pGPXVarToken[vIndex2]);
 				break;
 
 				case SIM_LFS:
@@ -1876,14 +1930,19 @@ void COutputThread::ReadMuxOutputs(UINT dIndex, UINT nPort)
 						break;
 					SimValue = VarTypeConversion (	LFSDataArray[vIndex].VarType,
 													theApp.m_pLFSVarToken[vIndex]);
+					if (theApp.m_pLFSVarToken[vIndex2] == NULL)
+						break;
+					SimValue2 = VarTypeConversion(LFSDataArray[vIndex2].VarType,
+						theApp.m_pLFSVarToken[vIndex2]);
 				break;
 
 				case USIM_INPUT_FLAGS:
 					SimValue = theApp.m_UserVarsArray.m_IOFlags[vIndex].FlagValue;
+					SimValue2 = theApp.m_UserVarsArray.m_IOFlags[vIndex2].FlagValue;
 				break;
 			}
 
-			if (CheckConditions(SimValue, &theApp.m_pDevArray[dIndex]->m_MuxArray[oIndex])) {
+			if (CheckConditions(SimValue, SimValue2, &theApp.m_pDevArray[dIndex]->m_MuxArray[oIndex])) {
 				// bit ON
 				theApp.m_pDevArray[dIndex]->m_Mux[oIndex] = 1;
 			} else {
@@ -1894,20 +1953,19 @@ void COutputThread::ReadMuxOutputs(UINT dIndex, UINT nPort)
 			if (!CheckFlags(&theApp.m_pDevArray[dIndex]->m_MuxFlagsArray[oIndex]))
 				theApp.m_pDevArray[dIndex]->m_Mux[oIndex] = 0;
 
+			if (theApp.m_pDevArray[dIndex]->m_MuxArray[oIndex].m_Invert)
+				theApp.m_pDevArray[dIndex]->m_Mux[oIndex] = (BYTE)((!theApp.m_pDevArray[dIndex]->m_Mux[oIndex]) & 0x01);
+
 			if (theApp.m_pDevArray[dIndex]->m_MuxArray[oIndex].m_LampTest)
 				theApp.m_pDevArray[dIndex]->m_Mux[oIndex] = 1;
-
-			if (theApp.m_pDevArray[dIndex]->m_MuxArray[oIndex].m_Invert)
-				theApp.m_pDevArray[dIndex]->m_Mux[oIndex] = (BYTE)((!theApp.m_pDevArray[dIndex]->m_Mux[oIndex])&0x01);
-
 		} else {
+			if (theApp.m_pDevArray[dIndex]->m_MuxArray[oIndex].m_Invert)
+				theApp.m_pDevArray[dIndex]->m_Mux[oIndex] = (BYTE)((!theApp.m_pDevArray[dIndex]->m_Mux[oIndex]) & 0x01);
+
 			if (theApp.m_pDevArray[dIndex]->m_MuxArray[oIndex].m_LampTest)
 				theApp.m_pDevArray[dIndex]->m_Mux[oIndex] = 1;
 			else
 				theApp.m_pDevArray[dIndex]->m_Mux[oIndex] = 0;
-
-			if (theApp.m_pDevArray[dIndex]->m_MuxArray[oIndex].m_Invert)
-				theApp.m_pDevArray[dIndex]->m_Mux[oIndex] = (BYTE)((!theApp.m_pDevArray[dIndex]->m_Mux[oIndex])&0x01);
 		}
 
 		if (theApp.m_pDevArray[dIndex]->m_DisplayArray[nPort].m_Override != 
@@ -2007,9 +2065,6 @@ void COutputThread::ReadDisplayOutputs(UINT dIndex, UINT nPort)
 						break;
 
 						case SIM_F4BMS:
-						case SIM_F4AF:
-						case SIM_F4OF:
-						case SIM_F4FF:
 						case SIM_F4USIM:
 							if (theApp.m_pF4VarToken[vIndex] != NULL)
 								SimValue = VarTypeConversion(	F4DataArray[vIndex].VarType,
@@ -2198,9 +2253,6 @@ void COutputThread::ReadDotMatrixOutputs(UINT dIndex, UINT nPort)
 							break;
 
 							case SIM_F4BMS:
-							case SIM_F4AF:
-							case SIM_F4OF:
-							case SIM_F4FF:
 							case SIM_F4USIM:
 								if (theApp.m_pF4VarToken[vIndex] != NULL)
 									SimValue = VarTypeConversion(	F4DataArray[vIndex].VarType,
@@ -2329,7 +2381,7 @@ BOOL COutputThread::CheckFlags(CFlagsPage *pFlagsArray)
 	return true;
 }
 
-BOOL COutputThread::CheckConditions(double SimValue, COutputPage *pOutputArray)
+BOOL COutputThread::CheckConditions(double SimValue, double SimValue2, COutputPage *pOutputArray)
 {
 	BOOL ResultFlag1 = false;
 	BOOL ResultFlag2 = false;
@@ -2371,49 +2423,68 @@ BOOL COutputThread::CheckConditions(double SimValue, COutputPage *pOutputArray)
 		break;
 	}
 
-	if (pOutputArray->m_Condition2 == 0)
-		return ResultFlag1;
-
-	switch (pOutputArray->m_Condition3) {
+	if (pOutputArray->m_Condition2 != 0) {
+		switch (pOutputArray->m_Condition3) {
 		case 0:		// >
 			if (SimValue > pOutputArray->m_OPValue2)
 				ResultFlag2 = true;
-		break;
+			break;
 
 		case 1:		// >=
 			if (SimValue >= pOutputArray->m_OPValue2)
 				ResultFlag2 = true;
-		break;
+			break;
 
 		case 2:		// <
 			if (SimValue < pOutputArray->m_OPValue2)
 				ResultFlag2 = true;
-		break;
+			break;
 
 		case 3:		// <=
 			if (SimValue <= pOutputArray->m_OPValue2)
 				ResultFlag2 = true;
-		break;
+			break;
 
 		case 4:		// =
 			if (SimValue == pOutputArray->m_OPValue2)
 				ResultFlag2 = true;
-		break;
+			break;
 
 		case 5:		// !=
 			if (SimValue != pOutputArray->m_OPValue2)
 				ResultFlag2 = true;
-		break;
+			break;
+		}
+
+		if (pOutputArray->m_Condition2 == 1) {
+			// AND
+			if (ResultFlag1 && ResultFlag2)	ResultFlag1 = true;
+			else ResultFlag1 = false;
+		}
+		else {
+			// OR
+			if (ResultFlag1 || ResultFlag2)	ResultFlag1 = true;
+			else ResultFlag1 = false;
+		}
 	}
-		
-	if (pOutputArray->m_Condition2 == 1) {
-		// AND
-		if (ResultFlag1 && ResultFlag2)	ResultFlag1 = true;
-		else ResultFlag1 = false;
-	} else {
-		// OR
-		if (ResultFlag1 || ResultFlag2)	ResultFlag1 = true;
-		else ResultFlag1 = false;
+
+	// check blinking condition
+	if (ResultFlag1) {
+		if (((UINT)SimValue2 & pOutputArray->m_BlinkMask) != 0) {
+			if (pOutputArray->m_BlinkOnFlag) {
+				if (pOutputArray->m_BlinkOnTimeCnt++ >= pOutputArray->m_BlinkOnTime*5) {		// multiples of 50ms
+					pOutputArray->m_BlinkOnTimeCnt = 0;
+					pOutputArray->m_BlinkOffTimeCnt = 0;
+					ResultFlag1 = 0; // toggle output
+					pOutputArray->m_BlinkOnFlag = false;
+				}
+			} else if (pOutputArray->m_BlinkOffTimeCnt++ >= pOutputArray->m_BlinkOffTime*5) {	// multiples of 50ms
+				pOutputArray->m_BlinkOffTimeCnt = 0;
+				pOutputArray->m_BlinkOnTimeCnt = 0;
+				ResultFlag1 = 1; // toggle output
+				pOutputArray->m_BlinkOnFlag = true;
+			} else ResultFlag1 = 0;
+		}
 	}
 
 	return ResultFlag1;

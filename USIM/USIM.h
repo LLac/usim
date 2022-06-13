@@ -46,8 +46,9 @@
 
 #define ID_FILECLASS			0xFA08	// Unique ID for this app
 #define ID_ITEMFILECLASS		0xAC01	// Unique ID for this app items files
-#define ID_SAVEFILEVERSION		0x000C	// current file version
-#define ID_SAVEFILEVERSION_1	0x000B	// older file version
+#define ID_SAVEFILEVERSION		0x000D	// current file version
+#define ID_SAVEFILEVERSION_2	0x000C	// older-er file version
+#define ID_SAVEFILEVERSION_1	0x000B	// older-ist file version
 
 /////////////////////////////////////////////////////////////////////////////
 // CUSIMApp:
@@ -108,8 +109,7 @@ public:
 	F4FlightData	m_F4FlightData;
 	double			*m_pF4VarToken[ArraySize(F4DataArray)];
 	BMSFlightData	*m_pBMSFlightData;
-	AFFlightData	*m_pAFFlightData;
-	FlightData2		*m_pFlightData2;
+	BMSFlightData2	*m_pBMSFlightData2;
 
 	CXPSharedMem	m_XPSharedMem;
 	XPFlightData	*m_pXPFlightData;

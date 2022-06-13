@@ -46,13 +46,15 @@
     <IntDir>.\Debug\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(VCToolsInstallDir)atlmfc\include;$(VCToolsInstallDir)atlmfc\src\mfc</IncludePath>
-    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+    <PostBuildEventUseInBuild>
+    </PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>.\Release\</OutDir>
     <IntDir>.\Release\</IntDir>
     <LinkIncremental>false</LinkIncremental>
-    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+    <PostBuildEventUseInBuild>
+    </PostBuildEventUseInBuild>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(VCToolsInstallDir)atlmfc\include;$(VCToolsInstallDir)atlmfc\src\mfc</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -99,7 +101,8 @@
       <OutputFile>.\Debug/XPPlugin.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>copy Debug\Plugins\xpip.xpl "D:\GAMES\X-Plane 9\Resources\plugins"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -146,7 +149,8 @@
       <OutputFile>.\Release/XPPlugin.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>copy Release\Plugins\xpip.xpl "D:\GAMES\X-Plane 9\Resources\plugins"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

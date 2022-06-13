@@ -21,10 +21,8 @@
 // Neutral (Default) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEUD)
-#ifdef _WIN32
 LANGUAGE LANG_NEUTRAL, SUBLANG_DEFAULT
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -34,146 +32,273 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_DEFAULT
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDR_MAINFRAME           ICON                    "res\\BI_CFG.ico"
+
 IDI_DIS_OFF_P           ICON                    "res\\dis_off1.ico"
+
 IDI_USB                 ICON                    "res\\Usb2.ico"
+
 IDI_RED_ON              ICON                    "res\\red_on.ico"
+
 IDI_RED_OFF             ICON                    "res\\red_off.ico"
+
 IDI_QUE_YELLOW          ICON                    "res\\que1.ico"
+
 IDI_PORT                ICON                    "res\\port3.ico"
+
 IDI_PC3                 ICON                    "res\\Pc3.ico"
+
 IDI_OUTPUT              ICON                    "res\\input.ico"
+
 IDI_NETHOOD             ICON                    "res\\NETHOOD.ICO"
+
 IDI_NA                  ICON                    "res\\non.ico"
+
 IDI_KEYS                ICON                    "res\\keys.ico"
+
 IDI_JOY                 ICON                    "res\\joystick2.ico"
+
 IDI_INPUT               ICON                    "res\\icon1.ico"
+
 IDI_GR_ON_P             ICON                    "res\\gr_on_p.ico"
+
 IDI_GR_ON               ICON                    "res\\gr_on.ico"
+
 IDI_GR_OFF_P            ICON                    "res\\gr_off_p.ico"
+
 IDI_GR_OFF              ICON                    "res\\gr_off.ico"
+
 IDI_GEAR                ICON                    "res\\ico00001.ico"
+
 IDI_DIS_ON_P            ICON                    "res\\dis_p.ico"
+
 IDI_DIS_ON              ICON                    "res\\dis_on.ico"
+
 IDI_DIS_OFF             ICON                    "res\\dis_off.ico"
+
 IDI_DIG1                ICON                    "res\\digital.ico"
+
 IDI_CARD3               ICON                    "res\\no_card.ico"
+
 IDI_CARD2               ICON                    "res\\devices1.ico"
+
 IDI_CARD                ICON                    "res\\card.ico"
+
 IDI_AN1                 ICON                    "res\\joystick1.ico"
+
 IDI_PLCC                ICON                    "res\\plcc.ico"
+
 IDI_ROTARY              ICON                    "res\\input1.ico"
+
 IDI_CLCD_DIS            ICON                    "res\\rotary1.ico"
+
 IDI_MUX                 ICON                    "res\\ico00002.ico"
+
 IDI_ALPHA               ICON                    "res\\ico00003.ico"
+
 IDI_PLCC_DIS            ICON                    "res\\plcc_dis.ico"
+
 IDI_ON                  ICON                    "res\\on.ico"
+
 IDI_OFF                 ICON                    "res\\off.ico"
+
 IDI_INPUT_DIS           ICON                    "res\\ico00004.ico"
+
 IDI_ROTARY_DIS          ICON                    "res\\ico00005.ico"
+
 IDI_OUTPUT_DIS          ICON                    "res\\output1.ico"
+
 IDI_UPDATE              ICON                    "res\\update.ico"
+
 IDI_HELP                ICON                    "res\\help.ico"
+
 IDI_WEB                 ICON                    "res\\favicon.ico"
+
 IDI_USB1                ICON                    "res\\usb1.ico"
+
 IDI_RED_OFF_P           ICON                    "res\\red_off1.ico"
+
 IDI_RED_ON_P            ICON                    "res\\red_on1.ico"
+
 IDI_FALCON              ICON                    "res\\F4-BMS.ico"
+
 IDI_FALCON_ON           ICON                    "res\\falcon1.ico"
+
 IDI_MUX_DIS             ICON                    "res\\mux1.ico"
+
 IDI_USIM_OFF            ICON                    "res\\ico00006.ico"
+
 IDI_USIM_ON             ICON                    "res\\f4on1.ico"
+
 IDI_USIM_ON1            ICON                    "res\\ico00007.ico"
+
 IDI_JP                  ICON                    "res\\plcc1.ico"
+
 IDI_JP_DIS              ICON                    "res\\jp1.ico"
+
 IDI_ON_RED              ICON                    "res\\on_red.ico"
+
 IDI_DOWN                ICON                    "res\\down.ico"
+
 IDI_PLUS                ICON                    "res\\port1.ico"
+
 IDI_MINUS               ICON                    "res\\plus1.ico"
+
 IDI_MUX_P               ICON                    "res\\ico00008.ico"
+
 IDI_MUX_DIS_P           ICON                    "res\\mux_dis1.ico"
+
 IDI_RWR                 ICON                    "res\\ico00009.ico"
+
 IDI_RWR_DIS             ICON                    "res\\rwr1.ico"
+
 IDI_RWR_P               ICON                    "res\\ico00010.ico"
+
 IDI_RWR_DIS_P           ICON                    "res\\rwr_dis1.ico"
+
 IDI_GLCD                ICON                    "res\\ico00011.ico"
+
 IDI_GLCD_DIS            ICON                    "res\\glcd1.ico"
+
 IDI_GLCD_DIS_P          ICON                    "res\\glcd_dis.ico"
+
 IDI_GLCD_P              ICON                    "res\\glcd1_p.ico"
+
 IDI_DACS                ICON                    "res\\ico00012.ico"
+
 IDI_DACS_DIS            ICON                    "res\\dacs1.ico"
+
 IDI_DUALDAC             ICON                    "res\\ico00013.ico"
+
 IDI_DUALDAC_DIS         ICON                    "res\\dac1.ico"
+
 IDI_DUALDAC_P           ICON                    "res\\ico00014.ico"
+
 IDI_DUALDAC_DIS_P       ICON                    "res\\dac_dis1.ico"
+
 IDI_DAC                 ICON                    "res\\ico00015.ico"
+
 IDI_DAC_P               ICON                    "res\\dac2.ico"
+
 IDI_DAC_DIS             ICON                    "res\\ico00016.ico"
+
 IDI_DAC_DIS_P           ICON                    "res\\dac_p1.ico"
+
 IDI_NOTES_P             ICON                    "res\\notes1.ico"
+
 IDI_NOTES_B             ICON                    "res\\notes_p1.ico"
+
 IDI_NOTES               ICON                    "res\\icon2.ico"
+
 IDI_OUTPUT_P            ICON                    "res\\ico00017.ico"
+
 IDI_KBS                 ICON                    "res\\KEYBRD02.ICO"
+
 IDI_KBS_ON              ICON                    "res\\KEYBRD03.ICO"
+
 IDI_KBS2_P              ICON                    "res\\kbs3.ico"
+
 IDI_KBS1                ICON                    "res\\kbs1.ico"
+
 IDI_KBS_OFF             ICON                    "res\\ico00018.ico"
+
 IDI_KBS2                ICON                    "res\\kbs2.ico"
+
 IDI_COND_P              ICON                    "res\\cond1.ico"
+
 IDI_COND_B              ICON                    "res\\cond_p1.ico"
+
 IDI_COND                ICON                    "res\\cond.ico"
+
 IDI_SPI_P               ICON                    "res\\spi_p.ico"
+
 IDI_SPI_DIS_P           ICON                    "res\\spi_dis_.ico"
+
 IDI_SPI_DIS             ICON                    "res\\spi_dis.ico"
+
 IDI_SPI                 ICON                    "res\\spi.ico"
+
 IDI_SPIS                ICON                    "res\\spi1.ico"
+
 IDI_SPIS_DIS            ICON                    "res\\spim1.ico"
+
 IDI_DMXS                ICON                    "res\\dmdisp.ico"
+
 IDI_DMX                 ICON                    "res\\dm.ico"
+
 IDI_DMX_P               ICON                    "res\\dm_p.ico"
+
 IDI_DMX_DIS             ICON                    "res\\dm_dis.ico"
+
 IDI_DMX_DIS_P           ICON                    "res\\dm_p1.ico"
+
 IDI_DMXS_DIS            ICON                    "res\\dmdisp_d.ico"
+
 IDI_LO                  ICON                    "res\\dmdisp1.ico"
+
 IDI_LO_DIS              ICON                    "res\\lo1.ico"
+
 IDI_LO_P                ICON                    "res\\ico00019.ico"
+
 IDI_SPIS_P              ICON                    "res\\ico00020.ico"
+
 IDI_DACS_P              ICON                    "res\\ico00021.ico"
+
 IDI_DMXS_P              ICON                    "res\\dmxs_p.ico"
+
 IDI_BROWSE              ICON                    "res\\off1.ico"
+
 IDI_SIMS                ICON                    "res\\ico00022.ico"
+
 IDI_CLEAR               ICON                    "res\\minus1.ico"
+
 IDI_USIM_RED            ICON                    "res\\usim_off.ico"
+
 IDI_USIM_ONGR           ICON                    "res\\usim_on2.ico"
+
 IDI_USIM_ONGR1          ICON                    "res\\ico00023.ico"
+
 IDI_USIM_DIS            ICON                    "res\\ico00024.ico"
+
 IDI_USIM_DIS_RED        ICON                    "res\\usim_dis.ico"
+
 IDI_CLCD_DIS_P          ICON                    "res\\lcd_dis_.ico"
+
 IDI_CLCD_P              ICON                    "res\\lcd_on_p.ico"
+
 IDI_CLCD                ICON                    "res\\lcd_on.ico"
+
 IDI_LCD_PAGE            ICON                    "res\\clcd1.ico"
+
 IDI_LCD_PAGE_P          ICON                    "res\\lcd_page.ico"
+
 IDI_LCD_PAGE_DIS        ICON                    "res\\ico00026.ico"
+
 IDI_LCD_PAGE_DIS_P      ICON                    "res\\ico00027.ico"
+
 IDI_STEPS_P             ICON                    "res\\spis_p1.ico"
+
 IDI_STEPS_DIS           ICON                    "res\\steps_di.ico"
+
 IDI_STEPS               ICON                    "res\\steps.ico"
+
 IDI_STEP_P              ICON                    "res\\step_p.ico"
+
 IDI_STEP_DIS_P          ICON                    "res\\ico00028.ico"
+
 IDI_STEP_DIS            ICON                    "res\\step_dis.ico"
+
 IDI_STEP                ICON                    "res\\step.ico"
+
 #endif    // Neutral (Default) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// English (United States) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
-#ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -183,6 +308,7 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDI_INSTALL             ICON                    "res\\ico00025.ico"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -212,7 +338,7 @@ BEGIN
     CONTROL         "Tab1",IDC_TAB7,"SysTabControl32",0x0,251,11,6,256
 END
 
-IDD_ABOUTBOX DIALOG  0, 0, 217, 157
+IDD_ABOUTBOX DIALOG 0, 0, 217, 157
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About Universal Simulation Interface Manager"
 FONT 8, "MS Sans Serif"
@@ -220,40 +346,40 @@ BEGIN
     LTEXT           "Universal Simulation Interface Manager Version 1.0.0",IDC_VERSION,10,31,191,8,SS_NOPREFIX
     LTEXT           "Copyright (C) 2010",IDC_STATIC,10,42,119,8
     DEFPUSHBUTTON   "OK",IDOK,83,138,50,14,WS_GROUP
-    CONTROL         167,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE,0,0,217,26
+    CONTROL         IDB_LOGO,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE,0,0,217,26
     EDITTEXT        IDC_EDIT2,11,66,194,62,ES_MULTILINE | ES_READONLY | WS_VSCROLL
 END
 
-IDD_OUTPUT DIALOGEX 0, 0, 300, 237
+IDD_OUTPUT DIALOGEX 0, 0, 300, 286
 STYLE DS_SETFONT | WS_CHILD
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
-    GROUPBOX        "Output Pin",IDC_STATIC0,2,0,296,234,0,WS_EX_TRANSPARENT
-    LTEXT           "Output",IDC_OUTPUTNAME,15,11,188,8,0,WS_EX_TRANSPARENT
+    GROUPBOX        "Output Pin",IDC_STATIC0,2,0,296,283,0,WS_EX_TRANSPARENT
+    LTEXT           "Output",IDC_OUTPUTNAME,15,11,188,8,SS_SUNKEN | NOT WS_VISIBLE,WS_EX_TRANSPARENT
     GROUPBOX        "",IDC_STATIC1,8,22,283,97
-    PUSHBUTTON      "Clear All",IDC_CLEAR,247,215,39,13
+    PUSHBUTTON      "Clear All",IDC_CLEAR,247,261,39,13
     CTEXT           "HARDWARE DISABLED",IDC_ENABLE,207,9,84,12,SS_CENTERIMAGE | NOT WS_GROUP,WS_EX_TRANSPARENT | WS_EX_STATICEDGE
-    EDITTEXT        IDC_NOTES,33,215,205,12,ES_MULTILINE | ES_AUTOHSCROLL
-    LTEXT           "Notes:",IDC_STATIC9,10,216,21,10
+    EDITTEXT        IDC_NOTES,33,261,205,12,ES_MULTILINE | ES_AUTOHSCROLL
+    LTEXT           "Notes:",IDC_STATIC9,10,262,21,10
     LTEXT           "IF",IDC_STATIC,18,30,8,10
-    COMBOBOX        IDC_OP_COMBO,18,62,27,103,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_OP_COMBO,18,62,27,103,CBS_DROPDOWNLIST | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_OP_VALUE,46,62,49,13,WS_DISABLED
     COMBOBOX        IDC_OP_COMBO2,101,62,37,104,CBS_DROPDOWNLIST | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_OP_COMBO3,144,62,27,99,CBS_DROPDOWNLIST | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_OP_VALUE2,172,62,49,13,WS_DISABLED
     EDITTEXT        IDC_EDIT1,86,99,51,13,ES_AUTOHSCROLL | WS_DISABLED
     LTEXT           "Enter mask as hex value: 0x12345678",IDC_STATIC3,145,102,128,10
-    LTEXT           "User Defined Mask :",IDC_STATIC2,17,102,66,7
-    CONTROL         "Slider1",IDC_OB_LEVEL_SLIDER,"msctls_trackbar32",TBS_AUTOTICKS | TBS_TOP | WS_TABSTOP,174,187,98,21
-    LTEXT           "Level :",IDC_STATIC8,125,194,22,8
-    LTEXT           "0",IDC_OB_TEXT3,180,178,8,8
-    LTEXT           "10",IDC_OB_TEXT4,260,178,8,8
-    EDITTEXT        IDC_OB_LEVEL,151,194,25,12,ES_READONLY | NOT WS_BORDER,WS_EX_TRANSPARENT
-    GROUPBOX        "Output Options",IDC_STATIC5,8,172,283,38
-    CONTROL         "",IDC_LAMPTEST,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,195,8,8,0,HIDC_LAMPTEST
-    CONTROL         "",IDC_INVERT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,64,195,8,8,0,HIDC_INVERT
-    LTEXT           "Lamp Test",IDC_STATIC6,15,184,34,8
-    LTEXT           "Invert",IDC_STATIC7,59,184,19,8
+    LTEXT           "User Defined Mask :",IDC_STATIC2,17,102,66,8
+    CONTROL         "Slider1",IDC_OB_LEVEL_SLIDER,"msctls_trackbar32",TBS_AUTOTICKS | TBS_TOP | WS_TABSTOP,174,233,98,21
+    LTEXT           "Level :",IDC_STATIC8,125,240,22,8
+    LTEXT           "0",IDC_OB_TEXT3,180,224,8,8
+    LTEXT           "10",IDC_OB_TEXT4,260,224,8,8
+    EDITTEXT        IDC_OB_LEVEL,151,240,25,12,ES_READONLY | NOT WS_BORDER,WS_EX_TRANSPARENT
+    GROUPBOX        "Output Options",IDC_STATIC5,8,218,283,38
+    CONTROL         "",IDC_LAMPTEST,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,27,241,8,8,0,HIDC_LAMPTEST
+    CONTROL         "",IDC_INVERT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,64,241,8,8,0,HIDC_INVERT
+    LTEXT           "Lamp Test",IDC_STATIC6,15,230,34,8
+    LTEXT           "Invert",IDC_STATIC7,59,230,19,8
     PUSHBUTTON      "Sim Data",IDC_FLIGHTDATA,17,43,44,13
     LTEXT           "",IDC_TEXT1,66,43,165,12,SS_CENTERIMAGE | NOT WS_GROUP,WS_EX_STATICEDGE
     PUSHBUTTON      "Clear",IDC_CLEARDATA,238,43,44,13
@@ -261,7 +387,24 @@ BEGIN
     LTEXT           "",IDC_TEXT2,66,81,165,12,SS_CENTERIMAGE | NOT WS_GROUP,WS_EX_STATICEDGE
     PUSHBUTTON      "Clear",IDC_CLEARMASK,238,80,44,13,WS_DISABLED
     CONTROL         "Group 1",IDC_GROUP1,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,58,1,45,8
-    CONTROL         "Group 2",IDC_GROUP2,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,104,2,45,8
+    CONTROL         "Group 2",IDC_GROUP2,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,115,0,45,8
+    GROUPBOX        "Blinking IF",IDC_STATIC11,8,120,283,97
+    PUSHBUTTON      "Bitmask",IDC_MASKDATA2,17,154,44,13,WS_DISABLED
+    LTEXT           "",IDC_TEXT3,67,154,165,12,SS_CENTERIMAGE | NOT WS_GROUP,WS_EX_STATICEDGE
+    PUSHBUTTON      "Clear",IDC_CLEARMASK2,238,152,44,13,WS_DISABLED
+    EDITTEXT        IDC_EDIT6,86,196,51,13,ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
+    LTEXT           "On Time (x 50 ms) :",IDC_STATIC14,17,199,62,8
+    EDITTEXT        IDC_EDIT7,224,196,51,13,ES_AUTOHSCROLL | ES_NUMBER | WS_DISABLED
+    LTEXT           "Off Time (x 50 ms) :",IDC_STATIC15,155,199,62,8
+    CONTROL         "Group 3",IDC_GROUP3,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,159,0,45,8
+    EDITTEXT        IDC_EDIT4,86,174,51,13,ES_AUTOHSCROLL | WS_DISABLED
+    LTEXT           "Enter mask as hex value: 0x12345678",IDC_STATIC4,145,177,128,10
+    LTEXT           "User Defined Mask :",IDC_STATIC16,17,177,66,8
+    PUSHBUTTON      "Sim Data",IDC_FLIGHTDATA2,17,132,44,13,WS_DISABLED
+    LTEXT           "",IDC_TEXT4,67,132,165,12,SS_CENTERIMAGE | NOT WS_GROUP,WS_EX_STATICEDGE
+    PUSHBUTTON      "Clear",IDC_CLEARDATA2,238,132,44,13,WS_DISABLED
+    CONTROL         "Group 4",IDC_GROUP4,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,200,0,45,8
+    CONTROL         "Group 5",IDC_GROUP5,"Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,253,0,45,8
 END
 
 IDD_DEFAULT DIALOGEX 0, 0, 297, 236
@@ -270,7 +413,7 @@ FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     PUSHBUTTON      "Refresh",IDC_REFRESH,35,165,30,28,BS_ICON
     LTEXT           "Refresh Device List",IDC_STATIC6,74,173,75,11
-    CONTROL         167,IDC_STATIC1,"Static",SS_BITMAP,42,6,209,25,WS_EX_CLIENTEDGE
+    CONTROL         IDB_LOGO,IDC_STATIC1,"Static",SS_BITMAP,42,6,209,25,WS_EX_CLIENTEDGE
     PUSHBUTTON      "Updates",IDC_UPDATE,162,165,30,28,BS_ICON
     LTEXT           "Check for updates",IDC_STATIC7,202,174,75,11
     PUSHBUTTON      "Help",IDC_HELP2,35,202,30,28,BS_ICON
@@ -283,7 +426,7 @@ BEGIN
     GROUPBOX        "Options",IDC_STATIC5,16,55,263,101
     CONTROL         "Start application in System Tray.",IDC_MINIMIZED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,29,120,119,8
     CONTROL         "Check for software updates on startup.",IDC_AUTOUPDATE,
-                    "Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,29,103,145,8
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,29,103,145,8
     CONTROL         "Start application on Windows startup.",IDC_AUTOSTART,
                     "Button",BS_AUTOCHECKBOX | WS_TABSTOP,29,137,149,8
     CONTROL         "Disable USIM",IDC_DISABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,29,69,104,8
@@ -382,7 +525,7 @@ BEGIN
     PUSHBUTTON      "Clear",IDC_CLEARDATA,239,39,44,13
 END
 
-IDD_DATAOUT DIALOG  0, 0, 262, 186
+IDD_DATAOUT DIALOG 0, 0, 262, 186
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "F4 Raw Data"
 FONT 8, "MS Sans Serif"
@@ -679,7 +822,7 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,1,0,0
+ FILEVERSION 0,2,0,1
  PRODUCTVERSION 1,0,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
@@ -697,12 +840,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "GOBI"
             VALUE "FileDescription", "Universal Simulation Interface Manager (ALPHA)"
-            VALUE "FileVersion", "0, 1, 0, 0"
+            VALUE "FileVersion", "0.2.0.1"
             VALUE "InternalName", "USIM"
             VALUE "LegalCopyright", "Copyright (C) 2009"
             VALUE "OriginalFilename", "usim.exe"
             VALUE "ProductName", "Universal Simulation Interface Manager (ALPHA)"
-            VALUE "ProductVersion", "1, 0, 0, 0"
+            VALUE "ProductVersion", "1.0.0.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -718,7 +861,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_USIM_DIALOG, DIALOG
     BEGIN
@@ -735,7 +878,7 @@ BEGIN
     BEGIN
         LEFTMARGIN, 2
         RIGHTMARGIN, 298
-        BOTTOMMARGIN, 234
+        BOTTOMMARGIN, 283
     END
 
     IDD_DEFAULT, DIALOG
@@ -878,7 +1021,7 @@ END
 // Toolbar
 //
 
-IDR_MAINFRAME TOOLBAR  16, 15
+IDR_MAINFRAME TOOLBAR 16, 15
 BEGIN
     BUTTON      ID_FILE_NEW
     BUTTON      ID_FILE_LOAD
@@ -908,12 +1051,13 @@ END
 
 IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
 
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // Menu
 //
 
-IDR_DIALOG_MENU MENU 
+IDR_DIALOG_MENU MENU
 BEGIN
     POPUP "&File"
     BEGIN
@@ -925,7 +1069,7 @@ BEGIN
     END
     POPUP "&Tools"
     BEGIN
-        MENUITEM "&Software version check",     IDS_UPDATE
+        MENUITEM "&Software version check",     IDS_UPDATE, INACTIVE
         MENUITEM SEPARATOR
         MENUITEM "Falcon Data",                 ID_F4SHOWDATA
         MENUITEM "Real-Time Data",              ID_SHOWDATA
@@ -938,7 +1082,7 @@ BEGIN
     END
 END
 
-IDR_POPMENU MENU 
+IDR_POPMENU MENU
 BEGIN
     POPUP "TrayMenu"
     BEGIN
@@ -1093,12 +1237,29 @@ END
 
 IDC_SPLITTER            CURSOR                  "RES\\Splitter.cur"
 
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_OUTPUT AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_DEFAULT AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_UPDATE_AVAILABLE    "New version %d.%x.%x.%x is available online. Visit online update page?"
     IDS_UPDATE_NO           "No Updates available."
@@ -1106,40 +1267,41 @@ BEGIN
     IDS_VERSION             "Universal Simulation Interface Manager Version %s"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_INDICATOR_1          "Interface File : "
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_INDICATOR_2          " "
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_FILE_SAVE            "Save"
     ID_FILE_SAVE_AS         "Save as..."
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_EXPAND               "Expand all"
     ID_FILE_LOAD            "Load file"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&About USIM..."
+    IDS_CPATH               "USIMx64.exe"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
-    IDS_UPDATE              "http://www.betainnovations.ca/usim_update.txt"
+    IDS_UPDATE              "https://raw.githubusercontent.com/LLac/usim/master/USIM/usim_update.txt"
     IDS_HELPFILE            ".\\usim.pdf"
 END
 
-#endif    // English (U.S.) resources
+#endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
@@ -1147,10 +1309,8 @@ END
 // English (Canada) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENC)
-#ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_CAN
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -1160,15 +1320,18 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_CAN
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDI_VARS_P              ICON                    "res\\offsets1.ico"
+
 IDI_VARS_B              ICON                    "res\\offsets_.ico"
+
 IDI_VARS                ICON                    "res\\vars.ico"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // Toolbar
 //
 
-IDR_POPMENU TOOLBAR  16, 16
+IDR_POPMENU TOOLBAR 16, 16
 BEGIN
     BUTTON      ID_REFRESH
     BUTTON      ID_EXPAND
@@ -1191,7 +1354,9 @@ END
 //
 
 IDR_POPMENU             BITMAP                  "res\\toolbar1.bmp"
+
 IDB_LOGO                BITMAP                  "res\\beta_logo_310.bmp"
+
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////

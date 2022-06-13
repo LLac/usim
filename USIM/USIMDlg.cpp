@@ -478,13 +478,12 @@ BOOL CUSIMDlg::OnCommand(WPARAM wParam, LPARAM lParam)
 void CUSIMDlg::OnUpdate() 
 {
 	CUpdateCheck checkUpdate;
-//	checkUpdate.Check(IDS_UPDATE);	
+	checkUpdate.Check(IDS_UPDATE);	
 }
 
 void CUSIMDlg::OnUpdateUpdate(CCmdUI* pCmdUI) 
 {
-	// ********* UPDATE Feature Disabled *********** //
-//	pCmdUI->Enable(true);
+	pCmdUI->Enable(true);
 }
 
 void CUSIMDlg::OnLoad() 
@@ -500,12 +499,12 @@ void CUSIMDlg::OnLoad()
 		return;
 	}
 
-	theApp.StopSimConnectThread();
+	theApp.m_SimConnectThread.Pause();
 	theApp.StopAllThreads();
 
 	OnLoadFile();
 	theApp.m_pTreeDevices->OnRefresh();
-	theApp.StartSimConnectThread();
+	theApp.m_SimConnectThread.Continue();
 }
 
 void CUSIMDlg::OnLoadFile() 

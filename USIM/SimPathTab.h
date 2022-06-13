@@ -22,9 +22,9 @@ enum SIMTYPES
 	SIM_IL2FB,	// 7
 	SIM_IL2PF,	// 8
 	SIM_F4BMS,	// 9
-	SIM_F4AF,	// 10
-	SIM_F4FF,	// 11
-	SIM_F4OF,	// 12
+	SIM_F4AF,	// 10 No longer used. Reassign to new sim if needed. 
+	SIM_F4FF,	// 11 No longer used. Reassign to new sim if needed.
+	SIM_F4OF,	// 12 No longer used. Reassign to new sim if needed. 
 	SIM_F4USIM,	// 13
 	SIM_GTR,	// 14
 	SIM_GTR2,	// 15
@@ -66,10 +66,7 @@ _CSIM_LIST const SimTypes[] = {
 	{"X-Plane",			"X-Plane.exe",	SIM_XPLANE, NULL, "", ""},
 	{"MS FS9",			"fs9.exe",		SIM_FS9,	NULL, "", ""},
 	{"MS FSX",			"fsx.exe",		SIM_FSX,	NULL, "", ""},
-	{"Falcon 4 BMS",	"F4-BMS.exe",	SIM_F4BMS,	HKEY_CURRENT_USER, "SOFTWARE\\F4Patch\\Settings", "F4Exe"},
-	{"Falcon 4 AF",		"FalconAF.exe",	SIM_F4AF,	HKEY_LOCAL_MACHINE, "SOFTWARE\\Lead Pursuit\\Battlefield Operations\\Falcon", "baseDir"},
-	{"Falcon 4 OF",		"F4-BMS.exe",	SIM_F4OF,	HKEY_LOCAL_MACHINE, "SOFTWARE\\MicroProse\\Falcon\\4.0", "baseDir"},
-	{"Falcon 4 FF",		"",				SIM_F4FF,	NULL, "", ""},
+	{"Falcon 4 BMS",	"Launcher.exe",	SIM_F4BMS,	HKEY_CURRENT_USER, "SOFTWARE\\F4Patch\\Settings", "F4Exe"},
 	{"IL-2",			"il2.exe",		SIM_IL2,	HKEY_LOCAL_MACHINE, "SOFTWARE\\Ubi Soft\\IL-2 Sturmovik 1946", "Directory"},
 	{"IL-2 FB",			"il2fb.exe",	SIM_IL2FB,	HKEY_LOCAL_MACHINE, "SOFTWARE\\Ubi Soft\\IL-2 Sturmovik Forgotten Battles", "directory"},
 	{"Pacific Fighters","pf.exe",		SIM_IL2PF,	HKEY_LOCAL_MACHINE, "SOFTWARE\\Ubi Soft\\Pacific Fighters", "directory"},

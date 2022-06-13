@@ -14,6 +14,7 @@
     <ProjectGuid>{50FD1CF1-7357-4E25-BB0A-83D277EA0EF5}</ProjectGuid>
     <RootNamespace>lib_biusb</RootNamespace>
     <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -45,13 +46,14 @@
     <OutDir>.\Lib_Release\</OutDir>
     <IntDir>.\Lib_Release\</IntDir>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(VCToolsInstallDir)atlmfc\include;$(VCToolsInstallDir)atlmfc\src\mfc</IncludePath>
-    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>.\Lib_Debug\</OutDir>
     <IntDir>.\Lib_Debug\</IntDir>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(VCToolsInstallDir)atlmfc\include;$(VCToolsInstallDir)atlmfc\src\mfc</IncludePath>
-    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
+    <TargetName>$(ProjectName)d</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -82,15 +84,9 @@
       <OutputFile>.\Lib_Release/lib_biusb.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>copy $(OutDir)biusb.lib "D:\Projects\CT129N Mill\PMM2_PlugIn\hid_dll"
-copy $(OutDir)biusb.lib "D:\Projects\CT129N Mill\DRO\DRO_PlugIn\hid_dll"
-copy $(OutDir)biusb.lib "D:\Projects\Joystick Project\Software\Device Manager\bi_cfg\HID_DLL"
-copy biusb.h "D:\My Documents\Download\CAD Tools\Mach3\SDK.2.62\PMM2_PlugIn\hid_dll"
-copy biusb.h "D:\Projects\Joystick Project\Software\Device Manager\bi_cfg\HID_DLL"
-copy intel_hex.h "D:\Projects\Joystick Project\Software\Device Manager\bi_cfg\HID_DLL"
-copy $(OutDir)biusb.lib "D:\Projects\Joystick Project\Software\USIM\USIM\hid_dll"
-copy intel_hex.h "D:\Projects\Joystick Project\Software\USIM\USIM\hid_dll"
-copy biusb.h "D:\Projects\Joystick Project\Software\USIM\USIM\hid_dll"
+      <Command>copy $(OutDir)biusb.lib "..\..\USIM\hid_dll\"
+copy intel_hex.h "..\..\USIM\hid_dll\"
+copy biusb.h "..\..\USIM\hid_dll\"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -124,14 +120,9 @@ copy biusb.h "D:\Projects\Joystick Project\Software\USIM\USIM\hid_dll"
       <OutputFile>.\Lib_Debug/lib_biusb.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>copy $(OutDir)biusbd.lib "D:\Projects\CT129N Mill\PMM2_PlugIn\hid_dll"
-copy $(OutDir)biusbd.lib "D:\Projects\CT129N Mill\DRO\DRO_PlugIn\hid_dll"
-copy $(OutDir)biusbd.lib "D:\Projects\Joystick Project\Software\Device Manager\bi_cfg\HID_DLL"
-copy biusb.h "D:\Projects\Joystick Project\Software\Device Manager\bi_cfg\HID_DLL"
-copy intel_hex.h "D:\Projects\Joystick Project\Software\Device Manager\bi_cfg\HID_DLL"
-copy $(OutDir)biusbd.lib "D:\Projects\Joystick Project\Software\USIM\USIM\hid_dll"
-copy intel_hex.h "D:\Projects\Joystick Project\Software\USIM\USIM\hid_dll"
-copy biusb.h "D:\Projects\Joystick Project\Software\USIM\USIM\hid_dll"
+      <Command>copy $(OutDir)biusbd.lib "..\..\USIM\hid_dll"
+copy intel_hex.h "..\..\USIM\hid_dll"
+copy biusb.h "..\..\USIM\hid_dll"
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>

@@ -145,6 +145,7 @@ void CUSIMApp::StopSimConnectThread()
 	}
 }
 
+
 void CUSIMApp::StartOutputThread()
 {
 	if (m_OutputThread.GetActivityStatus() == CThread::THREAD_RUNNING)
@@ -406,9 +407,6 @@ UINT SearchIndex(CString TokenName, UINT SimType, UINT VarType)
 			break;
 
 		case SIM_F4BMS:
-		case SIM_F4AF:
-		case SIM_F4FF:
-		case SIM_F4OF:
 		case SIM_F4USIM:
 			for (i = 0; i < ArraySize(F4DataArray); i++) {
 				if (TokenName == F4DataArray[i].VarTokenName)

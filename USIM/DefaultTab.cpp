@@ -110,18 +110,6 @@ void CDefaultTab::SimUpdate ()
 			m_Status.SetWindowText(_T("F4:BMS Connected"));
 			m_Status.SetBackColor(RGB(100,240,100));
 			break;
-		case SIM_F4AF:
-			m_Status.SetWindowText(_T("F4:AF Connected"));
-			m_Status.SetBackColor(RGB(100,240,100));
-			break;
-		case SIM_F4FF:
-			m_Status.SetWindowText(_T("F4:FF Connected"));
-			m_Status.SetBackColor(RGB(100,240,100));
-			break;
-		case SIM_F4OF:
-			m_Status.SetWindowText(_T("F4:OF Connected"));
-			m_Status.SetBackColor(RGB(100,240,100));
-			break;
 		case SIM_GTR:
 			m_Status.SetWindowText(_T("GTR Connected"));
 			m_Status.SetBackColor(RGB(100,240,100));

@@ -247,9 +247,6 @@ void CDispTab::InitDispTab()
 						break;
 
 					case SIM_F4BMS:
-					case SIM_F4AF:
-					case SIM_F4OF:
-					case SIM_F4FF:
 					case SIM_F4USIM:
 						str = F4DataArray[i].VarTokenName;
 						break;

@@ -28,32 +28,43 @@ public:
 	//{{AFX_DATA(CLatchedTab)
 	enum { IDD = IDD_OUTPUTS };
 	CButton			m_MaskData;
+	CButton			m_BlinkMaskData;
 	CStatic			m_IOName;
+	CEAdvButton		m_OVGroup1;
+	CEAdvButton		m_OVGroup2;
+	CEAdvButton		m_OBGroup2;
+	CEAdvButton		m_OBGroup3;
+	CEAdvButton		m_OBGroup4;
+	CStatic			m_Text3;
+	CStatic			m_Text4;
+	CStatic			m_Leveltxt;
+	CStatic			m_Enable;
 	CComboBox		m_OPCombo1;
 	CComboBox		m_OPCombo2;
 	CComboBox		m_OPCombo3;
 	CAMSNumericEdit	m_OPValue1;
 	CAMSNumericEdit	m_OPValue2;
-	CStatic			m_Text3;
-	CStatic			m_Text4;
-	CStatic			m_Enable;
-	CEAdvButton		m_OVGroup1;
-	CEAdvButton		m_OBGroup2;
 	CEdit			m_Notes;
 	CHexEdit		m_HexMask;
+	CHexEdit		m_BlinkMask;
+	CAMSNumericEdit	m_BlinkOnTime;
+	CAMSNumericEdit	m_BlinkOffTime;
 	CSmartEdit		m_OBLevelText;
 	CLinkSlider		m_OBLevel;
+	CButton			m_OBClear;
 	CButton			m_FlightData;
 	CButton			m_ClearData;
+	CButton			m_FlightBlinkData;
+	CButton			m_ClearBlinkData;
 	CButton			m_ClearMask;
-	CButton			m_OBClear;
+	CButton			m_ClearBlinkMask;
 	//}}AFX_DATA
 
 private:
 	UCHAR			m_BitType;
 	CButtonSSL		m_LampTest, m_Invert;
 	CVarListDlg		m_VarListDlg;
-	CStatic			m_Data, m_Mask;
+	CStatic			m_Data, m_Mask, m_Blink, m_BlinkData;
 
 // Overrides
 	// ClassWizard generated virtual function overrides
@@ -82,8 +93,15 @@ protected:
 	afx_msg void OnChangeOpValue();
 	afx_msg void OnChangeOpValue2();
 	afx_msg void OnChangeHexMask();
+	afx_msg void OnFlightBlinkData();
+	afx_msg void OnClearBlinkData();
+	afx_msg void OnChangeBlinkMask();
+	afx_msg void OnChangeOnTime();
+	afx_msg void OnChangeOffTime();
 	afx_msg void OnMaskdata();
+	afx_msg void OnBlinkMaskData();
 	afx_msg void OnClearMask();
+	afx_msg void OnClearBlinkMask();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

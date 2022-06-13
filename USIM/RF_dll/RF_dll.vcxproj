@@ -47,14 +47,16 @@
     <IntDir>.\Debug\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(VCToolsInstallDir)atlmfc\include;$(VCToolsInstallDir)atlmfc\src\mfc</IncludePath>
-    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+    <PostBuildEventUseInBuild>
+    </PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>.\Release\</OutDir>
     <IntDir>.\Release\</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(VCToolsInstallDir)atlmfc\include;$(VCToolsInstallDir)atlmfc\src\mfc</IncludePath>
-    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+    <PostBuildEventUseInBuild>
+    </PostBuildEventUseInBuild>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
@@ -102,9 +104,8 @@
       <OutputFile>.\Debug/RF_dll.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>del D:\games\rFactor\Plugins\rfip.dll
-copy Debug\rfipd.dll D:\games\rFactor\Plugins
-</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -152,9 +153,8 @@ copy Debug\rfipd.dll D:\games\rFactor\Plugins
       <OutputFile>.\Release/RF_dll.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
-      <Command>del D:\games\rFactor\Plugins\rfipd.dll
-copy Release\rfip.dll D:\games\rFactor\Plugins
-</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
