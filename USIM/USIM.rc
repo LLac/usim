@@ -822,7 +822,7 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,2,0,1
+ FILEVERSION 0,2,0,2
  PRODUCTVERSION 1,0,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
@@ -840,7 +840,7 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "GOBI"
             VALUE "FileDescription", "Universal Simulation Interface Manager (ALPHA)"
-            VALUE "FileVersion", "0.2.0.1"
+            VALUE "FileVersion", "0.2.0.2"
             VALUE "InternalName", "USIM"
             VALUE "LegalCopyright", "Copyright (C) 2009"
             VALUE "OriginalFilename", "usim.exe"

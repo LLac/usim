@@ -170,7 +170,9 @@ DWORD CSimConnectThread::ThreadHandler()
 					info.hStdInput = g_hChildStd_IN_Rd;
 					info.dwFlags |= STARTF_USESTDHANDLES;
 
-					CreateProcess((LPTSTR)(LPCTSTR)IDS_CPATH,	// Launch USIM x64 child process
+					CString cPath = (LPTSTR)(LPCTSTR)IDS_CPATH;
+
+					CreateProcess((LPTSTR)(LPCTSTR)cPath,	// Launch USIM x64 child process
 						NULL, 
 						NULL, 
 						NULL, 
