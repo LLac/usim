@@ -7,7 +7,7 @@
 [Setup]
 AppId=UniversalInterfaceManager
 AppName=Universal Interface Manager (ALPHA)
-AppVerName=GOBI Universal Interface Manager 0.2.0.2
+AppVerName=GOBI Universal Interface Manager 0.2.1.2
 DefaultGroupName=Beta Innovations
 AppPublisher=GOBI
 AppPublisherURL=
@@ -17,9 +17,9 @@ AppUpdatesURL=
 AllowNoIcons=yes
 ;InfoAfterFile=ReadMe.txt
 ;WizardImageFile=yourlogo.bmp
-AppCopyright=Copyright 2009-2018 GOBI
+AppCopyright=Copyright 2009-2022 GOBI
 PrivilegesRequired=admin
-OutputBaseFilename=usim_v0202
+OutputBaseFilename=usim_v0212
 DefaultDirName={pf}\Beta Innovations\Universal Interface Manager
 LicenseFile=.\Support\install_files\license.rtf
 WizardSmallImageFile=.\Support\install_files\WizModernSmallImage.bmp

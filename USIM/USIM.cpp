@@ -102,17 +102,6 @@ BOOL CUSIMApp::InitInstance()
 	m_pMainWnd = &dlg;
 	int nResponse = dlg.DoModal();
 
-	if (nResponse == IDOK)
-	{
-		// TODO: Place code here to handle when the dialog is
-		//  dismissed with OK
-	}
-	else if (nResponse == IDCANCEL)
-	{
-		// TODO: Place code here to handle when the dialog is
-		//  dismissed with Cancel
-	}
-
 	// Since the dialog has been closed, return FALSE so that we exit the
 	//  application, rather than start the application's message pump.
 	return FALSE;
@@ -122,7 +111,6 @@ void CUSIMApp::StartSimConnectThread()
 {
 	if (m_SimConnectThread.GetActivityStatus() == CThread::THREAD_RUNNING)
 		return;
-
 	try	{
 		m_SimConnectThread.Start();
 	} catch (CThreadException* pe) {
@@ -137,7 +125,8 @@ void CUSIMApp::StopSimConnectThread()
 	DWORD dwExitCode;
 
 	try	{
-		m_SimConnectThread.Stop(dwExitCode, 1);
+		//m_SimConnectThread.Kill(dwExitCode, 1);
+		m_SimConnectThread.Stop(dwExitCode);
 	} catch (CThreadException* pe) {
 		if (!pe->GetErrorMsg().IsEmpty())
 			pe->ReportError();
@@ -165,7 +154,8 @@ void CUSIMApp::StopOutputThread()
 	DWORD dwExitCode;
 
 	try	{
-		m_OutputThread.Stop(dwExitCode, 1);
+//		m_OutputThread.Kill(dwExitCode, 1);
+		m_OutputThread.Stop(dwExitCode);
 	} catch (CThreadException* pe) {
 		if (!pe->GetErrorMsg().IsEmpty())
 			pe->ReportError();
@@ -192,7 +182,8 @@ void CUSIMApp::StopInputThread()
 	DWORD dwExitCode;
 
 	try	{
-		m_InputThread.Stop(dwExitCode, 1);
+		//m_InputThread.Kill(dwExitCode, 1);
+		m_InputThread.Stop(dwExitCode);
 	} catch (CThreadException* pe) {
 		if (!pe->GetErrorMsg().IsEmpty())
 			pe->ReportError();
@@ -219,7 +210,8 @@ void CUSIMApp::StopSendKeysThread()
 	DWORD dwExitCode;
 
 	try	{
-		m_SendKeysThread.Stop(dwExitCode, 1);
+		//m_SendKeysThread.Kill(dwExitCode, 1);
+		m_SendKeysThread.Stop(dwExitCode);
 	} catch (CThreadException* pe) {
 		if (!pe->GetErrorMsg().IsEmpty())
 			pe->ReportError();
@@ -257,7 +249,8 @@ void CUSIMApp::StopUDPThread()
 	DWORD dwExitCode;
 
 	try	{
-		m_IL2_UDPThread.Stop(dwExitCode, 1);
+		//m_IL2_UDPThread.Kill(dwExitCode, 1);
+		m_IL2_UDPThread.Stop(dwExitCode);
 	} catch (CThreadException* pe) {
 		if (!pe->GetErrorMsg().IsEmpty())
 			pe->ReportError();
@@ -265,7 +258,8 @@ void CUSIMApp::StopUDPThread()
 	}
 
 	try	{
-		m_LFS_UDPThread.Stop(dwExitCode, 1);
+		//m_LFS_UDPThread.Kill(dwExitCode, 1);
+		m_LFS_UDPThread.Stop(dwExitCode);
 	} catch (CThreadException* pe) {
 		if (!pe->GetErrorMsg().IsEmpty())
 			pe->ReportError();
@@ -292,7 +286,7 @@ void CUSIMApp::StopKeyCheckThread()
 	DWORD dwExitCode;
 
 	try	{
-		m_KeyCheckThread.Stop(dwExitCode, 1);
+		m_KeyCheckThread.Stop(dwExitCode);
 	} catch (CThreadException* pe) {
 		if (!pe->GetErrorMsg().IsEmpty())
 			pe->ReportError();
@@ -310,7 +304,7 @@ void CUSIMApp::StopAllThreads()
 	StopSendKeysThread();
 	StopUDPThread();
 //	StopKeyCheckThread();
-	Sleep (500);	// wait until all threads finish
+//	Sleep (750);	// wait until all threads finish
 }
 
 void CUSIMApp::StartAllThreads()

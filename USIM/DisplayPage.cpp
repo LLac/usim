@@ -70,6 +70,8 @@ void CDisplayPage::Serialize( CArchive &ar, UINT uiFileVersion )
 		// check if older file version loading
 		switch (uiFileVersion) {
 			case ID_SAVEFILEVERSION:
+			case ID_SAVEFILEVERSION_2:
+			case ID_SAVEFILEVERSION_3:
 				for (i = 0; i < 7; i++) {
 					ar >> m_Displays[i].VarTokenName;
 					ar >> m_Displays[i].VarArrayTokenIndex;

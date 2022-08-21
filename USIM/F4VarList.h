@@ -13,7 +13,7 @@ struct _BITS_LIST
 {
 	LPTSTR		TokenString;
 	int			BitMask;
-	UINT		BitType;
+	UINT		BitSimType;
 };
 
 #define LIGHTBITS_1		0x0001

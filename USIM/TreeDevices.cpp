@@ -1475,22 +1475,20 @@ void CTreeDevices::OnRefreshList()
 	pUSIMDlg->OnFileSave();
 
 	// load settings from temp file
-	theApp.StopSimConnectThread();
+	theApp.m_SimConnectThread.Pause();
 	theApp.StopAllThreads();
 
 	pUSIMDlg->OnLoadFile();
 	theApp.m_FilePath = FileTemp;
 
 	OnRefresh();
-	theApp.StartSimConnectThread();
+	theApp.m_SimConnectThread.Continue();
 	
 	m_ReEntryFlag = false;
 }
 
 void CTreeDevices::OnRefresh()
 {
-//	theApp.StopAllThreads();
-
 	theApp.m_CurrenthItem = NULL;
 
 	HideAllTabs();

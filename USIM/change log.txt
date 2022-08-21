@@ -1,0 +1,17 @@
+Official repository: https://github.com/LLac/usim
+
+============ CHANGELOG ============
+
+== USIM v0.2.0.2 12.06.2022 ==
+
+-Fixed "Thread already started" error message when loading files.
+-Added new blinking lightbits feature. Not all blinking bits are currently supported in BMS. Functionality is in USIM and will work once support for all bits added to future BMS releases. See flightdata.h file for details on which blinking light bits are currently supported.
+
+This feature is now available on direct outputs, multiplexed outputs & latched outputs.
+
+== USIM v0.2.1.2 21.08.2022 ==
+
+-Fixed bug with some old file versions not loading.
+-Fixed bug when connecting/disconnecting USB modules rendering USIM inoperable.
+-USIMx64.exe module will now properly quit if left orphaned due to USIM crash.
+-Added blinking support to OSRAM displays.

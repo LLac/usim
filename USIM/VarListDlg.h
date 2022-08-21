@@ -33,7 +33,7 @@ public:
 	UINT	m_ArrayIndex;
 	UINT	m_ListTypeVar;
 	UINT	m_BitMask;
-	UINT	m_BitType;
+	UINT	m_BitSimType;
 	int		m_nTimer;
 	int		m_OldIndex;
 	UINT	m_VarArrayIndex;

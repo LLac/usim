@@ -23,7 +23,7 @@ public:
 public:
 	// OUTPUT PAGE
 	int			m_BitMask, m_BlinkMask;
-	UINT		m_BitType, m_BlinkType;
+	UINT		m_BitSimType, m_BlinkSimType;
 	UINT		m_BlinkOnTime, m_BlinkOffTime;
 	UINT		m_BlinkOnTimeCnt, m_BlinkOffTimeCnt;
 	BOOL		m_BlinkOnFlag;

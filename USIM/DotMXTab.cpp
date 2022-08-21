@@ -124,7 +124,7 @@ BOOL CDotMXTab::OnInitDialog()
 	Item.mask = GVIF_TEXT | GVIF_FORMAT;
 	Item.nFormat = DT_CENTER | DT_VCENTER;
 	Item.row = 0;
-	CString str[] = {"  Display  ", "           Variable           ", "User Value", " Factor ", " Constant ", "Leading Zero", "Grouping", "Digits", "   Minimum   ", "   Maximum   "};
+	CString str[] = {"  Display  ", "           Variable           ", "User Value", " Factor ", " Constant ", "Leading Zero", "Grouping", "Digits", "   Minimum   ", "   Maximum   ", "        Blink Variable      ", "Blink Mask", "User Mask", "On Time (x 50ms)", "Off Time (x 50ms)" };
 	for (int i=0; i < DMX_NUM_COLS; i++) {
 		Item.col = i;
 		Item.strText = str[i];
@@ -201,11 +201,10 @@ void CDotMXTab::InitDotMXTab()
 			if (theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[j].Grouping != 0 ||
 				theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[j].Digits != 0) {
 
-				i = theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[j].VarTokenIndex;
-
 				AddItem(false);
 
 				str.Empty();
+				i = theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[j].VarTokenIndex;
 				switch(theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[j].SimType) {
 					case SIM_XPLANE:
 						if (XPDataArray[theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[j].VarTokenIndex].VarArraySize > 0) {
@@ -276,6 +275,72 @@ void CDotMXTab::InitDotMXTab()
 				m_Grid.SetItemText(m_CurrentRow, 8, str);
 				str.Format(_T("%.4f"), theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[j].Maximum);
 				m_Grid.SetItemText(m_CurrentRow, 9, str);
+
+				str.Empty();
+				i = theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[j].VarBlinkTokenIndex;
+				switch (theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[j].BlinkSimType) {
+				case SIM_XPLANE:
+					if (XPDataArray[theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[j].VarBlinkTokenIndex].VarArraySize > 0) {
+						str.Format("X-Plane/%s[%d]", theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[j].VarBlinkTokenName,
+							theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[j].VarArrayBlinkTokenIndex + 1);
+					}
+					else {
+						str.Format("X-Plane/%s", theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[j].VarBlinkTokenName);
+					}
+					break;
+
+				case SIM_IL2:
+				case SIM_IL2FB:
+				case SIM_IL2PF:
+					str = IL2DataArray[i].VarTokenName;
+					break;
+
+				case SIM_F4BMS:
+				case SIM_F4USIM:
+					str = F4DataArray[i].VarTokenName;
+					break;
+
+				case SIM_GTR:
+				case SIM_GTR2:
+				case SIM_EVO:
+				case SIM_GTL:
+				case SIM_RACE:
+				case SIM_RACE07:
+				case SIM_RACEON:
+				case SIM_VOLVO:
+				case SIM_SIMBIN:
+					str = SimBinDataArray[i].VarTokenName;
+					break;
+
+				case SIM_RF:
+					str = RFDataArray[i].VarTokenName;
+					break;
+
+				case SIM_GPX:
+					str = GPXDataArray[i].VarTokenName;
+					break;
+
+				case SIM_LFS:
+					str = LFSDataArray[i].VarTokenName;
+					break;
+
+				case USIM_INPUT_FLAGS:
+					str = theApp.m_UserVarsArray.m_IOFlags[i].VarTokenString;
+					break;
+				}
+				m_Grid.SetItemText(m_CurrentRow, 10, str);
+				m_Grid.SetItemData(m_CurrentRow, 10, i);
+				m_Grid.SetItemData(m_CurrentRow, 11, theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[j].BlinkSimType);
+
+				str = theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[j].BlinkMaskName;
+				m_Grid.SetItemText(m_CurrentRow, 11, str);
+				str.Format(_T("0x%X"), theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[j].BlinkMask);
+				m_Grid.SetItemText(m_CurrentRow, 12, str);
+				m_Grid.SetItemData(m_CurrentRow, 12, theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[j].BlinkMask);
+				str.Format(_T("%i"), theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[j].BlinkOnTime);
+				m_Grid.SetItemText(m_CurrentRow, 13, str);
+				str.Format(_T("%i"), theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[j].BlinkOffTime);
+				m_Grid.SetItemText(m_CurrentRow, 14, str);
 			}
 		}
 
@@ -374,6 +439,12 @@ void CDotMXTab::AddItem(BOOL defFlag)
 			theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[last_row - 1].VarTokenIndex = 0;
 			theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[last_row - 1].VarArrayTokenIndex = 0;
 			theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[last_row - 1].SimType = SIM_NONE;
+
+			theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[last_row - 1].VarBlinkTokenName.Empty();
+			theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[last_row - 1].BlinkMaskName.Empty();
+			theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[last_row - 1].VarBlinkTokenIndex = 0;
+			theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[last_row - 1].VarArrayBlinkTokenIndex = 0;
+			theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[last_row - 1].BlinkSimType = SIM_NONE;
 			return;
 		}
 	}
@@ -484,6 +555,48 @@ void CDotMXTab::AddItem(BOOL defFlag)
 	if (defFlag)
 		theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[nRow - 1].Maximum = 9999999;
 
+	// BLINK VARIABLE
+	nCol = 10;
+	m_Grid.SetItemText(nRow, nCol, "");
+	m_Grid.SetItemState(nRow, nCol, m_Grid.GetItemState(nRow, nCol) | GVIS_READONLY);
+
+	// BLINK MASK
+	nCol = 11;
+	m_Grid.SetItemText(nRow, nCol, "");
+	m_Grid.SetItemState(nRow, nCol, m_Grid.GetItemState(nRow, nCol) | GVIS_READONLY);
+
+	// USER BLINK MASK
+	nCol = 12;
+	m_Grid.SetCellType(nRow, nCol, RUNTIME_CLASS(CGridCellNumeric));
+	pGridCellNumeric = (CGridCellNumeric*)m_Grid.GetCell(nRow, nCol);
+	pGridCellNumeric->SetFlags(CGridCellNumeric::Hex | CGridCellNumeric::Silent);
+	pGridCellNumeric->SetNumberFmt(&theApp.m_nFormat);
+	pGridCellBase = (CGridCellBase*)m_Grid.GetCell(nRow, nCol);
+	pGridCellBase->SetText("0x0");
+	m_Grid.SetItemData(nRow, nCol, 0);
+	if (defFlag)
+		theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[nRow - 1].BlinkMask = 0;
+
+	// ON TIME
+	nCol = 13;
+	m_Grid.SetCellType(nRow, nCol, RUNTIME_CLASS(CGridCellNumeric));
+	pGridCellNumeric = (CGridCellNumeric*)m_Grid.GetCell(nRow, nCol);
+	pGridCellNumeric->SetFlags(CGridCellNumeric::Integer | CGridCellNumeric::Silent);
+	pGridCellNumeric->SetNumberFmt(&theApp.m_nFormat);
+	pGridCellNumeric->SetText("0");
+	if (defFlag)
+		theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[nRow - 1].BlinkOnTime = 0;
+
+	// OFF TIME
+	nCol = 14;
+	m_Grid.SetCellType(nRow, nCol, RUNTIME_CLASS(CGridCellNumeric));
+	pGridCellNumeric = (CGridCellNumeric*)m_Grid.GetCell(nRow, nCol);
+	pGridCellNumeric->SetFlags(CGridCellNumeric::Integer | CGridCellNumeric::Silent);
+	pGridCellNumeric->SetNumberFmt(&theApp.m_nFormat);
+	pGridCellNumeric->SetText("0");
+	if (defFlag)
+		theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[nRow - 1].BlinkOffTime = 0;
+
 	m_Remove.EnableWindow(true);
 	m_ClearData.EnableWindow(true);
 
@@ -506,6 +619,16 @@ void CDotMXTab::OnRemove()
 		theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[m_CurrentRow - 1].LeadingZero = 0;
 		theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[m_CurrentRow - 1].Grouping = 0;
 		theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[m_CurrentRow - 1].Digits = 0;
+
+		theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[m_CurrentRow - 1].VarBlinkTokenName.Empty();
+		theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[m_CurrentRow - 1].VarBlinkTokenIndex = 0;
+		theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[m_CurrentRow - 1].VarArrayBlinkTokenIndex = 0;
+		theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[m_CurrentRow - 1].BlinkSimType = SIM_NONE;
+		theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[m_CurrentRow - 1].BlinkMaskName.Empty();
+		theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[m_CurrentRow - 1].BlinkMask = 0;
+		theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[m_CurrentRow - 1].BlinkOnTime = 0;
+		theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[m_CurrentRow - 1].BlinkOffTime = 0;
+
 		m_CurrentRow = NULL;
 		CString str;
 		for (int nRow = 1; nRow < m_Grid.GetRowCount(); nRow++) {
@@ -536,11 +659,19 @@ void CDotMXTab::OnRemove()
 			theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[pItem.iRow - 1].Minimum = 0;
 			theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[pItem.iRow - 1].Maximum = 0;
 
+			theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[pItem.iRow - 1].VarBlinkTokenName.Empty();
+			theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[pItem.iRow - 1].VarBlinkTokenIndex = 0;
+			theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[pItem.iRow - 1].VarArrayBlinkTokenIndex = 0;
+			theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[pItem.iRow - 1].BlinkSimType = SIM_NONE;
+			theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[pItem.iRow - 1].BlinkMaskName.Empty();
+			theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[pItem.iRow - 1].BlinkMask = 0;
+			theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[pItem.iRow - 1].BlinkOnTime = 0;
+			theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[pItem.iRow - 1].BlinkOffTime = 0;
+
 			if (pItem.iRow >= m_Grid.GetRowCount()) 
 				continue;
 
 			CGridCellCheck *pGridCellCheck;
-			CString str;
 			for (pItem.iColumn = 1; pItem.iColumn < DMX_NUM_COLS; pItem.iColumn++) {	// cols
 				OnGridEndEdit((tagNMHDR *)&pItem, &pResult);
 
@@ -551,6 +682,12 @@ void CDotMXTab::OnRemove()
 				} else if (pItem.iColumn == 5) {	// LEADING ZERO
 					pGridCellCheck = (CGridCellCheck*)m_Grid.GetCell(pItem.iRow, pItem.iColumn);
 					theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[pItem.iRow - 1].LeadingZero = (UCHAR)pGridCellCheck->GetCheck();
+				} else if (pItem.iColumn == 10) {	// BLINK VARIABLE
+					theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[pItem.iRow - 1].VarBlinkTokenName = m_Grid.GetItemText(pItem.iRow, pItem.iColumn);
+					theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[pItem.iRow - 1].VarBlinkTokenIndex = m_Grid.GetItemData(pItem.iRow, pItem.iColumn);
+					theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[pItem.iRow - 1].BlinkSimType = m_Grid.GetItemData(pItem.iRow, pItem.iColumn + 1);
+				} else if (pItem.iColumn == 10) {	// BLINK MASK VARIABLE
+					 theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[pItem.iRow - 1].BlinkMaskName = m_Grid.GetItemText(pItem.iRow, pItem.iColumn);
 				}
 			}
 		}
@@ -611,6 +748,35 @@ void CDotMXTab::OnClearData()
 	nCol = 9;
 	theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[m_CurrentRow - 1].Maximum = 9999999;
 	m_Grid.SetItemText(m_CurrentRow, nCol, "9999999");
+
+	// BLINK VARIABLE
+	nCol = 10;
+	theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[m_CurrentRow - 1].VarBlinkTokenName.Empty();
+	theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[m_CurrentRow - 1].VarBlinkTokenIndex = 0;
+	theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[m_CurrentRow - 1].VarArrayBlinkTokenIndex = 0;
+	theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[m_CurrentRow - 1].BlinkSimType = SIM_NONE;
+	m_Grid.SetItemText(m_CurrentRow, nCol, "");
+
+	// BLINK MASK
+	nCol = 11;
+	theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[m_CurrentRow - 1].BlinkMaskName.Empty();
+	m_Grid.SetItemText(m_CurrentRow, nCol, "");
+
+	// BLINK USER MASK
+	nCol = 12;
+	theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[m_CurrentRow - 1].BlinkMask = 0;
+	m_Grid.SetItemText(m_CurrentRow, nCol, "0x0");
+	m_Grid.SetItemData(m_CurrentRow, nCol, 0);
+
+	// ON TIME
+	nCol = 13;
+	theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[m_CurrentRow - 1].BlinkOnTime = 0;
+	m_Grid.SetItemText(m_CurrentRow, nCol, "0");
+
+	// OFF TIME
+	nCol = 14;
+	theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[m_CurrentRow - 1].BlinkOffTime = 0;
+	m_Grid.SetItemText(m_CurrentRow, nCol, "0");
 
 	m_Grid.AutoSize();
 }
@@ -721,6 +887,98 @@ void CDotMXTab::OnGridClick(NMHDR *pNotifyStruct, LRESULT* pResult)
 				theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[nRow - 1].LeadingZero = 1;
 			}
 			break;
+
+		case 10:	// BLINK VARIABLE
+			SetCursor(AfxGetApp()->LoadStandardCursor(IDC_WAIT));
+			m_VarListDlg.m_ListTypeVar = VARTYPE_VAR_ONLY;
+			m_VarListDlg.m_VarTokenName = theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[nRow - 1].VarBlinkTokenName;
+			m_VarListDlg.m_VarArrayIndex = theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[nRow - 1].VarArrayBlinkTokenIndex;
+			nResponse = m_VarListDlg.DoModal();
+
+			if (nResponse == IDOK) {
+				theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[nRow - 1].VarBlinkTokenName = m_VarListDlg.m_VarTokenName;
+				theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[nRow - 1].VarBlinkTokenIndex = m_VarListDlg.m_ArrayIndex;
+				theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[nRow - 1].VarArrayBlinkTokenIndex = m_VarListDlg.m_VarArrayIndex;
+				theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[nRow - 1].BlinkSimType = m_VarListDlg.m_SimType;
+
+				switch (m_VarListDlg.m_SimType) {
+				case SIM_XPLANE:
+					if (XPDataArray[m_VarListDlg.m_ArrayIndex].VarArraySize > 0) {
+						str.Format("X-Plane/%s[%d]", m_VarListDlg.m_VarTokenName, m_VarListDlg.m_VarArrayIndex + 1);
+					}
+					else {
+						str.Format("X-Plane/%s", m_VarListDlg.m_VarTokenName);
+					}
+					break;
+
+				case SIM_IL2:
+				case SIM_IL2FB:
+				case SIM_IL2PF:
+					str = m_VarListDlg.m_VarTokenName;
+					break;
+
+				case SIM_F4BMS:
+				case SIM_F4USIM:
+					str = m_VarListDlg.m_VarTokenName;
+					break;
+
+				case SIM_GTR:
+				case SIM_GTR2:
+				case SIM_EVO:
+				case SIM_GTL:
+				case SIM_RACE:
+				case SIM_RACE07:
+				case SIM_RACEON:
+				case SIM_VOLVO:
+				case SIM_SIMBIN:
+					str = m_VarListDlg.m_VarTokenName;
+					break;
+
+				case SIM_RF:
+					str = m_VarListDlg.m_VarTokenName;
+					break;
+
+				case SIM_GPX:
+					str = m_VarListDlg.m_VarTokenName;
+					break;
+
+				case SIM_LFS:
+					str = m_VarListDlg.m_VarTokenName;
+					break;
+
+				case USIM_INPUT_FLAGS:
+					str = m_VarListDlg.m_VarTokenName;
+					break;
+				}
+				m_Grid.SetItemText(nRow, nCol, str);
+				m_Grid.SetItemData(nRow, nCol, m_VarListDlg.m_ArrayIndex);
+				m_Grid.SetItemData(nRow, nCol + 1, m_VarListDlg.m_SimType);
+			}
+			else if (nResponse == IDC_CLEARDATA) {
+				OnClearData();
+			}
+			break;
+
+		case 11:	// BLINK MASK
+			SetCursor(AfxGetApp()->LoadStandardCursor(IDC_WAIT));
+			m_VarListDlg.m_ListTypeVar = VARTYPE_BITS;
+
+			m_VarListDlg.m_VarTokenName = theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[nRow - 1].BlinkMaskName;
+			nResponse = m_VarListDlg.DoModal();
+
+			if (nResponse == IDOK) {
+				// SET USER BLINK MASK COL
+				theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[nRow - 1].BlinkMaskName = m_VarListDlg.m_VarTokenName;
+				theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[nRow - 1].BlinkMask = m_VarListDlg.m_BitMask;
+				m_Grid.SetItemText(nRow, nCol, m_VarListDlg.m_VarTokenName);
+				str.Format(_T("0x%X"), m_VarListDlg.m_BitMask);
+				m_Grid.SetItemText(nRow, nCol+1, str);
+				m_Grid.SetItemData(nRow, nCol, m_VarListDlg.m_BitMask);
+			}
+			else if (nResponse == IDC_CLEARDATA) {
+				OnClearData();
+			}
+			break;
 	} // switch (nCol)
 
 	m_Grid.AutoSize();
@@ -730,13 +988,13 @@ void CDotMXTab::OnGridClick(NMHDR *pNotifyStruct, LRESULT* pResult)
 void CDotMXTab::OnGridEndEdit(NMHDR *pNotifyStruct, LRESULT* pResult)
 {
 	NM_GRIDVIEW* pItem = (NM_GRIDVIEW*) pNotifyStruct;
+	CGridCellNumeric* pGridCellNumeric;
 
 	int nCol = pItem->iColumn;
 	int nRow = pItem->iRow;
 
 	switch (nCol) {
 		case 1:	// VARIABLE ComboBox
-
 			break;
 
 		case 2:	// USER VALUE
@@ -770,6 +1028,24 @@ void CDotMXTab::OnGridEndEdit(NMHDR *pNotifyStruct, LRESULT* pResult)
 			theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[nRow - 1].Maximum = atof(m_Grid.GetItemText(nRow, nCol));
 			break;
 
+		case 10:	// BLINK VARIABLE
+			break;
+
+		case 11:	// BLINK MASK
+			break;
+
+		case 12:	// USER BLINK MASK
+			pGridCellNumeric = (CGridCellNumeric*)m_Grid.GetCell(nRow, nCol);
+			theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[nRow - 1].BlinkMask = pGridCellNumeric->GetData();
+			break;
+
+		case 13:	// ON TIME
+			theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[nRow - 1].BlinkOnTime = atoi(m_Grid.GetItemText(nRow, nCol));
+			break;
+
+		case 14:	// OFF TIME
+			theApp.m_pDevArray[theApp.m_CurDevIndex]->m_DotMXArray[theApp.m_CurItemIndex].m_Displays[nRow - 1].BlinkOffTime = atoi(m_Grid.GetItemText(nRow, nCol));
+			break;
 	} // switch (nCol)
 
 	m_Grid.AutoSize();

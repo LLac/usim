@@ -12,7 +12,7 @@
 //#include "VarListDlg.h"
 
 #define DMX_NUM_ROWS	5
-#define DMX_NUM_COLS	10
+#define DMX_NUM_COLS	15
 /////////////////////////////////////////////////////////////////////////////
 // CDotMXTab dialog
 class CXTabCtrl;

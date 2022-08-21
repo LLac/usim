@@ -35,6 +35,8 @@ public:
 	static const UINT m_uiFileClass;
 	static const UINT m_uiFileVersion;
 	static const UINT m_uiFileVersion_1;
+	static const UINT m_uiFileVersion_2;
+	static const UINT m_uiFileVersion_3;
 
 	_INPUT_FLAG_LIST	m_IOFlags[MAX_INPUT_FLAGS];
 

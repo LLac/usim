@@ -46,7 +46,8 @@
 
 #define ID_FILECLASS			0xFA08	// Unique ID for this app
 #define ID_ITEMFILECLASS		0xAC01	// Unique ID for this app items files
-#define ID_SAVEFILEVERSION		0x000D	// current file version
+#define ID_SAVEFILEVERSION		0x000E	// current file version
+#define ID_SAVEFILEVERSION_3	0x000D	// old file version
 #define ID_SAVEFILEVERSION_2	0x000C	// older-er file version
 #define ID_SAVEFILEVERSION_1	0x000B	// older-ist file version
 

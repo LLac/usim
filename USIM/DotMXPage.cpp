@@ -55,6 +55,14 @@ void CDotMXPage::Serialize( CArchive &ar, UINT uiFileVersion )
 			ar << m_Displays[i].Digits;
 			ar << m_Displays[i].Minimum;
 			ar << m_Displays[i].Maximum;
+
+			ar << m_Displays[i].VarBlinkTokenName;
+			ar << m_Displays[i].VarArrayBlinkTokenIndex;
+			ar << m_Displays[i].BlinkMask;
+			ar << m_Displays[i].BlinkSimType;
+			ar << m_Displays[i].BlinkMaskName;
+			ar << m_Displays[i].BlinkOnTime;
+			ar << m_Displays[i].BlinkOffTime;
 		}
 		ar << m_Notes;
 	} else {
@@ -67,6 +75,36 @@ void CDotMXPage::Serialize( CArchive &ar, UINT uiFileVersion )
 		// check if older file version loading
 		switch (uiFileVersion) {
 			case ID_SAVEFILEVERSION:
+				for (i = 0; i < 4; i++) {
+					ar >> m_Displays[i].VarTokenName;
+					ar >> m_Displays[i].VarArrayTokenIndex;
+					ar >> m_Displays[i].SimType;
+					ar >> m_Displays[i].Read;
+					ar >> m_Displays[i].Write;
+					ar >> m_Displays[i].UserValue;
+					ar >> m_Displays[i].Factor;
+					ar >> m_Displays[i].Constant;
+					ar >> m_Displays[i].LeadingZero;
+					ar >> m_Displays[i].Grouping;
+					ar >> m_Displays[i].Digits;
+					ar >> m_Displays[i].Minimum;
+					ar >> m_Displays[i].Maximum;
+
+					m_Displays[i].VarTokenIndex = SearchIndex(m_Displays[i].VarTokenName, m_Displays[i].SimType, 0);
+
+					ar >> m_Displays[i].VarBlinkTokenName;
+					ar >> m_Displays[i].VarArrayBlinkTokenIndex;
+					ar >> m_Displays[i].BlinkMask;
+					ar >> m_Displays[i].BlinkSimType;
+					ar >> m_Displays[i].BlinkMaskName;
+					ar >> m_Displays[i].BlinkOnTime;
+					ar >> m_Displays[i].BlinkOffTime;
+
+					m_Displays[i].VarBlinkTokenIndex = SearchIndex(m_Displays[i].VarBlinkTokenName, m_Displays[i].BlinkSimType, 0);
+				}
+				break;
+			case ID_SAVEFILEVERSION_2:
+			case ID_SAVEFILEVERSION_3:
 				for (i = 0; i < 4; i++) {
 					ar >> m_Displays[i].VarTokenName;
 					ar >> m_Displays[i].VarArrayTokenIndex;
@@ -127,6 +165,15 @@ void CDotMXPage::CopyData(CDotMXPage *pArray)
 		m_Displays[i].Digits = pArray->m_Displays[i].Digits;
 		m_Displays[i].Minimum = pArray->m_Displays[i].Minimum;
 		m_Displays[i].Maximum = pArray->m_Displays[i].Maximum;
+
+		m_Displays[i].VarBlinkTokenName = pArray->m_Displays[i].VarBlinkTokenName;
+		m_Displays[i].VarArrayBlinkTokenIndex = pArray->m_Displays[i].VarArrayBlinkTokenIndex;
+		m_Displays[i].VarBlinkTokenIndex = pArray->m_Displays[i].VarBlinkTokenIndex;
+		m_Displays[i].BlinkMask = pArray->m_Displays[i].BlinkMask;
+		m_Displays[i].BlinkSimType = pArray->m_Displays[i].BlinkSimType;
+		m_Displays[i].BlinkMaskName = pArray->m_Displays[i].BlinkMaskName;
+		m_Displays[i].BlinkOnTime = pArray->m_Displays[i].BlinkOnTime;
+		m_Displays[i].BlinkOffTime = pArray->m_Displays[i].BlinkOffTime;
 	}
 
 	m_LampTest = 0;
@@ -150,6 +197,15 @@ void CDotMXPage::PasteData(CDotMXPage *pArray)
 		pArray->m_Displays[i].Digits = m_Displays[i].Digits;
 		pArray->m_Displays[i].Minimum = m_Displays[i].Minimum;
 		pArray->m_Displays[i].Maximum = m_Displays[i].Maximum;
+
+		pArray->m_Displays[i].VarBlinkTokenName = m_Displays[i].VarBlinkTokenName;
+		pArray->m_Displays[i].VarArrayBlinkTokenIndex = m_Displays[i].VarArrayBlinkTokenIndex;
+		pArray->m_Displays[i].VarBlinkTokenIndex = m_Displays[i].VarBlinkTokenIndex;
+		pArray->m_Displays[i].BlinkMask = m_Displays[i].BlinkMask;
+		pArray->m_Displays[i].BlinkSimType = m_Displays[i].BlinkSimType;
+		pArray->m_Displays[i].BlinkMaskName = m_Displays[i].BlinkMaskName;
+		pArray->m_Displays[i].BlinkOnTime = m_Displays[i].BlinkOnTime;
+		pArray->m_Displays[i].BlinkOffTime = m_Displays[i].BlinkOffTime;
 	}
 
 	pArray->m_LampTest = 0;
@@ -173,6 +229,16 @@ void CDotMXPage::Clear()
 		m_Displays[i].Digits = 0;
 		m_Displays[i].Minimum = 0;
 		m_Displays[i].Maximum = 0;
+
+		m_Displays[i].VarBlinkTokenName.Empty();
+		m_Displays[i].VarArrayBlinkTokenIndex = 0;
+		m_Displays[i].VarBlinkTokenIndex = 0;
+		m_Displays[i].BlinkMask = 0;
+		m_Displays[i].BlinkSimType = SIM_NONE;
+		m_Displays[i].BlinkMaskName.Empty();
+		m_Displays[i].BlinkOnTime = 0;
+		m_Displays[i].BlinkOffTime = 0;
+		m_Displays[i].BlinkOnFlag = false;
 	}
 
 	m_LampTest = 0;

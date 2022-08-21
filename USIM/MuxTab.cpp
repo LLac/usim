@@ -289,7 +289,7 @@ void CMuxTab::InitMuxTab()
 		int mask_end;
 		_BITS_LIST const *pBitsArray;
 
-		switch (theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BitType) {
+		switch (theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BitSimType) {
 			case LFSBITS:
 				mask_end = ArraySize(LFSBitsArray);
 				pBitsArray = LFSBitsArray;
@@ -308,13 +308,13 @@ void CMuxTab::InitMuxTab()
 		
 		for (i=0; i<mask_end; i++) {
 			if (theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BitMask == pBitsArray[i].BitMask &&
-				theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BitType == pBitsArray[i].BitType) {
+				theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BitSimType == pBitsArray[i].BitSimType) {
 				m_Mask.SetWindowText(pBitsArray[i].TokenString);
 			}
 		}
 
 		m_BlinkMask.SetValue(theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BlinkMask, true);
-		switch (theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BlinkType) {
+		switch (theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BlinkSimType) {
 			case LFSBITS:
 				mask_end = ArraySize(LFSBitsArray);
 				pBitsArray = LFSBitsArray;
@@ -330,7 +330,7 @@ void CMuxTab::InitMuxTab()
 		}
 		for (i = 0; i < mask_end; i++) {
 			if (theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BlinkMask == pBitsArray[i].BitMask &&
-				theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BlinkType == pBitsArray[i].BitType) {
+				theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BlinkSimType == pBitsArray[i].BitSimType) {
 				m_Blink.SetWindowText(pBitsArray[i].TokenString);
 			}
 		}
@@ -536,7 +536,7 @@ void CMuxTab::OnClearMask()
 {
 	theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BitMaskName.Empty();
 	theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BitMask = 0;
-	theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BitType = 0;
+	theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BitSimType = 0;
 	m_Mask.SetWindowText("");
 	m_HexMask.SetValue(0, true);
 }
@@ -554,7 +554,7 @@ void CMuxTab::OnClearBlinkMask()
 {
 	theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BlinkMaskName.Empty();
 	theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BlinkMask = 0;
-	theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BlinkType = 0;
+	theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BlinkSimType = 0;
 	m_Blink.SetWindowText("");
 	m_BlinkMask.SetValue(0, true);
 	m_BlinkOnTime.SetInt(0);
@@ -613,7 +613,7 @@ void CMuxTab::OnMaskdata()
 	if (nResponse == IDOK) {
 		theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BitMaskName = m_VarListDlg.m_VarTokenName;
 		theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BitMask = m_VarListDlg.m_BitMask;
-		theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BitType = m_VarListDlg.m_BitType;
+		theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BitSimType = m_VarListDlg.m_BitSimType;
 
 		m_Mask.SetWindowText(m_VarListDlg.m_VarTokenName);
 		m_HexMask.SetValue(m_VarListDlg.m_BitMask, true);
@@ -631,7 +631,7 @@ void CMuxTab::OnBlinkMaskData()
 	if (nResponse == IDOK) {
 		theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BlinkMaskName = m_VarListDlg.m_VarTokenName;
 		theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BlinkMask = m_VarListDlg.m_BitMask;
-		theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BlinkType = m_VarListDlg.m_BitType;
+		theApp.m_pDevArray[theApp.m_CurDevIndex]->m_MuxArray[theApp.m_CurItemIndex].m_BlinkSimType = m_VarListDlg.m_BitSimType;
 		m_Blink.SetWindowText(m_VarListDlg.m_VarTokenName);
 		m_BlinkMask.SetValue(m_VarListDlg.m_BitMask, true);
 	}

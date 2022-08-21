@@ -117,7 +117,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(OutDir)USIMx64.exe" "$(OutDir)..\..\..\USIM\Debug"</Command>
+      <Command>copy "$(OutDir)USIMx64.exe" "$(OutDir)..\..\..\USIM\Debug" 
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -154,6 +155,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
     </Link>
     <PostBuildEvent>
       <Command>copy "$(OutDir)USIMx64.exe" "$(OutDir)..\..\..\USIM\Release"</Command>

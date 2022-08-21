@@ -61,7 +61,7 @@ public:
 	//}}AFX_DATA
 
 private:
-	UCHAR			m_BitType;
+	UCHAR			m_BitSimType;
 	CButtonSSL		m_LampTest, m_Invert;
 	CVarListDlg		m_VarListDlg;
 	CStatic			m_Data, m_Mask, m_Blink, m_BlinkData;

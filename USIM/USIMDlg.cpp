@@ -499,6 +499,7 @@ void CUSIMDlg::OnLoad()
 		return;
 	}
 
+	DWORD dwExitCode;
 	theApp.m_SimConnectThread.Pause();
 	theApp.StopAllThreads();
 

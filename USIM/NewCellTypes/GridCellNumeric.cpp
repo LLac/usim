@@ -17,6 +17,8 @@
 #include "../GridCtrl_src/GridCtrl.h"
 #include "../GridCtrl_src/inplaceedit.h"
 
+#include "../HexEdit/HexEdit.h"
+
 IMPLEMENT_DYNCREATE(CGridCellNumeric, CGridCell)
 
 #ifdef _DEBUG
@@ -24,6 +26,72 @@ IMPLEMENT_DYNCREATE(CGridCellNumeric, CGridCell)
 static char THIS_FILE[]=__FILE__;
 #define new DEBUG_NEW
 #endif
+
+class CNumHexEdit : public CHexEdit
+{
+	// Construction
+public:
+	CNumHexEdit(CWnd*, CRect&, DWORD, UINT, int, int, CString, UINT);
+
+
+	CRect   m_Rect;
+	// Generated message map functions
+protected:
+	//{{AFX_MSG(CHexEdit)
+	//	afx_msg void OnChange();
+		//}}AFX_MSG
+
+	DWORD Sel;          // The users current text selection
+	BOOL Updating;      // flag to stop an infinite recursive OnUpdate loop
+	CString sDigits;    // current locale's digits
+
+	DWORD GetValue(void);
+	//void SetValue(unsigned int _value,bool _bHex=false);
+	void SetValue(DWORD _value, bool _bHex = false);
+	afx_msg void OnUpdate();
+	afx_msg void OnTimer(UINT);
+	afx_msg void OnKillFocus(CWnd *);
+	afx_msg void OnChar(UINT, UINT, UINT);
+	DECLARE_MESSAGE_MAP()
+};
+
+CNumHexEdit::CNumHexEdit(	CWnd* pParent,
+							CRect& rect,
+							DWORD dwStyle,
+							UINT nID,
+							int nRow,
+							int nColumn,
+							CString InitialText,
+							UINT nFirstChar) :
+CHexEdit(pParent, rect, dwStyle, nID, nRow, nColumn, InitialText, nFirstChar)
+{
+	// Update the edit box text with the valid initial string
+	UINT mGrid_Data = ((CGridCtrl *)pParent)->GetItemData(nRow, nColumn);
+	CHexEdit::SetValue(mGrid_Data, true);
+
+	SetSel(0, -1);
+}
+
+BEGIN_MESSAGE_MAP(CNumHexEdit, CHexEdit)
+//	ON_CONTROL_REFLECT(EN_UPDATE, OnEnUpdate)
+	ON_WM_KILLFOCUS()
+//	ON_WM_CHAR()
+END_MESSAGE_MAP()
+
+void CNumHexEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
+{
+	CHexEdit::OnChar(nChar, nRepCnt, nFlags, NULL);
+}
+
+void CNumHexEdit::OnUpdate()
+{
+	CHexEdit::OnEnUpdate();
+}
+
+void CNumHexEdit::OnKillFocus(CWnd *pNewWnd)
+{
+	CHexEdit::OnKillFocus(pNewWnd);
+}
 
 ///////////////////////////////////////////////////////////////////////
 // class CInPlaceNumEdit
@@ -335,7 +403,7 @@ void CInPlaceNumEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
     if (nChar == VK_ESCAPE)
         Updating = TRUE;
 
-    CInPlaceEdit::OnChar(nChar, nRepCnt, nFlags);
+	CInPlaceEdit::OnChar(nChar, nRepCnt, nFlags);
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -551,26 +619,53 @@ BOOL CGridCellNumeric::Edit(int nRow, int nCol, CRect rect, CPoint /* point */, 
 //	m_pEditWnd = new CInPlaceEdit(GetGrid(), rect, /*GetStyle() |*/ ES_NUMBER, nID, nRow, nCol,
 //		GetText(), nChar);
 
-    // pja - Sept 12, 2004
-    m_pEditWnd = new CInPlaceNumEdit(GetGrid(),
-                                     rect,
-                                     0,
-                                     nID,
-                                     nRow,
-                                     nCol,
-                                     GetText(),
-                                     nChar,
-                                     m_nNumber,
-                                     m_dwFlags);
+	if ((m_dwFlags & TypeMask) == Hex) {
+		m_pEditWnd = new CNumHexEdit(GetGrid(),
+			rect,
+			0,
+			nID,
+			nRow,
+			nCol,
+			GetText(),
+			nChar);
+	} else {
+		// pja - Sept 12, 2004
+		m_pEditWnd = new CInPlaceNumEdit(GetGrid(),
+			rect,
+			0,
+			nID,
+			nRow,
+			nCol,
+			GetText(),
+			nChar,
+			m_nNumber,
+			m_dwFlags);
+	}
 
     return TRUE;
+}
+
+DWORD CGridCellNumeric::GetData()
+{
+	DWORD tmp = 0;
+	if (m_pEditWnd) {
+		if ((m_dwFlags & TypeMask) == Hex) {
+			tmp = ((CHexEdit*)m_pEditWnd)->GetValue();
+		}
+	}
+	return tmp;
 }
 
 // Cancel the editing.
 void CGridCellNumeric::EndEdit()
 {
-    if (m_pEditWnd)
-        ((CInPlaceEdit*)m_pEditWnd)->EndEdit();
+	if (m_pEditWnd) {
+		if ((m_dwFlags & TypeMask) == Hex) {
+			((CHexEdit*)m_pEditWnd)->OnEnUpdate();
+		} else {
+			((CInPlaceEdit*)m_pEditWnd)->EndEdit();
+		}
+	}    
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -589,8 +684,8 @@ void CGridCellNumeric::EndEdit()
 void CGridCellNumeric::SetText(LPCTSTR szText)
 {
     CString str = szText;
-    if (Format(str))
-        CGridCell::SetText(str);
+	if (Format(str))
+		CGridCell::SetText(str);
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -599,6 +694,7 @@ void CGridCellNumeric::SetText(LPCTSTR szText)
 //    Sets the bit flags that control the type of number and edit control
 //    Valid bit flags are:
 //             CGridCellNumeric::Integer
+//             CGridCellNumeric::Hex
 //             CGridCellNumeric::Real
 //             CGridCellNumeric::Currency
 //             CGridCellNumeric::Negative
@@ -614,9 +710,10 @@ void CGridCellNumeric::SetText(LPCTSTR szText)
 
 DWORD CGridCellNumeric::SetFlags(DWORD dwFlags)
 {
-    // Integer, Real, and Currency are mutually exclusive flags,
+    // Integer, Hex, Real, and Currency are mutually exclusive flags,
     // But one of them has to set
     if ((dwFlags & TypeMask) != Integer &&
+		(dwFlags & TypeMask) != Hex &&
         (dwFlags & TypeMask) != Real &&
         (dwFlags & TypeMask) != Currency)
     {
@@ -781,9 +878,9 @@ BOOL CGridCellNumeric::Format(CString &TheString)
         sDigits += _T('.');
     }
 
-    if ((m_dwFlags & TypeMask) == Integer)
+    if ((m_dwFlags & TypeMask) == Integer || (m_dwFlags & TypeMask) == Hex)
     {
-        // we are dealing with integers, so we will find the decimal point
+        // we are dealing with integers or hex, so we will find the decimal point
         // and chop it off. No rounding will occur.
         int pos = str.Find(_T('.'), 0);
         if (pos != -1)
@@ -872,23 +969,24 @@ BOOL CGridCellNumeric::Format(CString &TheString)
                                     Formatted.GetBuffer(count),
                                     count);
             Formatted.ReleaseBuffer();
-			
         }
 
-        if (count)
-        {
-            if ((m_dwFlags & TypeMask) == Integer)
-            {
-                // remove the decimal point and any trailing zeroes
-                // we cannot simply chop it off as the formatting
-                // may have left trailing sign characters
-                int pos = Formatted.Find(cDecimal, 0);
+		if (count)
+		{
+			if ((m_dwFlags & TypeMask) == Integer)
+			{
+				// remove the decimal point and any trailing zeroes
+				// we cannot simply chop it off as the formatting
+				// may have left trailing sign characters
+				int pos = Formatted.Find(cDecimal, 0);
 				if (pos != -1) {
 					Formatted.Delete(pos);
 					while (pos < Formatted.GetLength() && Formatted[pos] == sDigits[0])
 						Formatted.Delete(pos);
 				}
-            }
+			} else if ((m_dwFlags & TypeMask) == Hex) {
+				Formatted = TheString;
+			}
 
             // Only update m_nNumber if everything above succeeded
             m_nNumber = Number;

@@ -27,7 +27,8 @@ public:
         Integer  = 0x00,  // Integer numbers       \.
         Real     = 0x01,  // Floating point numbers ]- mutually exclusive values
         Currency = 0x02,  // Currency              /
-        TypeMask = 0x03,  // Integer | Real | Currency
+		Hex		 = 0x10,  // Hex numbers
+        TypeMask = 0x13,  // Integer | Real | Currency
         Negative = 0x04,  // Allow negative (signed) numbers
         Silent   = 0x08   // Disable audible warning in edit control
     };
@@ -36,6 +37,7 @@ public:
     virtual BOOL Edit(int nRow, int nCol, CRect rect, CPoint point, UINT nID, UINT nChar);
     virtual void EndEdit();
     virtual void SetText(LPCTSTR szText);
+	DWORD GetData(void);
 
     DWORD SetFlags(DWORD dwFlags);
     DWORD GetFlags() { return m_dwFlags; }

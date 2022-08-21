@@ -11,10 +11,10 @@
 
 struct _DMX_LIST
 {
-	CString		VarTokenName;
-	UINT		VarTokenIndex;
-	UINT		VarArrayTokenIndex;
-	UINT		SimType;
+	CString		VarTokenName, VarBlinkTokenName, BlinkMaskName;
+	UINT		VarTokenIndex, VarBlinkTokenIndex;
+	UINT		VarArrayTokenIndex, VarArrayBlinkTokenIndex;
+	UINT		SimType, BlinkSimType;
 	BOOL		Read;
 	BOOL		Write;
 	CString		UserValue;
@@ -24,6 +24,10 @@ struct _DMX_LIST
 	UCHAR		Grouping;
 	UCHAR		Digits;
 	double		Minimum, Maximum;
+	int			BlinkMask;
+	UINT		BlinkOnTime, BlinkOffTime;
+	UINT		BlinkOnTimeCnt, BlinkOffTimeCnt;
+	BOOL		BlinkOnFlag;
 };
 
 class CDotMXPage
@@ -43,7 +47,6 @@ public:
 	UINT		m_OBLevel;
 	UCHAR		m_LampTest;
 	_DMX_LIST	m_Displays[4];
-
 protected:
 
 };

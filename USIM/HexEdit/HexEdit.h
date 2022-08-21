@@ -30,6 +30,7 @@ class CHexEdit : public CEdit
 // Construction
 public:
 	CHexEdit();
+	CHexEdit(CWnd* pParent, CRect& rect, DWORD dwStyle, UINT nID, int nRow, int nColumn, CString sInitText, UINT nFirstChar);
 
 // Attributes
 public:
@@ -43,6 +44,7 @@ private:
 
 // Operations
 public:
+	void EndEdit();
 
 // Overrides
 	// ClassWizard generated virtual function overrides
@@ -54,13 +56,16 @@ public:
 // Implementation
 public:
 	virtual ~CHexEdit();
+	CRect   m_Rect;
 
 	// Generated message map functions
 protected:
 	//{{AFX_MSG(CHexEdit)
 	afx_msg HBRUSH CtlColor(CDC* pDC, UINT nCtlColor);
 	afx_msg void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
-//	afx_msg void OnChange();
+	afx_msg void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags, UINT nGridFlag);
+	afx_msg void OnKillFocus(CWnd* pNewWnd);
+	virtual void PostNcDestroy();
 	//}}AFX_MSG
 
 	DECLARE_MESSAGE_MAP()
@@ -70,6 +75,10 @@ protected:
 public:
 	virtual BOOL OnCommand(WPARAM wParam, LPARAM lParam);
 private:
+	int     m_nRow;
+	int     m_nColumn;
+	UINT    m_nLastChar;
+	CString m_sInitText;
 	CBrush m_bkDecBrush;//background dec color brush
 	CBrush m_bkHexBrush;//background hex color brush
 	bool IsHexConvertableText(LPTSTR _text);

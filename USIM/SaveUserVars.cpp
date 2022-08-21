@@ -18,6 +18,8 @@ static char THIS_FILE[]=__FILE__;
 const UINT CSaveUserVars::m_uiFileClass = ID_FILECLASS;
 const UINT CSaveUserVars::m_uiFileVersion = ID_SAVEFILEVERSION;
 const UINT CSaveUserVars::m_uiFileVersion_1 = ID_SAVEFILEVERSION_1;
+const UINT CSaveUserVars::m_uiFileVersion_2 = ID_SAVEFILEVERSION_2;
+const UINT CSaveUserVars::m_uiFileVersion_3 = ID_SAVEFILEVERSION_3;
 
 IMPLEMENT_SERIAL( CSaveUserVars, CObject, CSaveUserVars::m_uiFileVersion);
 
@@ -81,6 +83,8 @@ void CSaveUserVars::Serialize( CArchive &ar )
 		switch (uiFileVersion) {
 			case m_uiFileVersion:
 			case m_uiFileVersion_1:
+			case m_uiFileVersion_2:
+			case m_uiFileVersion_3:
 				// everything is okay, load data
 				// in the EXACT order as saving
 				for (i=0; i<MAX_INPUT_FLAGS; i++) {

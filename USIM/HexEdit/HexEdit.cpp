@@ -16,6 +16,8 @@
 #include "HexEdit.h"
 #include ".\hexedit.h"
 
+#include "..\GridCtrl_src\GridCtrl.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -35,22 +37,81 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // CHexEdit
 
-CHexEdit::CHexEdit():m_bHex(false),m_bEnd(false)
+CHexEdit::CHexEdit(CWnd* pParent, CRect& rect, DWORD dwStyle, UINT nID, int nRow, int nColumn, CString sInitText, UINT nFirstChar) : m_bHex(false), m_bEnd(false)
 {
-	this->m_icHexText.clrBkColor=RGB(219,247,220);
-	this->m_icHexText.clrTextColor=RGB(74,115,132);
-	this->m_icDecText.clrBkColor=RGB(251,244,170);
-	this->m_icDecText.clrTextColor=RGB(192,97,10);
+	m_Rect = rect;  // For bizarre CE bug.
+	m_sInitText = sInitText;
+	m_nRow = nRow;
+	m_nColumn = nColumn;
+	m_nLastChar = 0;
+
+	DWORD dwEditStyle = WS_BORDER | WS_CHILD | WS_VISIBLE | ES_AUTOHSCROLL //|ES_MULTILINE
+		| dwStyle;
+	
+	if (!Create(dwEditStyle, rect, pParent, nID)) return;
+
+	SetFont(pParent->GetFont());
+
+	SetFocus();
+
+	CString text;
+	CWindowDC dc(this);
+	CFont *pFontDC = dc.SelectObject(GetFont());
+	CSize size = dc.GetTextExtent(text);
+	dc.SelectObject(pFontDC);
+
+	// Get client rect
+	CRect ParentRect;
+	GetParent()->GetClientRect(&ParentRect);
+
+	// Check whether control needs to be resized
+	// and whether there is space to grow
+	if (size.cx > m_Rect.Width())
+	{
+		if (size.cx + m_Rect.left < ParentRect.right)
+			m_Rect.right = m_Rect.left + size.cx;
+		else
+			m_Rect.right = ParentRect.right;
+	}
+	MoveWindow(&m_Rect);
+
+	switch (nFirstChar) {
+		case VK_LBUTTON:
+		case VK_RETURN:   SetSel((int)_tcslen(m_sInitText), -1); return;
+		case VK_BACK:     SetSel((int)_tcslen(m_sInitText), -1); break;
+		case VK_TAB:
+		case VK_DOWN:
+		case VK_UP:
+		case VK_RIGHT:
+		case VK_LEFT:
+		case VK_NEXT:
+		case VK_PRIOR:
+		case VK_HOME:
+		case VK_SPACE:
+		case VK_END:      SetSel(0, -1); return;
+		default:          SetSel(0, -1);
+	}
+}
+
+CHexEdit::CHexEdit() :m_bHex(false), m_bEnd(false)
+{
+	this->m_icHexText.clrBkColor = RGB(219, 247, 220);
+	this->m_icHexText.clrTextColor = RGB(74, 115, 132);
+	this->m_icDecText.clrBkColor = RGB(251, 244, 170);
+	this->m_icDecText.clrTextColor = RGB(192, 97, 10);
 	this->m_bkHexBrush.CreateSolidBrush(this->m_icHexText.clrBkColor);
 	this->m_bkDecBrush.CreateSolidBrush(this->m_icDecText.clrBkColor);
 }
 
 CHexEdit::~CHexEdit()
 {
-	m_bkHexBrush.DeleteObject();
-	m_bkDecBrush.DeleteObject();
 }
 
+// Auto delete
+void CHexEdit::PostNcDestroy()
+{
+	CEdit::PostNcDestroy();
+}
 
 BEGIN_MESSAGE_MAP(CHexEdit, CEdit)
 	//{{AFX_MSG_MAP(CHexEdit)
@@ -58,8 +119,9 @@ BEGIN_MESSAGE_MAP(CHexEdit, CEdit)
 	ON_WM_CHAR()
 	ON_MESSAGE(ME_CONVERT, OnConvert)
 	//}}AFX_MSG_MAP
-ON_WM_CONTEXTMENU()
-ON_CONTROL_REFLECT(EN_UPDATE, OnEnUpdate)
+	ON_WM_CONTEXTMENU()
+	ON_CONTROL_REFLECT(EN_UPDATE, OnEnUpdate)
+	ON_WM_CREATE()
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -86,14 +148,15 @@ HBRUSH CHexEdit::CtlColor(CDC* pDC, UINT nCtlColor)
 	}
 }
 
-void CHexEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) 
+void CHexEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags, UINT nGridFlag)
 {
 	// TODO: Add your message handler code here and/or call default
-	
+	CString text;
+
 	if (m_bHex) {
 		int start,end;
 		GetSel(start,end);
-		CString text;
+		
 		this->GetWindowText(text);
 		char head=0,second=0;
 		if(start > 9 && nChar != VK_BACK) return;
@@ -119,18 +182,71 @@ void CHexEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	} else {
 		CEdit::OnChar(nChar, nRepCnt, nFlags);
 	}
+
+	// Resize edit control if needed
+	// add some extra buffer
+	//text += _T("  ");
+
+	CWindowDC dc(this);
+	CFont *pFontDC = dc.SelectObject(GetFont());
+	CSize size = dc.GetTextExtent(text);
+	dc.SelectObject(pFontDC);
+
+	// Get client rect
+	CRect ParentRect;
+	GetParent()->GetClientRect(&ParentRect);
+
+	// Check whether control needs to be resized
+	// and whether there is space to grow
+	if (size.cx > m_Rect.Width())
+	{
+		if (size.cx + m_Rect.left < ParentRect.right)
+			m_Rect.right = m_Rect.left + size.cx;
+		else
+			m_Rect.right = ParentRect.right;
+	}
+	MoveWindow(&m_Rect);
 }
 
-//void CHexEdit::OnChange() 
-//{
-//	// TODO: If this is a RICHEDIT control, the control will not
-//	// send this notification unless you override the CEdit::OnInitDialog()
-//	// function and call CRichEditCtrl().SetEventMask()
-//	// with the ENM_CHANGE flag ORed into the mask.
-//	
-//	// TODO: Add your control notification handler code here
-//	
-//}
+void CHexEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
+{
+	// TODO: Add your message handler code here and/or call default
+
+	if (m_bHex) {
+		int start, end;
+		GetSel(start, end);
+		CString text;
+		this->GetWindowText(text);
+		char head = 0, second = 0;
+		if (start > 9 && nChar != VK_BACK) return;
+		if (text.GetLength() > 0) head = text.GetAt(0);
+		if (text.GetLength() > 1) second = text.GetAt(1);
+
+		if (start == 0 && nChar == '0') {
+			CEdit::OnChar(nChar, nRepCnt, nFlags);
+		}
+		else if (start == 1 && (nChar == 'X' || nChar == 'x') && head == '0') {
+			nChar = 'x';
+			CEdit::OnChar(nChar, nRepCnt, nFlags);
+		}
+		else if (start > 1 && nChar >= 48 && nChar <= 57 || nChar >= 'A'&&nChar <= 'F') {
+			if (second == 'x' || second == 'X') {
+				CEdit::OnChar(nChar, nRepCnt, nFlags);
+			}
+		}
+		else if (start > 1 && nChar >= 'a'&&nChar <= 'f') {
+			if (second == 'x' || second == 'X') {
+				CEdit::OnChar(nChar, nRepCnt, nFlags);
+			}
+		}
+		else if (nChar == VK_BACK) {
+			CEdit::OnChar(nChar, nRepCnt, nFlags);
+		}
+	}
+	else {
+		CEdit::OnChar(nChar, nRepCnt, nFlags);
+	}
+}
 
 BOOL CHexEdit::PreTranslateMessage(MSG* pMsg) 
 {
@@ -202,6 +318,36 @@ BOOL CHexEdit::PreTranslateMessage(MSG* pMsg)
 			else
 				return TRUE;
 		}
+		else if (pMsg->wParam == VK_TAB || pMsg->wParam == VK_RETURN)
+		{
+			// Send Notification to parent
+			GV_DISPINFO dispinfo;
+
+			dispinfo.hdr.hwndFrom = GetSafeHwnd();
+			dispinfo.hdr.idFrom = GetDlgCtrlID();
+			dispinfo.hdr.code = GVN_ENDLABELEDIT;
+
+			dispinfo.item.mask = LVIF_TEXT | LVIF_PARAM;
+			dispinfo.item.row = m_nRow;
+			dispinfo.item.col = m_nColumn;
+			dispinfo.item.strText = text;
+			dispinfo.item.lParam = (LPARAM)m_nLastChar;
+
+			CWnd* pOwner = GetOwner();
+			if (pOwner)
+				pOwner->SendMessage(WM_NOTIFY, GetDlgCtrlID(), (LPARAM)&dispinfo);
+
+			m_nLastChar = pMsg->wParam;
+			GetParent()->SetFocus();		// This will destroy this window
+			return TRUE;
+		}
+		else if (pMsg->wParam == VK_ESCAPE)
+		{
+			SetWindowText(m_sInitText);		// restore previous text
+			m_nLastChar = pMsg->wParam;
+			GetParent()->SetFocus();
+			return TRUE;
+		}
 		else
 			return CEdit::PreTranslateMessage(pMsg);
 	}
@@ -229,11 +375,20 @@ BOOL CHexEdit::PreTranslateMessage(MSG* pMsg)
 	else
 		return CEdit::PreTranslateMessage(pMsg);
 }
+
 void CHexEdit::DoDataExchange(CDataExchange* pDX)
 {
 	// TODO:
 	::AfxMessageBox("dsaf");
 	CEdit::DoDataExchange(pDX);
+}
+
+// As soon as this edit loses focus, kill it.
+void CHexEdit::OnKillFocus(CWnd* pNewWnd)
+{
+	CEdit::OnKillFocus(pNewWnd);
+	EndEdit();
+	delete this;
 }
 
 BOOL CHexEdit::OnCommand(WPARAM wParam, LPARAM lParam)
@@ -385,21 +540,29 @@ void CHexEdit::OnEnUpdate()
     }
  
     this->RedrawWindow();
-/*
-	CString text;
-	this->GetWindowText(text);
-	//Hex or Dec?
-	this->m_bHex=false;
-	if(text.Find("0x")==0)
-		this->m_bHex=true;
-	for(int i=0;i<text.GetLength();i++)
-	{
-		char c=text.GetAt(i);
-		if(c>='A'&&c<='F')
-			this->m_bHex=true;
-	}
-	this->RedrawWindow();
-*/
+}
+
+void CHexEdit::EndEdit()
+{
+//	CString str;
+
+	// EFW - BUG FIX - Clicking on a grid scroll bar in a derived class
+	// that validates input can cause this to get called multiple times
+	// causing assertions because the edit control goes away the first time.
+	static BOOL bAlreadyEnding = FALSE;
+
+	if (bAlreadyEnding)
+		return;
+
+	bAlreadyEnding = TRUE;
+
+	// Close this window (PostNcDestroy will delete this)
+	if (IsWindow(GetSafeHwnd()))
+		SendMessage(WM_CLOSE, 0, 0);
+	bAlreadyEnding = FALSE;
+
+	m_bkHexBrush.DeleteObject();
+	m_bkDecBrush.DeleteObject();
 }
 
 LRESULT CHexEdit::OnConvert(WPARAM wParam, LPARAM lParam)
@@ -462,5 +625,6 @@ void CHexEdit::SetValue(DWORD _value,bool _bHex)
 	}
 	else
 		text.Format("0x%x",_value);
+	m_sInitText = text;
 	this->SetWindowText(text);
 }

@@ -163,7 +163,7 @@ void CInPlaceEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
         return;
     }
     
-    CEdit::OnChar(nChar, nRepCnt, nFlags);
+	CEdit::OnChar(nChar, nRepCnt, nFlags);
     
     // Resize edit control if needed
     

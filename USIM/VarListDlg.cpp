@@ -1020,7 +1020,7 @@ void CVarListDlg::OnOK()
 					if (m_ListTypeVar == VARTYPE_BITS) {
 						m_VarTokenName = F4BitsArray[otiStatic->GetStaticDataIndex()].TokenString;
 						m_BitMask = F4BitsArray[otiStatic->GetStaticDataIndex()].BitMask;
-						m_BitType = F4BitsArray[otiStatic->GetStaticDataIndex()].BitType;
+						m_BitSimType = F4BitsArray[otiStatic->GetStaticDataIndex()].BitSimType;
 					} else {
 						m_VarTokenName = F4DataArray[otiStatic->GetStaticDataIndex()].VarTokenName;
 					}
@@ -1048,7 +1048,7 @@ void CVarListDlg::OnOK()
 					if (m_ListTypeVar == VARTYPE_BITS) {
 						m_VarTokenName = GPXBitsArray[otiStatic->GetStaticDataIndex()].TokenString;
 						m_BitMask = GPXBitsArray[otiStatic->GetStaticDataIndex()].BitMask;
-						m_BitType = GPXBitsArray[otiStatic->GetStaticDataIndex()].BitType;
+						m_BitSimType = GPXBitsArray[otiStatic->GetStaticDataIndex()].BitSimType;
 					} else {
 						m_VarTokenName = GPXDataArray[otiStatic->GetStaticDataIndex()].VarTokenName;
 					}
@@ -1061,7 +1061,7 @@ void CVarListDlg::OnOK()
 					if (m_ListTypeVar == VARTYPE_BITS) {
 						m_VarTokenName = LFSBitsArray[otiStatic->GetStaticDataIndex()].TokenString;
 						m_BitMask = LFSBitsArray[otiStatic->GetStaticDataIndex()].BitMask;
-						m_BitType = LFSBitsArray[otiStatic->GetStaticDataIndex()].BitType;
+						m_BitSimType = LFSBitsArray[otiStatic->GetStaticDataIndex()].BitSimType;
 					} else {
 						m_VarTokenName = LFSDataArray[otiStatic->GetStaticDataIndex()].VarTokenName;
 					}

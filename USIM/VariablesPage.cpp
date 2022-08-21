@@ -78,6 +78,8 @@ void CVariablesPage::Serialize( CArchive &ar, UINT uiFileVersion )
 		// check if older file version loading
 		switch (uiFileVersion) {
 			case ID_SAVEFILEVERSION:
+			case ID_SAVEFILEVERSION_2:
+			case ID_SAVEFILEVERSION_3:
 				ar >> m_OPVarArrayTokenIndex;
 			break;
 			case ID_SAVEFILEVERSION_1:
@@ -99,6 +101,8 @@ void CVariablesPage::Serialize( CArchive &ar, UINT uiFileVersion )
 		// check if older file version loading
 		switch (uiFileVersion) {
 			case ID_SAVEFILEVERSION:
+			case ID_SAVEFILEVERSION_2:
+			case ID_SAVEFILEVERSION_3:
 				ar >> m_ORVarArrayTokenIndex;
 			break;
 			case ID_SAVEFILEVERSION_1:

@@ -2179,15 +2179,16 @@ void COutputThread::ReadDisplayOutputs(UINT dIndex, UINT nPort)
 
 void COutputThread::ReadDotMatrixOutputs(UINT dIndex, UINT nPort)
 {
-	UINT vIndex, vSimType, nDigits, nGrouping, disp_cnt, i, nChars;
+	UINT vIndex, vIndex2, vSimType, vSimType2, nDigits, nGrouping, disp_cnt, i, nChars;
 	UINT oIndex, start_index, end_index;
 	CString sdigits, sgrouping, StrValue, StrDotMX;
 	CString chr;
 	int nDecimal, nRight, nLeft;
-	double nMax, nMin, SimValue;
+	double nMax, nMin, SimValue, SimValue2;
 	double nFactor, nConstant;
 	BOOL nLeadingZero;
 	BOOL VarTypeString;
+	BOOL ResultFlag1;
 
 	if (theApp.m_SimulationModel != SIM_NONE) {
 		// set output level if changed
@@ -2201,6 +2202,7 @@ void COutputThread::ReadDotMatrixOutputs(UINT dIndex, UINT nPort)
 		for (oIndex = start_index; oIndex < end_index; oIndex++) {
 			disp_cnt = 0;
 			theApp.m_pDevArray[dIndex]->m_StrDotMX[oIndex] = "    ";
+
 			if (theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_LampTest == 1) {
 				if (theApp.m_pDevArray[dIndex]->m_StrDotMXOld[oIndex] != "8888")
 					theApp.m_pDevArray[dIndex]->m_PortChange[nPort] = true;
@@ -2227,91 +2229,17 @@ void COutputThread::ReadDotMatrixOutputs(UINT dIndex, UINT nPort)
 					if (nChars > 4) nChars = 4;
 
 					SimValue = 0;
+					SimValue2 = 0;
+
 					VarTypeString = false;
+					vSimType = SIM_NONE;
 					if (!theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_Displays[i].VarTokenName.IsEmpty()) {
 						vIndex = theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_Displays[i].VarTokenIndex;
+						vIndex2 = theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_Displays[i].VarBlinkTokenIndex;
 						vSimType = theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_Displays[i].SimType;
-
-						switch (vSimType) {
-							case SIM_XPLANE:
-								if (vIndex == 0)
-									break;
-								theApp.m_pXPFlightData->Data[vIndex].Active = true;
-								if (theApp.m_pXPFlightData != NULL)
-									SimValue = VarTypeConversion (	XPDataArray[vIndex].VarType,
-																	&theApp.m_pXPFlightData->Data[vIndex].dDataRead);
-							break;
-
-							case SIM_IL2:
-							case SIM_IL2FB:
-							case SIM_IL2PF:
-								if (vIndex == 0)
-									break;
-								theApp.m_IL2FlightData.Data[vIndex].Active = true;
-								SimValue = VarTypeConversion (	IL2DataArray[vIndex].VarType,
-																&theApp.m_IL2FlightData.Data[vIndex].dDataRead);
-							break;
-
-							case SIM_F4BMS:
-							case SIM_F4USIM:
-								if (theApp.m_pF4VarToken[vIndex] != NULL)
-									SimValue = VarTypeConversion(	F4DataArray[vIndex].VarType,
-																	theApp.m_pF4VarToken[vIndex]);
-
-								if (strcmp(F4DataArray[vIndex].VarTokenName, "Falcon_4/cockpit/displays/OSRAM_Display_O1") == 0) {
-									StrDotMX = theApp.m_pDevArray[dIndex]->m_StrDotMX[oIndex] = theApp.m_F4FlightData.O1;
-									VarTypeString = true;
-								} else if (strcmp(F4DataArray[vIndex].VarTokenName, "Falcon_4/cockpit/displays/OSRAM_Display_O2") == 0) {
-									StrDotMX = theApp.m_pDevArray[dIndex]->m_StrDotMX[oIndex] = theApp.m_F4FlightData.O2;
-									VarTypeString = true;
-								} else if (strcmp(F4DataArray[vIndex].VarTokenName, "Falcon_4/cockpit/displays/OSRAM_Display_O3-Chaff") == 0) {
-									StrDotMX = theApp.m_pDevArray[dIndex]->m_StrDotMX[oIndex] = theApp.m_F4FlightData.O3Chaff;
-									VarTypeString = true;
-								} else if (strcmp(F4DataArray[vIndex].VarTokenName, "Falcon_4/cockpit/displays/OSRAM_Display_O4-Flare") == 0) {
-									StrDotMX = theApp.m_pDevArray[dIndex]->m_StrDotMX[oIndex] = theApp.m_F4FlightData.O4Flare;
-									VarTypeString = true;
-								}
-							break;
-
-							case SIM_GTR:
-							case SIM_GTR2:
-							case SIM_EVO:
-							case SIM_GTL:
-							case SIM_RACE:
-							case SIM_RACE07:
-							case SIM_RACEON:
-							case SIM_VOLVO:
-							case SIM_SIMBIN:
-								if (theApp.m_pSimBinVarToken[vIndex] != NULL)
-									SimValue = VarTypeConversion(	SimBinDataArray[vIndex].VarType,
-																	theApp.m_pSimBinVarToken[vIndex]);
-							break;
-
-							case SIM_RF:
-								if (theApp.m_pRFVarToken[vIndex] != NULL)
-									SimValue = VarTypeConversion(	RFDataArray[vIndex].VarType,
-																	theApp.m_pRFVarToken[vIndex]);
-							break;
-
-							case SIM_GPX:
-								if (theApp.m_pGPXVarToken[vIndex] != NULL)
-									SimValue = VarTypeConversion(	GPXDataArray[vIndex].VarType,
-																	theApp.m_pGPXVarToken[vIndex]);
-							break;
-
-							case SIM_LFS:
-								if (theApp.m_pLFSVarToken[vIndex] != NULL)
-									SimValue = VarTypeConversion(	LFSDataArray[vIndex].VarType,
-																	theApp.m_pLFSVarToken[vIndex]);
-							break;
-
-							case USIM_INPUT_FLAGS:
-								SimValue = theApp.m_UserVarsArray.m_IOFlags[vIndex].FlagValue;
-							break;
-						}
 					} else {
 						BOOL bNumeric = TRUE;
-						LPCSTR szText = theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_Displays[i].UserValue;; // Saves CString's array access overheads
+						LPCSTR szText = theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_Displays[i].UserValue; // Saves CString's array access overheads
 
 						while (bNumeric && *szText)	{
 							if (!isdigit(*szText) && *szText != '-' && *szText != '.')
@@ -2325,6 +2253,175 @@ void COutputThread::ReadDotMatrixOutputs(UINT dIndex, UINT nPort)
 							// Not a number
 							VarTypeString = true;
 						}
+					}
+
+					switch (vSimType) {
+						case SIM_XPLANE:
+							if (vIndex > 0) {
+								theApp.m_pXPFlightData->Data[vIndex].Active = true;
+								if (theApp.m_pXPFlightData != NULL)
+									SimValue = VarTypeConversion(XPDataArray[vIndex].VarType,
+										&theApp.m_pXPFlightData->Data[vIndex].dDataRead);
+							}
+							break;
+
+						case SIM_IL2:
+						case SIM_IL2FB:
+						case SIM_IL2PF:
+							if (vIndex > 0) {
+								theApp.m_IL2FlightData.Data[vIndex].Active = true;
+								SimValue = VarTypeConversion(IL2DataArray[vIndex].VarType,
+									&theApp.m_IL2FlightData.Data[vIndex].dDataRead);
+							}
+							break;
+
+						case SIM_F4BMS:
+						case SIM_F4USIM:
+							if (theApp.m_pF4VarToken[vIndex] != NULL) {
+								SimValue = VarTypeConversion(F4DataArray[vIndex].VarType, theApp.m_pF4VarToken[vIndex]);
+
+								if (strcmp(F4DataArray[vIndex].VarTokenName, "Falcon_4/cockpit/displays/OSRAM_Display_O1") == 0) {
+									StrDotMX = theApp.m_pDevArray[dIndex]->m_StrDotMX[oIndex] = theApp.m_F4FlightData.O1;
+									VarTypeString = true;
+								}
+								else if (strcmp(F4DataArray[vIndex].VarTokenName, "Falcon_4/cockpit/displays/OSRAM_Display_O2") == 0) {
+									StrDotMX = theApp.m_pDevArray[dIndex]->m_StrDotMX[oIndex] = theApp.m_F4FlightData.O2;
+									VarTypeString = true;
+								}
+								else if (strcmp(F4DataArray[vIndex].VarTokenName, "Falcon_4/cockpit/displays/OSRAM_Display_O3-Chaff") == 0) {
+									StrDotMX = theApp.m_pDevArray[dIndex]->m_StrDotMX[oIndex] = theApp.m_F4FlightData.O3Chaff;
+									VarTypeString = true;
+								}
+								else if (strcmp(F4DataArray[vIndex].VarTokenName, "Falcon_4/cockpit/displays/OSRAM_Display_O4-Flare") == 0) {
+									StrDotMX = theApp.m_pDevArray[dIndex]->m_StrDotMX[oIndex] = theApp.m_F4FlightData.O4Flare;
+									VarTypeString = true;
+								}
+							}
+							break;
+
+						case SIM_GTR:
+						case SIM_GTR2:
+						case SIM_EVO:
+						case SIM_GTL:
+						case SIM_RACE:
+						case SIM_RACE07:
+						case SIM_RACEON:
+						case SIM_VOLVO:
+						case SIM_SIMBIN:
+							if (theApp.m_pSimBinVarToken[vIndex] != NULL)
+								SimValue = VarTypeConversion(SimBinDataArray[vIndex].VarType,
+									theApp.m_pSimBinVarToken[vIndex]);
+							break;
+
+						case SIM_RF:
+							if (theApp.m_pRFVarToken[vIndex] != NULL)
+								SimValue = VarTypeConversion(RFDataArray[vIndex].VarType,
+									theApp.m_pRFVarToken[vIndex]);
+							break;
+
+						case SIM_GPX:
+							if (theApp.m_pGPXVarToken[vIndex] != NULL)
+								SimValue = VarTypeConversion(GPXDataArray[vIndex].VarType,
+									theApp.m_pGPXVarToken[vIndex]);
+							break;
+
+						case SIM_LFS:
+							if (theApp.m_pLFSVarToken[vIndex] != NULL)
+								SimValue = VarTypeConversion(LFSDataArray[vIndex].VarType,
+									theApp.m_pLFSVarToken[vIndex]);
+							break;
+
+						case USIM_INPUT_FLAGS:
+							SimValue = theApp.m_UserVarsArray.m_IOFlags[vIndex].FlagValue;
+							break;
+					}
+
+					vSimType2 = SIM_NONE;
+					if (!theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_Displays[i].VarBlinkTokenName.IsEmpty()) {
+						vIndex2 = theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_Displays[i].VarBlinkTokenIndex;
+						vSimType2 = theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_Displays[i].BlinkSimType;
+					}
+					switch (vSimType2) {
+						case SIM_XPLANE:
+							if (vIndex2 > 0) {
+								theApp.m_pXPFlightData->Data[vIndex2].Active = true;
+								SimValue2 = VarTypeConversion(XPDataArray[vIndex2].VarType,
+									&theApp.m_pXPFlightData->Data[vIndex2].dDataRead);
+							}
+							break;
+
+						case SIM_IL2:
+						case SIM_IL2FB:
+						case SIM_IL2PF:
+							if (vIndex2 > 0) {
+								theApp.m_IL2FlightData.Data[vIndex2].Active = true;
+								SimValue2 = VarTypeConversion(IL2DataArray[vIndex2].VarType,
+									&theApp.m_IL2FlightData.Data[vIndex2].dDataRead);
+							}
+							break;
+
+						case SIM_F4BMS:
+						case SIM_F4USIM:
+							if (theApp.m_pF4VarToken[vIndex2] != NULL)
+								SimValue2 = VarTypeConversion(F4DataArray[vIndex2].VarType,
+									theApp.m_pF4VarToken[vIndex2]);
+							break;
+
+						case SIM_GTR:
+						case SIM_GTR2:
+						case SIM_EVO:
+						case SIM_GTL:
+						case SIM_RACE:
+						case SIM_RACE07:
+						case SIM_RACEON:
+						case SIM_VOLVO:
+						case SIM_SIMBIN:
+							if (theApp.m_pSimBinVarToken[vIndex2] != NULL)
+								SimValue2 = VarTypeConversion(SimBinDataArray[vIndex2].VarType,
+									theApp.m_pSimBinVarToken[vIndex2]);
+							break;
+
+						case SIM_RF:
+							if (theApp.m_pRFVarToken[vIndex2] != NULL)
+								SimValue2 = VarTypeConversion(RFDataArray[vIndex2].VarType,
+									theApp.m_pRFVarToken[vIndex2]);
+							break;
+
+						case SIM_GPX:
+							if (theApp.m_pGPXVarToken[vIndex2] != NULL)
+								SimValue2 = VarTypeConversion(GPXDataArray[vIndex2].VarType,
+									theApp.m_pGPXVarToken[vIndex2]);
+							break;
+
+						case SIM_LFS:
+							if (theApp.m_pLFSVarToken[vIndex2] != NULL)
+								SimValue2 = VarTypeConversion(LFSDataArray[vIndex2].VarType,
+									theApp.m_pLFSVarToken[vIndex2]);
+							break;
+
+						case USIM_INPUT_FLAGS:
+							SimValue2 = theApp.m_UserVarsArray.m_IOFlags[vIndex2].FlagValue;
+							break;
+					}
+
+					// check blinking condition
+					ResultFlag1 = true;
+					if (((UINT)SimValue2 & theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_Displays[i].BlinkMask) != 0) {
+						if (theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_Displays[i].BlinkOnFlag) {
+							if (theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_Displays[i].BlinkOnTimeCnt++ >= theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_Displays[i].BlinkOnTime * 5) {		// multiples of 50ms
+								theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_Displays[i].BlinkOnTimeCnt = 0;
+								theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_Displays[i].BlinkOffTimeCnt = 0;
+								ResultFlag1 = 0; // toggle output
+								theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_Displays[i].BlinkOnFlag = false;
+							}
+						}
+						else if (theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_Displays[i].BlinkOffTimeCnt++ >= theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_Displays[i].BlinkOffTime * 5) {	// multiples of 50ms
+							theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_Displays[i].BlinkOffTimeCnt = 0;
+							theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_Displays[i].BlinkOnTimeCnt = 0;
+							ResultFlag1 = 1; // toggle output
+							theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_Displays[i].BlinkOnFlag = true;
+						}
+						else ResultFlag1 = 0;
 					}
 
 					if (!VarTypeString) {
@@ -2347,9 +2444,18 @@ void COutputThread::ReadDotMatrixOutputs(UINT dIndex, UINT nPort)
 						}
 
 						if (nDigits > 0) nDigits++;
+
+						if (!ResultFlag1)
+							StrValue = "    ";
+
 						StrDotMX = StrValue.Mid(nRight, nLeft + nDigits) + StrDotMX;
 					} else {
-						StrDotMX = theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_Displays[i].UserValue.Right(nGrouping) + StrDotMX;
+						if (!ResultFlag1)
+							StrValue = "    ";
+						else
+							StrValue = theApp.m_pDevArray[dIndex]->m_DotMXArray[oIndex].m_Displays[i].UserValue;
+						
+						StrDotMX = StrValue.Right(nGrouping) + StrDotMX;
 					}
 				} // for (i = 0; i < 4; i++)
 
