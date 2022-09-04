@@ -2,6 +2,13 @@ Official repository: https://github.com/LLac/usim
 
 ============ CHANGELOG ============
 
+== USIM v0.2.1.2 21.08.2022 ==
+
+-Fixed bug with some old file versions not loading.
+-Fixed bug when connecting/disconnecting USB modules rendering USIM inoperable.
+-USIMx64.exe module will now properly quit if left orphaned due to USIM crash.
+-Added blinking support to OSRAM displays.
+
 == USIM v0.2.0.2 12.06.2022 ==
 
 -Fixed "Thread already started" error message when loading files.
@@ -9,9 +16,3 @@ Official repository: https://github.com/LLac/usim
 
 This feature is now available on direct outputs, multiplexed outputs & latched outputs.
 
-== USIM v0.2.1.2 21.08.2022 ==
-
--Fixed bug with some old file versions not loading.
--Fixed bug when connecting/disconnecting USB modules rendering USIM inoperable.
--USIMx64.exe module will now properly quit if left orphaned due to USIM crash.
--Added blinking support to OSRAM displays.
