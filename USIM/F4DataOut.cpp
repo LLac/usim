@@ -127,7 +127,18 @@ void CF4DataOut::DisplayData()
 	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
 	m_DataList.SetItem(&lvi);
 
+	lvi.iItem = i++;
+	strItem.Format(_T("0x%Xh"), theApp.m_F4FlightData.ecmOper);
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.SetItem(&lvi);
+
 	int j;
+	for (j = 0; j < 5; j++) {
+		lvi.iItem = i++;
+		lvi.pszText = (LPTSTR)(LPCTSTR)(theApp.m_F4FlightData.ecmBits[j]);
+		m_DataList.SetItem(&lvi);
+	}
+
 	for (j = 0; j < 5; j++) {
 		lvi.iItem = i++;
 		lvi.pszText = (LPTSTR)(LPCTSTR)(theApp.m_F4FlightData.DEDLines[j]);
@@ -504,12 +515,12 @@ void CF4DataOut::DisplayData()
 	m_DataList.SetItem(&lvi);
 
 	lvi.iItem = i++;
-	strItem.Format(_T("%d"), theApp.m_F4FlightData.BupUhfPreset);
+	strItem.Format(_T("%d"), theApp.m_F4FlightData.uhf_panel_preset);
 	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
 	m_DataList.SetItem(&lvi);
 
 	lvi.iItem = i++;
-	strItem.Format(_T("%d"), theApp.m_F4FlightData.BupUhfFreq);
+	strItem.Format(_T("%d"), theApp.m_F4FlightData.uhf_panel_frequency);
 	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
 	m_DataList.SetItem(&lvi);
 
@@ -635,7 +646,6 @@ BOOL CF4DataOut::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 	
-	// TODO: Add extra initialization here
 	CRect rect;
 	m_DataList.GetClientRect(&rect);
 	int nColInterval = rect.Width()/10;
@@ -697,7 +707,19 @@ BOOL CF4DataOut::OnInitDialog()
 	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
 	m_DataList.InsertItem(&lvi);
 
+	lvi.iItem = i++;
+	strItem = _T("ecmOper");
+	lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+	m_DataList.InsertItem(&lvi);
+
 	int j;
+	for (j = 0; j < 5; j++) {
+		lvi.iItem = i++;
+		strItem.Format(_T("ecmBits[%d]"), j + 1);
+		lvi.pszText = (LPTSTR)(LPCTSTR)(strItem);
+		m_DataList.InsertItem(&lvi);
+	}
+
 	for (j = 0; j < 5; j++) {
 		lvi.iItem = i++;
 		strItem.Format(_T("DED Line %d"), j + 1);

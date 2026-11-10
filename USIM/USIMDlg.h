@@ -105,6 +105,7 @@ protected:
 	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
 	afx_msg void OnDestroy();
 	afx_msg void OnPaint();
+	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnUpdate();
 	afx_msg void OnUpdateUpdate(CCmdUI* pCmdUI);
@@ -124,7 +125,7 @@ protected:
 	afx_msg void OnDisable();
 	afx_msg void OnUpdateDisable(CCmdUI* pCmdUI);
 	afx_msg void OnRestore();
-	afx_msg void OnUpdateKBSconnect(CCmdUI* pCmdUI);
+//	afx_msg void OnUpdateKBSconnect(CCmdUI* pCmdUI);
 	afx_msg void OnHelpFinder();
 	afx_msg void OnSize(UINT nType, int cx, int cy);
 	afx_msg LRESULT OnDeviceChange(WPARAM wParam, LPARAM lParam);

@@ -170,18 +170,44 @@ DWORD CSimConnectThread::ThreadHandler()
 					info.hStdInput = g_hChildStd_IN_Rd;
 					info.dwFlags |= STARTF_USESTDHANDLES;
 
-					CString cPath = (LPTSTR)(LPCTSTR)IDS_CPATH;
+					TCHAR szDir[MAX_PATH] = { 0 };
+					GetModuleFileName(NULL, szDir, MAX_PATH);
+					TCHAR* pSlash = _tcsrchr(szDir, _T('\\'));
+					if (pSlash)
+						*(pSlash + 1) = 0;          // keep "C:\...\folder\"
 
-					CreateProcess((LPTSTR)(LPCTSTR)cPath,	// Launch USIM x64 child process
-						NULL, 
-						NULL, 
-						NULL, 
-						TRUE, 
-						0, 
-						NULL, 
-						NULL, 
-						&info, 
+					CString cName;
+					cName.LoadString(IDS_CPATH);    // "USIMx64.exe"
+					CString cFull = CString(szDir) + cName;
+
+					STARTUPINFO info = { 0 };
+					info.cb = sizeof(info);
+					info.hStdError = g_hChildStd_OUT_Wr;
+					info.hStdOutput = g_hChildStd_OUT_Wr;
+					info.hStdInput = g_hChildStd_IN_Rd;
+					info.dwFlags = STARTF_USESTDHANDLES;
+
+					CString cmd = _T("\"") + cFull + _T("\"");   // CreateProcess may write to this buffer
+					BOOL ok = CreateProcess(
+						cFull,                  // full path to usim64x.exe
+						cmd.GetBuffer(),        // writable command line
+						NULL, NULL,
+						TRUE,                   // inherit the pipe handles
+						0,
+						NULL,
+						szDir,                  // child's CWD = our folder
+						&info,
 						&m_processInfo);
+					cmd.ReleaseBuffer();
+
+					if (!ok)
+					{
+						DWORD err = GetLastError();
+						CString msg;
+						msg.Format(_T("CreateProcess(%s) failed, GLE=%u"), cFull, err);
+						OutputDebugString(msg);
+						// 2 = file not found, 5 = access denied, 193 = not a valid Win32 app
+					}
 				} // if(!m_processInfo.hProcess)
 			}
 			ScanProcesses();

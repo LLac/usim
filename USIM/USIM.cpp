@@ -454,3 +454,4 @@ UINT SearchIndex(CString TokenName, UINT SimType, UINT VarType)
 	
 	return 0;
 }
+

@@ -167,8 +167,8 @@ void CF4SharedMem::MapVars()
 	theApp.m_pF4VarToken[i++] = (double *)&theApp.m_F4FlightData.AUXTChan;
 	theApp.m_pF4VarToken[i++] = (double *)&theApp.m_F4FlightData.tacanInfo[0];
 	theApp.m_pF4VarToken[i++] = (double *)&theApp.m_F4FlightData.tacanInfo[1];
-	theApp.m_pF4VarToken[i++] = (double *)&theApp.m_F4FlightData.BupUhfPreset;
-	theApp.m_pF4VarToken[i++] = (double *)&theApp.m_F4FlightData.BupUhfFreq;
+	theApp.m_pF4VarToken[i++] = (double *)&theApp.m_F4FlightData.uhf_panel_preset;
+	theApp.m_pF4VarToken[i++] = (double *)&theApp.m_F4FlightData.uhf_panel_frequency;
 
 	theApp.m_pF4VarToken[i++] = (double *)&theApp.m_F4FlightData.MainPower;
 	theApp.m_pF4VarToken[i++] = (double *)&theApp.m_F4FlightData.lightBits;
@@ -179,6 +179,12 @@ void CF4SharedMem::MapVars()
 	theApp.m_pF4VarToken[i++] = (double *)&theApp.m_F4FlightData.powerBits;
 	theApp.m_pF4VarToken[i++] = (double *)&theApp.m_F4FlightData.blinkBits;
 	theApp.m_pF4VarToken[i++] = (double *)&theApp.m_F4FlightData.miscBits;
+	theApp.m_pF4VarToken[i++] = (double *)&theApp.m_F4FlightData.ecmBits[0];
+	theApp.m_pF4VarToken[i++] = (double *)&theApp.m_F4FlightData.ecmBits[1];
+	theApp.m_pF4VarToken[i++] = (double *)&theApp.m_F4FlightData.ecmBits[2];
+	theApp.m_pF4VarToken[i++] = (double *)&theApp.m_F4FlightData.ecmBits[3];
+	theApp.m_pF4VarToken[i++] = (double *)&theApp.m_F4FlightData.ecmBits[4];
+	theApp.m_pF4VarToken[i++] = (double *)&theApp.m_F4FlightData.ecmOper;
 	
 	theApp.m_pF4VarToken[i++] = (double *)theApp.m_F4FlightData.DEDLines[0];
 	theApp.m_pF4VarToken[i++] = (double *)theApp.m_F4FlightData.DEDLines[1];
@@ -285,7 +291,7 @@ void CF4SharedMem::UpdateSharedMem()
 		theApp.m_F4FlightData.total = theApp.m_pBMSFlightData->total;
 		theApp.m_F4FlightData.MainPower = theApp.m_pBMSFlightData->MainPower;
 
-		// Add the new EXTRA SM section because programmers smarter than me thought it would be a good idea. o_O
+		// Add the new EXTRA SM 2 section
 		theApp.m_F4FlightData.navMode = (F4FlightData::NavModes)theApp.m_pBMSFlightData2->navMode;
 		theApp.m_F4FlightData.AAUZ = theApp.m_pBMSFlightData2->AAUZ;
 		theApp.m_F4FlightData.tacanInfo[0] = theApp.m_pBMSFlightData2->tacanInfo[0];
@@ -295,9 +301,12 @@ void CF4SharedMem::UpdateSharedMem()
 		theApp.m_F4FlightData.powerBits = theApp.m_pBMSFlightData2->powerBits;
 		theApp.m_F4FlightData.blinkBits = theApp.m_pBMSFlightData2->blinkBits;
 		theApp.m_F4FlightData.miscBits = theApp.m_pBMSFlightData2->miscBits;
+		memcpy(theApp.m_F4FlightData.ecmBits, theApp.m_pBMSFlightData2->ecmBits, sizeof(theApp.m_pBMSFlightData2->ecmBits));
+		theApp.m_F4FlightData.ecmOper = (F4FlightData::EcmOperStates)theApp.m_pBMSFlightData2->ecmOper;
+
 		theApp.m_F4FlightData.cmdsMode = (F4FlightData::CmdsModes)theApp.m_pBMSFlightData2->cmdsMode;
-		theApp.m_F4FlightData.BupUhfPreset = theApp.m_pBMSFlightData2->BupUhfPreset;
-		theApp.m_F4FlightData.BupUhfFreq = theApp.m_pBMSFlightData2->BupUhfFreq;
+		theApp.m_F4FlightData.uhf_panel_preset = theApp.m_pBMSFlightData2->uhf_panel_preset;
+		theApp.m_F4FlightData.uhf_panel_frequency = theApp.m_pBMSFlightData2->uhf_panel_frequency;
 		theApp.m_F4FlightData.cabinAlt = theApp.m_pBMSFlightData2->cabinAlt;
 		theApp.m_F4FlightData.hydPressureA = theApp.m_pBMSFlightData2->hydPressureA;
 		theApp.m_F4FlightData.hydPressureB = theApp.m_pBMSFlightData2->hydPressureB;
@@ -360,4 +369,15 @@ void CF4SharedMem::UpdateSharedMem()
 
 	// Liquid Oxygen
 	theApp.m_F4FlightData.LOX = (theApp.m_F4FlightData.total / 8400.0F) * 5.0F;
+
+	// ECM lamp test
+	unsigned int ecmmask = (F4FlightData::ECM_PRESSED_STANDBY | F4FlightData::ECM_PRESSED_ACTIVE | F4FlightData::ECM_PRESSED_TRANSMIT | F4FlightData::ECM_PRESSED_FAIL);
+	unsigned int ecmmask2 = (F4FlightData::ECM_UNPRESSED_ALL_LIT | F4FlightData::ECM_PRESSED_ALL_LIT);
+	for (unsigned int i = 0; i < MAX_ECM_PROGRAMS; i++)
+	{
+		if (theApp.m_F4FlightData.ecmBits[i] & ecmmask2)
+		{
+			theApp.m_F4FlightData.ecmBits[i] |= ecmmask;
+		}
+	}
 }

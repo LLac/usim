@@ -1,4 +1,4 @@
-// USIMDlg.cpp : implementation file
+﻿// USIMDlg.cpp : implementation file
 //
 
 #include "stdafx.h"
@@ -143,6 +143,7 @@ BEGIN_MESSAGE_MAP(CUSIMDlg, CTrayDialog)
 	ON_WM_SYSCOMMAND()
 	ON_WM_DESTROY()
 	ON_WM_PAINT()
+	ON_WM_ERASEBKGND()
 	ON_WM_QUERYDRAGICON()
 	ON_COMMAND(IDS_UPDATE, OnUpdate)
 	ON_UPDATE_COMMAND_UI(IDS_UPDATE, OnUpdateUpdate)
@@ -425,25 +426,50 @@ void CUSIMDlg::OnPaint()
 {
 	if (IsIconic())
 	{
-		CPaintDC dc(this); // device context for painting
+		CPaintDC dc(this);
+		SendMessage(WM_ICONERASEBKGND, (WPARAM)dc.GetSafeHdc(), 0);
 
-		SendMessage(WM_ICONERASEBKGND, (WPARAM) dc.GetSafeHdc(), 0);
-
-		// Center icon in client rectangle
 		int cxIcon = GetSystemMetrics(SM_CXICON);
 		int cyIcon = GetSystemMetrics(SM_CYICON);
 		CRect rect;
 		GetClientRect(&rect);
+
 		int x = (rect.Width() - cxIcon + 1) / 2;
 		int y = (rect.Height() - cyIcon + 1) / 2;
 
-		// Draw the icon
 		dc.DrawIcon(x, y, m_hIcon);
+		return;
 	}
-	else
-	{
-		CTrayDialog::OnPaint();
-	}
+
+	// === Double-Buffering for Normal Case ===
+	CPaintDC dc(this);               // Real screen DC
+	CDC memDC;
+	CBitmap memBitmap;
+	CRect rect;
+
+	GetClientRect(&rect);
+
+	// Create memory DC + bitmap
+	memDC.CreateCompatibleDC(&dc);
+	memBitmap.CreateCompatibleBitmap(&dc, rect.Width(), rect.Height());
+	CBitmap* pOldBitmap = memDC.SelectObject(&memBitmap);
+
+	// Let CNewDialog draw into the memory DC instead of screen
+	memDC.SetWindowOrg(0, 0);   // Important for correct coordinates
+	CNewDialog::OnPaint();      // or your base class draw call
+	// If CNewDialog::OnPaint() doesn't draw everything, you may need to call 
+	// the base class draw logic here manually.
+
+	// Copy the off-screen buffer to screen in one go
+	dc.BitBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, SRCCOPY);
+
+	// Cleanup
+	memDC.SelectObject(pOldBitmap);
+}
+
+BOOL CUSIMDlg::OnEraseBkgnd(CDC* pDC)
+{
+	return TRUE;   // Prevent default background erase (reduces flicker)
 }
 
 // The system calls this to obtain the cursor to display while the user drags
@@ -901,6 +927,7 @@ void CUSIMDlg::OnCancel()
 	TrayShow();
 }
 
+
 void CUSIMDlg::OnDestroy()
 {
 	int i;
@@ -941,6 +968,7 @@ void CUSIMDlg::OnDestroy()
 	CTrayDialog::OnDestroy();
 }
 
+/*
 void CUSIMDlg::OnTimer(UINT nIDEvent) 
 {
 	nIDEvent;
@@ -961,4 +989,27 @@ void CUSIMDlg::OnTimer(UINT nIDEvent)
 			pe->ReportError();
 		pe->Delete();
 	}
+}
+*/
+void CUSIMDlg::OnTimer(UINT nIDEvent)
+{
+	if (nIDEvent == 1)
+	{
+		try
+		{
+			// Only do very light UI updates here
+			m_bar.SetPaneText(1, theApp.m_FilePath);
+
+			// If TreeWorker is heavy → move it off the main thread (recommended)
+			// For now, if it's fast enough:
+			m_TreeThread.TreeWorker();
+		}
+		catch (CThreadException* pe)
+		{
+			// logging...
+			pe->Delete();
+		}
+	}
+
+	CNewDialog::OnTimer(nIDEvent);
 }

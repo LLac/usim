@@ -807,9 +807,6 @@
     <ClInclude Include="hid_dll\bicfg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BMSflightData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="COptionTree\CommonRes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -1223,6 +1220,9 @@
     </ClInclude>
     <ClInclude Include="TrayDialog\TrayDialog.h">
       <Filter>Header Files\TrayDialog_H</Filter>
+    </ClInclude>
+    <ClInclude Include="BMSflightData.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

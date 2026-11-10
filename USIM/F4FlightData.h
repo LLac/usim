@@ -7,6 +7,8 @@
 #define RWRINFO_SIZE 512
 #define CALLSIGN_LEN 12
 #define MAX_CALLSIGNS 32
+#define MAX_ECM_PROGRAMS 5
+#define MAX_RWR_OBJECTS 40
 
 class F4FlightData
 {
@@ -374,8 +376,13 @@ public:
 		BElec_Fault   = 0x80,	// defined in LightBits3 - non-resetting fault
 		BOXY_BROW     = 0x100,	// defined in LightBits  - monitor fault during Obogs
 		BEPUOn        = 0x200,	// defined in LightBits3 - abnormal EPU operation
+
+		// working
 		JFSOn_Slow   = 0x400,	// defined in LightBits3 - slow blinking: non-critical failure
 		JFSOn_Fast   = 0x800,	// defined in LightBits3 - fast blinking: critical failure
+
+		// V19
+		ECM_Oper = 0x1000,  // defined in EcmOperStates - system warming up
 	};
 
 	// CMDS mode state
@@ -430,40 +437,82 @@ public:
 		INSTR_LIGHT_BRT = 2,
 	};
 
+	// floodconsole brightness
+	enum FloodConsole : unsigned char
+	{
+		FLOOD_CONSOLE_OFF = 0,
+		FLOOD_CONSOLE_1 = 1,
+		FLOOD_CONSOLE_2 = 2,
+		FLOOD_CONSOLE_3 = 3,
+		FLOOD_CONSOLE_4 = 4,
+		FLOOD_CONSOLE_5 = 5,
+		FLOOD_CONSOLE_6 = 6,
+	};
+
 	// Bitching Betty VMS sounds playing
 	enum BettyBits : unsigned int
 	{
-		Betty_Allwords       = 0x00001,
-		Betty_Pullup         = 0x00002,
-		Betty_Altitude       = 0x00004,
-		Betty_Warning        = 0x00008,
-		Betty_Jammer         = 0x00010,
-		Betty_Counter        = 0x00020,
-		Betty_ChaffFlare     = 0x00040,
+		Betty_Allwords = 0x00001,
+		Betty_Pullup = 0x00002,
+		Betty_Altitude = 0x00004,
+		Betty_Warning = 0x00008,
+		Betty_Jammer = 0x00010,
+		Betty_Counter = 0x00020,
+		Betty_ChaffFlare = 0x00040,
 		Betty_ChaffFlare_Low = 0x00080,
 		Betty_ChaffFlare_Out = 0x00100,
-		Betty_Lock           = 0x00200,
-		Betty_Caution        = 0x00400,
-		Betty_Bingo          = 0x00800,
-		Betty_Data           = 0x01000,
-		Betty_IFF            = 0x02000,
-		Betty_Lowspeed       = 0x04000,
-		Betty_Beeps          = 0x08000,
-		Betty_AOA            = 0x10000,
-		Betty_MaxG           = 0x20000,
+		Betty_Lock = 0x00200,
+		Betty_Caution = 0x00400,
+		Betty_Bingo = 0x00800,
+		Betty_Data = 0x01000,
+		Betty_IFF = 0x02000,
+		Betty_Lowspeed = 0x04000,
+		Betty_Beeps = 0x08000,
+		Betty_AOA = 0x10000,
+		Betty_MaxG = 0x20000,
 	};
 
 	// various flags - chances are that by now, we'll add new flags rarely and sparsely, so having a single "bulk pool" seems reasonable, size-wise
 	enum MiscBits : unsigned int
 	{
-		RALT_Valid			= 0x01, // indicates weather the RALT reading is valid/reliable
-		Flcs_Flcc_A			= 0x02,
-		Flcs_Flcc_B			= 0x04,
-		Flcs_Flcc_C			= 0x08,
-		Flcs_Flcc_D			= 0x10,
-		SolenoidStatus		= 0x20, //0 not powered or failed or WOW  , 1 is working OK
+		RALT_Valid = 0x01, // indicates weather the RALT reading is valid/reliable
 
-		AllLampBitsFlccOn	= 0x1e,
+		// VERSION 17
+		Flcs_Flcc_A = 0x02,
+		Flcs_Flcc_B = 0x04,
+		Flcs_Flcc_C = 0x08,
+		Flcs_Flcc_D = 0x10,
+		AllLampBitsFlccOn = 0x1e, // Not bit by itself! This is the check mask for ALL the Flcs bits.
+
+		SolenoidStatus = 0x20, // 0 not powered or failed or WOW, 1 is working OK
+	};
+
+	// VERSION 19
+	enum EcmBits : unsigned int     // Note: these are currently not combinable bits, but mutually exclusive states!
+	{
+		ECM_UNPRESSED_NO_LIT = 0x01,
+		ECM_UNPRESSED_ALL_LIT = 0x02,
+		ECM_PRESSED_NO_LIT = 0x04,
+		ECM_PRESSED_STANDBY = 0x08,
+		ECM_PRESSED_ACTIVE = 0x10,
+		ECM_PRESSED_TRANSMIT = 0x20,
+		ECM_PRESSED_FAIL = 0x40,
+		ECM_PRESSED_ALL_LIT = 0x80,
+	};
+
+	enum EcmOperStates : unsigned char
+	{
+		ECM_OPER_NO_LIT = 0,
+		ECM_OPER_STDBY = 1,
+		ECM_OPER_ACTIVE = 2,
+		ECM_OPER_ALL_LIT = 3,
+	};
+
+	enum JammingStates : unsigned char
+	{
+		JAMMED_NO = 0,
+		JAMMED_YES = 1,
+		JAMMED_SHOULD = 2,
 	};
 
 	// VERSION 1
@@ -484,10 +533,10 @@ public:
 						// existing on/off bits. It's up to the external program to implement the
 						// *actual* blinking.
 	CmdsModes cmdsMode;	// (int) Ownship CMDS mode state, see CmdsModes enum for details
-	int BupUhfPreset;	// BUP UHF channel preset
+	int uhf_panel_preset;	// BUP UHF channel preset
 
 	// VERSION 3
-	int BupUhfFreq;		// BUP UHF channel frequency
+	int uhf_panel_frequency;		// BUP UHF channel frequency
 	float cabinAlt;		// Ownship cabin altitude
 	float hydPressureA;	// Ownship Hydraulic Pressure A
 	float hydPressureB;	// Ownship Hydraulic Pressure B
@@ -548,6 +597,42 @@ public:
 	
 	// VERSION 16
 	float turnRate;              // actual turn rate (no delay or dampening) in degrees/second
+
+	// VERSION 18
+	FloodConsole floodConsole;   // (unsigned char) current floodconsole brightness setting, see FloodConsole enum for details
+
+	// VERSION 19
+	float magDeviationSystem;    // current mag deviation of the system
+	float magDeviationReal;      // current mag deviation of the system
+
+	unsigned int ecmBits[MAX_ECM_PROGRAMS]; // see EcmBits enum for details - Note: these are currently not combinable bits, but mutually exclusive states!
+	EcmOperStates ecmOper;                  // (unsigned char) see enum EcmOperStates for details
+
+	JammingStates RWRjammingStatus[MAX_RWR_OBJECTS]; // (unsigned) char see enum JammingStates for details
+
+	// VERSION 20
+	int radio2_preset;       // Radio 2 channel preset (if present).
+	int radio2_frequency;    // Radio 2 channel frequency (if present).
+
+	// IFF transponder currently active (as seen from outside) codes, negative for OFF or n/a
+	char  iffTransponderActiveCode1;  // mode 1
+	short iffTransponderActiveCode2;  // mode 2
+	short iffTransponderActiveCode3A; // mode 3A
+	short iffTransponderActiveCodeC;  // mode C
+	short iffTransponderActiveCode4;  // mode 4; assumes the correct codeword
+
+	// VERSION 21
+	int tacan_ils_frequency; // Tacan ILS (110.30 = 11030). Valid interval [108.10, 111.95].
+
+	// VERSION 22
+	int desired_RTT_FPS;     // The configured RTT export FPS value, g_nRTTExport_FPS
+
+	// SIDE SLIP ANGLE 
+	float sideSlipdeg; // ADI side Slip 
+
+	// VERSION 23
+	float gsMax;       // Ownship Max Gs
+	float gsMin;       // Ownship Min Gs
 };
 
 #endif

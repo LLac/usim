@@ -16,21 +16,23 @@ struct _BITS_LIST
 	UINT		BitSimType;
 };
 
-#define LIGHTBITS_1		0x0001
-#define LIGHTBITS_2		0x0002
-#define LIGHTBITS_3		0x0004
-#define HSIBITS			0x0008
-#define ALLLIGHTBITS	0x000F
-#define USERLIGHTBITS_1	0x0010
-#define USERLIGHTBITS_2	0x0020
-#define USERLIGHTBITS_3	0x0040
-#define USERHSIBITS		0x0080
-#define ALTBITS			0x0100
-#define POWERBITS		0x0200
-#define BLINKBITS		0x0400
-#define TACANBITS		0x0800
-#define MISCBITS		0x1000
-#define ALLUSERBITS		0x0FFF
+#define LIGHTBITS_1			0x0001
+#define LIGHTBITS_2			0x0002
+#define LIGHTBITS_3			0x0004
+#define HSIBITS				0x0008
+#define ALLLIGHTBITS		0x000F
+#define USERLIGHTBITS_1		0x0010
+#define USERLIGHTBITS_2		0x0020
+#define USERLIGHTBITS_3		0x0040
+#define USERHSIBITS			0x0080
+#define ALTBITS				0x0100
+#define POWERBITS			0x0200
+#define BLINKBITS			0x0400
+#define TACANBITS			0x0800
+#define MISCBITS			0x1000
+#define ECMBITS				0x2000
+#define ECMOPERSTATESBITS	0x4000
+#define ALLUSERBITS			0x0FFF
 
 _BITS_LIST const F4BitsArray[] = { 
 	{"",													0,								0},
@@ -40,7 +42,7 @@ _BITS_LIST const F4BitsArray[] = {
 	{"Falcon_4/LightBits_1/Brow_Lights/TF",					F4FlightData::TF,				LIGHTBITS_1},
 	{"Falcon_4/LightBits_1/Brow_Lights/OXY_BROW",			F4FlightData::OXY_BROW,			LIGHTBITS_1},
 	{"Falcon_4/LightBits_1/Brow_Lights/EQUIP_HOT",			F4FlightData::EQUIP_HOT,		LIGHTBITS_1},
-	{"Falcon_4/LightBits_1/Brow_Lights/ONGROUND",		 F4FlightData::ONGROUND,			LIGHTBITS_1},
+	{"Falcon_4/LightBits_1/Brow_Lights/ONGROUND",			F4FlightData::ONGROUND,			LIGHTBITS_1},
 	{"Falcon_4/LightBits_1/Brow_Lights/ENG_FIRE",			F4FlightData::ENG_FIRE,			LIGHTBITS_1},
 	{"Falcon_4/LightBits_1/Brow_Lights/CONFIG",				F4FlightData::CONFIG,			LIGHTBITS_1},
 	{"Falcon_4/LightBits_1/Brow_Lights/HYD",				F4FlightData::HYD,				LIGHTBITS_1},
@@ -184,13 +186,28 @@ _BITS_LIST const F4BitsArray[] = {
 	{"Falcon_4/Blink_Bits/EPU_On",							F4FlightData::BEPUOn,			BLINKBITS},
 	{"Falcon_4/Blink_Bits/JFS_On_Slow",						F4FlightData::JFSOn_Slow,		BLINKBITS},
 	{"Falcon_4/Blink_Bits/JFS_On_Fast",						F4FlightData::JFSOn_Fast,		BLINKBITS},
+	{"Falcon_4/Blink_Bits/ECM_Oper",						F4FlightData::ECM_Oper,			BLINKBITS },
 
 	{"Falcon_4/Misc_Bits/RALT_Valid",						F4FlightData::RALT_Valid,		MISCBITS},
 	{"Falcon_4/Misc_Bits/Flcs_Flcc_A",						F4FlightData::Flcs_Flcc_A,		MISCBITS},
 	{"Falcon_4/Misc_Bits/Flcs_Flcc_B",						F4FlightData::Flcs_Flcc_B,		MISCBITS},
 	{"Falcon_4/Misc_Bits/Flcs_Flcc_C",						F4FlightData::Flcs_Flcc_C,		MISCBITS},
 	{"Falcon_4/Misc_Bits/Flcs_Flcc_D",						F4FlightData::Flcs_Flcc_D,		MISCBITS},
-	{"Falcon_4/Misc_Bits/Solenoid_Status",					F4FlightData::SolenoidStatus,	MISCBITS}
+	{"Falcon_4/Misc_Bits/Solenoid_Status",					F4FlightData::SolenoidStatus,	MISCBITS},
+
+	{ "Falcon_4/ECM_Bits/ECM_UNPRESSED_NO_LIT",				F4FlightData::ECM_UNPRESSED_NO_LIT,		ECMBITS },
+	{ "Falcon_4/ECM_Bits/ECM_UNPRESSED_ALL_LIT",			F4FlightData::ECM_UNPRESSED_ALL_LIT,	ECMBITS },
+	{ "Falcon_4/ECM_Bits/ECM_PRESSED_NO_LIT",				F4FlightData::ECM_PRESSED_NO_LIT,		ECMBITS },
+	{ "Falcon_4/ECM_Bits/ECM_PRESSED_STANDBY",				F4FlightData::ECM_PRESSED_STANDBY,		ECMBITS },
+	{ "Falcon_4/ECM_Bits/ECM_PRESSED_ACTIVE",				F4FlightData::ECM_PRESSED_ACTIVE,		ECMBITS },
+	{ "Falcon_4/ECM_Bits/ECM_PRESSED_TRANSMIT",				F4FlightData::ECM_PRESSED_TRANSMIT,		ECMBITS },
+	{ "Falcon_4/ECM_Bits/ECM_PRESSED_FAIL",					F4FlightData::ECM_PRESSED_FAIL,			ECMBITS },
+	{ "Falcon_4/ECM_Bits/ECM_PRESSED_ALL_LIT",				F4FlightData::ECM_PRESSED_ALL_LIT,		ECMBITS },
+
+	{ "Falcon_4/ECM_Oper_Bits/ECM_OPER_NO_LIT",				F4FlightData::ECM_OPER_NO_LIT,	ECMOPERSTATESBITS },
+	{ "Falcon_4/ECM_Oper_Bits/ECM_OPER_STDBY",				F4FlightData::ECM_OPER_STDBY,	ECMOPERSTATESBITS },
+	{ "Falcon_4/ECM_Oper_Bits/ECM_OPER_ACTIVE",				F4FlightData::ECM_OPER_ACTIVE,	ECMOPERSTATESBITS },
+	{ "Falcon_4/ECM_Oper_Bits/ECM_OPER_ALL_LIT",			F4FlightData::ECM_OPER_ALL_LIT,	ECMOPERSTATESBITS }
 };
 
 struct _F4DATA_MEM
@@ -298,6 +315,12 @@ _F4DATA_MEM const F4DataArray[] = {
 	{"Power Bits",					xplmType_IntHex,"Falcon_4/cockpit/electrical/Power_Bits",			"",			"Various Power bits"},
 	{"Blink Bits",					xplmType_IntHex,"Falcon_4/cockpit/electrical/Blink_Bits",			"",			"Cockpit indicator lights blink status"},
 	{"Misc Bits",					xplmType_IntHex,"Falcon_4/cockpit/electrical/Misc_Bits",			"",			"Various status flags"},
+	{"ECM Bits",					xplmType_IntHex,"Falcon_4/cockpit/electrical/ECM_Bits_1",			"",			"Various ECM flags PGM 1"},
+	{"ECM Bits",					xplmType_IntHex,"Falcon_4/cockpit/electrical/ECM_Bits_2",			"",			"Various ECM flags PGM 2"},
+	{"ECM Bits",					xplmType_IntHex,"Falcon_4/cockpit/electrical/ECM_Bits_3",			"",			"Various ECM flags PGM 3"},
+	{"ECM Bits",					xplmType_IntHex,"Falcon_4/cockpit/electrical/ECM_Bits_4",			"",			"Various ECM flags PGM 4"},
+	{"ECM Bits",					xplmType_IntHex,"Falcon_4/cockpit/electrical/ECM_Bits_5",			"",			"Various ECM flags PGM 5"},
+	{"ECM Operator Status Bits",	xplmType_IntHex,"Falcon_4/cockpit/electrical/ECM_Oper_Status_Bits",	"",			"Various ECM operator status flags"},
 	
 	{"DED Line 1",					xplmType_Char,	"Falcon_4/cockpit/displays/DED_Line_1",				"",			"DED Line 1"},
 	{"DED Line 2",					xplmType_Char,	"Falcon_4/cockpit/displays/DED_Line_2",				"",			"DED Line 2"},
