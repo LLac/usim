@@ -6,10 +6,17 @@
 #ifndef STDAFX_H
 #define STDAFX_H
 
+#define _WIN32_WINNT 0x0501
+//#define WINVER 0x0601
+#define WINVER 0x0501	// XP
+
 // Insert your headers here
 #define WIN32_LEAN_AND_MEAN		// Exclude rarely-used stuff from Windows headers
+#define no_init_all deprecated
 
-#include <windows.h>
+#include <windows.h>                    // Critical: pulls in core SDK stuff including SAL indirectly
+#include <sal.h>  // For SAL annotations like _In_, _Out_, etc.
+
 #include <setupapi.h>
 
 #include <stdio.h>

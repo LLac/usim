@@ -25,7 +25,7 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 2,0,2,0
+ FILEVERSION 2,0,3,0
  PRODUCTVERSION 1,0,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
@@ -44,7 +44,7 @@ BEGIN
             VALUE "Comments", "Detects all USB HID Beta Innovations devices."
             VALUE "CompanyName", " Beta Innovations Inc."
             VALUE "FileDescription", "biusb"
-            VALUE "FileVersion", "2, 0, 2, 0"
+            VALUE "FileVersion", "2.0.3.0"
             VALUE "InternalName", "biusb"
             VALUE "LegalCopyright", "Copyright © 2005"
             VALUE "OriginalFilename", "biusb.dll"

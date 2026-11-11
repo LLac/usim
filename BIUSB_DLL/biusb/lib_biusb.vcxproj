@@ -61,7 +61,7 @@
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;HID_EXPORTS;BIHID_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <PrecompiledHeaderOutputFile>.\Lib_Release/lib_biusb.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>.\Lib_Release/</AssemblerListingLocation>
@@ -95,7 +95,7 @@ copy biusb.h "..\..\USIM\hid_dll\"
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;HID_EXPORTS;BIHID_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeaderOutputFile>.\Lib_Debug/lib_biusb.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>.\Lib_Debug/</AssemblerListingLocation>
       <ObjectFileName>.\Lib_Debug/</ObjectFileName>
